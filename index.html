@@ -4,8 +4,23 @@
     <meta charset="UTF-8" />
     <title>Elite Agent Hub – 24/7 AI Receptionist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Tailwind CDN (leave as-is for now) -->
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#2563eb', // blue-600
+              'primary-dark': '#1d4ed8', // blue-700
+              'primary-light': '#93c5fd', // blue-300
+              secondary: '#06b6d4', // cyan-500
+              accent: '#3b82f6', // blue-500
+            }
+          }
+        }
+      }
+    </script>
   <script type="importmap">
 {
   "imports": {

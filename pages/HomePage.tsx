@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
                         <Link
                             to="/book-demo"
                             data-cta="hero-stop-losing-customers"
-                            className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-6 rounded-md text-lg transition-transform transform hover:scale-105 duration-300 w-full sm:w-auto text-center min-h-[52px] flex items-center justify-center shadow-md"
+                            className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-bold text-white shadow-md hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-transform transform hover:scale-105 duration-300 w-full sm:w-auto min-h-[52px]"
                         >
                             Stop Losing Customers to the Next Business on Google
                         </Link>

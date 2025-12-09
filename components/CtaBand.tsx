@@ -16,7 +16,7 @@ const CtaBand: React.FC<CtaBandProps> = ({
     buttonLink = "/book-demo"
 }) => {
     return (
-        <div className="bg-primary-dark">
+        <div className="bg-slate-900">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-white">
                     {title}
@@ -28,7 +28,7 @@ const CtaBand: React.FC<CtaBandProps> = ({
                     <Link
                         to={buttonLink}
                         data-cta="cta-band-book-demo"
-                        className="inline-block bg-accent hover:bg-cyan-500 text-white font-bold py-4 px-10 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105 duration-300"
+                        className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105 duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                     >
                         {buttonText}
                     </Link>
