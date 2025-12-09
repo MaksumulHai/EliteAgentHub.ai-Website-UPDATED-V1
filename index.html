@@ -1,53 +1,27 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-g" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta charset="UTF-8" />
+    <title>Elite Agent Hub – 24/7 AI Receptionist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Your 24/7 AI Receptionist answers instantly, books appointments, handles multiple calls at once, and never has a bad day. See how Elite Agent Hub can capture every lead for your service business."
-    />
-    <title>Elite Agent Hub - AI Voice & Chat Agents</title>
+    <!-- Tailwind CDN (leave as-is for now) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                DEFAULT: '#1E40AF',
-                dark: '#1E3A8A',
-                light: '#3B82F6',
-              },
-              secondary: '#10B981',
-              accent: '#06B6D4',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-          },
-        },
-      }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6"
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
   }
 }
 </script>
 </head>
   <body class="bg-gray-50 antialiased font-sans">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- React app will mount here -->
     <div id="root"></div>
+
+    <!-- Correct Vite entry point for React -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
