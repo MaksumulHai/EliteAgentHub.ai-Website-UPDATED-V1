@@ -1,0 +1,51 @@
+
+import React, { useEffect } from 'react';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import HowItWorksPage from './pages/HowItWorksPage';
+import PricingPage from './pages/PricingPage';
+import RoiCalculatorPage from './pages/RoiCalculatorPage';
+import MissedCallCalculatorPage from './pages/MissedCallCalculatorPage';
+import FaqPage from './pages/FaqPage';
+import BookDemoPage from './pages/BookDemoPage';
+import LegalPage from './pages/LegalPage';
+import HardFactsPage from './pages/HardFactsPage';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
+const App: React.FC = () => {
+  return (
+    <HashRouter>
+      <ScrollToTop />
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/roi-calculator" element={<RoiCalculatorPage />} />
+            <Route path="/missed-call-calculator" element={<MissedCallCalculatorPage />} />
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/book-demo" element={<BookDemoPage />} />
+            <Route path="/hard-facts" element={<HardFactsPage />} />
+            <Route path="/legal" element={<LegalPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </HashRouter>
+  );
+};
+
+export default App;
