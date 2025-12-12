@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import type { RoiCalculatorResults } from '../types';
 import Toast from '../components/Toast';
@@ -184,13 +185,14 @@ const RoiCalculatorPage: React.FC = () => {
                          <h2 className="text-3xl font-bold text-white text-center mb-2">Your Lost Revenue</h2>
                         {results ? (
                             <div className="space-y-6 w-full">
-                                <div className="p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm my-6">
-                                    <p className="text-lg text-blue-100 font-medium mb-1">Monthly Lost Revenue</p>
-                                    <p className="text-5xl font-extrabold text-blue-300 tracking-tight">{formatCurrency(results.monthlyLostRevenue)}</p>
+                                <div className="rounded-2xl bg-white/95 border border-slate-200 px-6 py-4 shadow-sm">
+                                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">Monthly Lost Revenue</p>
+                                    <p className="mt-1 text-3xl font-bold tracking-tight text-red-500">{formatCurrency(results.monthlyLostRevenue)}</p>
                                 </div>
-                                <div>
-                                    <p className="text-lg text-blue-100 font-medium mb-1">Annual Lost Revenue</p>
-                                    <p className="text-5xl font-extrabold text-blue-300">{formatCurrency(results.annualLostRevenue)}</p>
+                                
+                                <div className="rounded-2xl bg-white/95 border border-slate-200 px-6 py-4 shadow-sm">
+                                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">Annual Lost Revenue</p>
+                                    <p className="mt-1 text-3xl font-bold tracking-tight text-red-500">{formatCurrency(results.annualLostRevenue)}</p>
                                 </div>
                                 
                                 <div className="mt-8 border-t border-white/10 w-full pt-6">

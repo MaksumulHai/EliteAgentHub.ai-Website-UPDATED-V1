@@ -87,8 +87,6 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, billingCycle, ctaUrl })
                 {ctaUrl ? (
                     <a 
                         href={ctaUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className={`w-full text-center block font-bold py-3 px-4 rounded-lg transition-transform transform hover:scale-105 duration-300 ${isPopular ? 'bg-primary text-white hover:bg-primary-dark shadow-md' : 'bg-gray-100 text-primary hover:bg-gray-200'}`}
                     >
                         {plan.cta}

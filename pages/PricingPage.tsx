@@ -25,31 +25,22 @@ const comparisonData = [
     { feature: 'Monthly Cost', human: '$2,800 - $4,000', ai: '$120 - $549' },
 ];
 
+const MONTHLY_URLS: Record<string, string> = {
+  "Starter Lite": "https://buy.stripe.com/bJe4gA4TScnjcrrbs20Ba01",
+  "Essentials": "https://buy.stripe.com/fZu4gA72072Zezz1Rs0Ba05",
+  "Growth Unlimited": "https://buy.stripe.com/4gM5kEdqo0EB8bb0No0Ba0b",
+  "Elite Unlimited": "https://buy.stripe.com/cNifZifywgDz6339jU0Ba0f"
+};
+
+const YEARLY_URLS: Record<string, string> = {
+  "Starter Lite": "https://buy.stripe.com/cNi14oeus0EB1MNeEe0Ba02",
+  "Essentials": "https://buy.stripe.com/aFa28s9a84URbnnfIi0Ba0a",
+  "Growth Unlimited": "https://buy.stripe.com/5kQ00k5XWcnjcrr7bM0Ba0e",
+  "Elite Unlimited": "https://buy.stripe.com/eVqaEYaecgDzfDDfIi0Ba0g"
+};
+
 const PricingPage: React.FC = () => {
     const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
-
-    const getCtaUrl = (planName: string, cycle: 'monthly' | 'yearly') => {
-        switch (planName) {
-            case "Starter Lite":
-                return cycle === 'monthly' 
-                    ? "https://link.fastpaydirect.com/payment-link/6926c2c4bbe21982a13cd42d"
-                    : "https://link.fastpaydirect.com/payment-link/6927f7a3d8c1a85cf1f689b7";
-            case "Essentials":
-                return cycle === 'monthly'
-                    ? "https://link.fastpaydirect.com/payment-link/6927f8d08b7f4579fca74500"
-                    : "https://link.fastpaydirect.com/payment-link/6927f977d8c1a87c3ff68bc7";
-            case "Growth Unlimited":
-                return cycle === 'monthly'
-                    ? "https://link.fastpaydirect.com/payment-link/6927fa238b7f4520dca7462c"
-                    : "https://link.fastpaydirect.com/payment-link/6927fb1d77281f3b6579f753";
-            case "Elite Unlimited":
-                return cycle === 'monthly'
-                    ? "https://link.fastpaydirect.com/payment-link/6927fbe877281f163a79f7c8"
-                    : "https://link.fastpaydirect.com/payment-link/6927fc438b7f45968ba74796";
-            default:
-                return undefined;
-        }
-    };
 
     return (
         <div className="bg-white">
@@ -98,14 +89,20 @@ const PricingPage: React.FC = () => {
                       ✨ Limited-Time Bonus: <span className="text-yellow-400">$300</span> Setup Fee Waived ✨
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start relative">
-                        {PRICING_PLANS.map((plan) => (
-                            <PricingCard 
-                                key={plan.name} 
-                                plan={{ ...plan, cta: "JOIN TODAY" }} 
-                                billingCycle={billingCycle} 
-                                ctaUrl={getCtaUrl(plan.name, billingCycle)}
-                            />
-                        ))}
+                        {PRICING_PLANS.map((plan) => {
+                            const checkoutUrl = billingCycle === 'yearly' 
+                                ? YEARLY_URLS[plan.name] 
+                                : MONTHLY_URLS[plan.name];
+
+                            return (
+                                <PricingCard 
+                                    key={plan.name} 
+                                    plan={plan} 
+                                    billingCycle={billingCycle} 
+                                    ctaUrl={checkoutUrl}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </section>
