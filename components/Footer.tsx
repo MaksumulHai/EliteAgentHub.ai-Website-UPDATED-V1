@@ -11,6 +11,15 @@ const Footer: React.FC = () => {
         { to: "/book-demo", text: "Book a Demo" },
     ];
 
+    const legalLinks = [
+        { to: "/legal", text: "Legal & Compliance" },
+        { to: "/privacy-policy", text: "Privacy Policy" },
+        { to: "/terms", text: "Terms of Service" },
+        { to: "/refund-policy", text: "Refund Policy" },
+        { to: "/acceptable-use", text: "Acceptable Use" },
+        { to: "/ai-disclaimer", text: "AI Disclaimer" },
+    ];
+
     return (
         <footer className="bg-gray-900 text-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -38,16 +47,18 @@ const Footer: React.FC = () => {
                      <div>
                         <h3 className="text-lg font-semibold text-gray-200 uppercase tracking-wider">Legal</h3>
                         <ul className="mt-4 space-y-2">
-                           <li>
-                                <Link to="/legal" className="text-sm md:text-base text-gray-300 hover:text-white transition-colors duration-300 font-medium">
-                                    Privacy Policy & Terms
-                                </Link>
-                           </li>
+                            {legalLinks.map(link => (
+                                <li key={link.to}>
+                                    <Link to={link.to} className="text-sm md:text-base text-gray-300 hover:text-white transition-colors duration-300 font-medium">
+                                        {link.text}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
                 <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm md:text-base text-gray-400 font-medium">
-                    <p>&copy; {new Date().getFullYear()} Elite Agent Hub. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Elite Agent Hub. Operated by Elite Impact Lab LLC. All rights reserved.</p>
                 </div>
             </div>
         </footer>

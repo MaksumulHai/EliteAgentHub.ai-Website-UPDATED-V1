@@ -12,6 +12,11 @@ import FaqPage from './pages/FaqPage';
 import BookDemoPage from './pages/BookDemoPage';
 import LegalPage from './pages/LegalPage';
 import HardFactsPage from './pages/HardFactsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
+import RefundPolicyPage from './pages/RefundPolicyPage';
+import AcceptableUsePage from './pages/AcceptableUsePage';
+import AiDisclaimerPage from './pages/AiDisclaimerPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -40,6 +45,11 @@ const App: React.FC = () => {
             <Route path="/book-demo" element={<BookDemoPage />} />
             <Route path="/hard-facts" element={<HardFactsPage />} />
             <Route path="/legal" element={<LegalPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/refund-policy" element={<RefundPolicyPage />} />
+            <Route path="/acceptable-use" element={<AcceptableUsePage />} />
+            <Route path="/ai-disclaimer" element={<AiDisclaimerPage />} />
           </Routes>
         </main>
         <Footer />
