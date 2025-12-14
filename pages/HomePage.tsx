@@ -87,16 +87,18 @@ const HomePage: React.FC = () => {
             </section>
             
             {/* Stats Section */}
-            <section className="bg-gray-100 pt-6 pb-20 overflow-hidden">
+            <section className="bg-gray-100 pt-6 pb-0 overflow-hidden">
                 <div className="container mx-auto px-4">
                      <div className="text-center mb-12">
-                        <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 underline underline-offset-8 decoration-gray-400">The Hard Truth About Missed Calls</h2>
+                        <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 underline underline-offset-8 decoration-blue-600 bg-transparent">
+  The Hard Truth About Missed Calls
+</h2>
                         <p className="text-2xl md:text-3xl font-extrabold text-red-600 mt-20 max-w-4xl mx-auto leading-tight tracking-tight drop-shadow-sm">
                             When you miss a call, your competitor answers it. Every missed call means lost revenue and reputation damage.
                         </p>
                     </div>
                     
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-12 my-16">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-12 mt-16 mb-0">
                         {/* Man Image */}
                         <img
                             src="https://imagedelivery.net/3ycrRDYByciJhEX28VeAng/a6ecd065-13f3-47e0-6b65-f9ffa3489700/public"
