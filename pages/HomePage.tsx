@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CtaBand from '../components/CtaBand';
@@ -44,22 +43,30 @@ const comparisonData = [
 const HomePage: React.FC = () => {
     return (
         <div>
-            {/* SECTION 1: HERO TEXT (Headline & Subheading ONLY) */}
-            <section className="bg-white pt-24 pb-8 text-center">
-                <div className="container mx-auto px-4">
+            {/* HERO SECTION: Merged Headline & Actions with Background Image */}
+            <section 
+                className="relative pt-32 pb-24 text-center"
+                style={{ 
+                    backgroundImage: "url('https://imagedelivery.net/3ycrRDYByciJhEX28VeAng/53ea590d-0551-48cf-c051-017492bf5300/public')",
+                    backgroundSize: "115%",
+                    backgroundPosition: "left 55%",
+                    backgroundRepeat: "no-repeat"
+                }}
+            >
+                {/* Overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/30 to-white/45 backdrop-blur-[0.5px]"></div>
+
+                <div className="container mx-auto px-4 relative z-10">
+                    {/* Headlines */}
                     <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
                         Never Miss Another Customer Ever.
                     </h1>
                     <p className="mt-6 text-xl md:text-2xl font-semibold text-blue-700 max-w-3xl mx-auto">
                         Your 24/7 receptionist answers instantly, booking appointments, handling multiple calls at once, and never has a bad day.
                     </p>
-                </div>
-            </section>
-            
-            {/* SECTION 2: CTA ACTIONS (Buttons & Protection Text) */}
-            <section className="bg-white pb-20 text-center">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-col items-center justify-center space-y-6">
+                    
+                    {/* CTA Actions */}
+                    <div className="mt-12 flex flex-col items-center justify-center space-y-6">
                         {/* 1. Stop Losing Customers Button */}
                         <Link
                             to="/book-demo"
@@ -67,20 +74,6 @@ const HomePage: React.FC = () => {
                             className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-bold text-white shadow-md hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-transform transform hover:scale-105 duration-300 w-full sm:w-auto min-h-[52px]"
                         >
                             Stop Losing Customers to the Next Business on Google
-                        </Link>
-                        
-                        {/* 2. Protection Phrase */}
-                        <p className="text-xl md:text-2xl font-semibold text-gray-700 text-center">
-                            Protect every call before your competitor answers it.
-                        </p>
-                        
-                        {/* 3. Calculate Lost Revenue Button */}
-                        <Link
-                            to="/roi-calculator"
-                            data-cta="hero-calculate-roi"
-                            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-md px-6 py-3 min-h-[52px] flex items-center justify-center text-lg transition-transform transform hover:scale-105 duration-300 w-full sm:w-auto shadow-md"
-                        >
-                            Calculate Lost Revenue
                         </Link>
                     </div>
                 </div>
@@ -96,6 +89,36 @@ const HomePage: React.FC = () => {
                         <p className="text-2xl md:text-3xl font-extrabold text-red-600 mt-20 max-w-4xl mx-auto leading-tight tracking-tight drop-shadow-sm">
                             When you miss a call, your competitor answers it. Every missed call means lost revenue and reputation damage.
                         </p>
+                        
+                        {/* MOVED: Calculate Lost Revenue Button - UPDATED STYLE */}
+                        <div className="mt-14 mb-12 flex justify-center perspective-1000">
+                            <Link
+                                to="/roi-calculator"
+                                data-cta="hero-calculate-roi"
+                                className="
+                                    relative group
+                                    inline-flex items-center justify-center
+                                    px-10 py-5 md:px-12 md:py-6
+                                    text-2xl md:text-3xl font-extrabold text-white tracking-wide uppercase
+                                    bg-gradient-to-br from-orange-400 via-orange-500 to-red-600
+                                    rounded-2xl
+                                    border border-orange-300/30
+                                    shadow-[0_8px_0_rgb(154,52,18),0_20px_30px_-5px_rgba(249,115,22,0.4)]
+                                    hover:shadow-[0_4px_0_rgb(154,52,18),0_10px_15px_-3px_rgba(249,115,22,0.4)]
+                                    active:shadow-[0_0_0_rgb(154,52,18)]
+                                    transform hover:translate-y-1 active:translate-y-2
+                                    transition-all duration-150 ease-out
+                                    overflow-hidden
+                                    w-full sm:w-auto
+                                "
+                            >
+                                {/* Holographic/Shiny Overlay Effect */}
+                                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none rounded-t-2xl"></div>
+                                
+                                <span className="relative z-10 drop-shadow-lg">Calculate Lost Revenue</span>
+                            </Link>
+                        </div>
                     </div>
                     
                     <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-12 mt-16 mb-0">
@@ -141,6 +164,11 @@ hover:border-cyan-400
                             >
                                 See full statistics →
                             </Link>
+                            
+                            {/* MOVED: Protection Phrase */}
+                            <p className="mt-6 text-xl md:text-2xl font-semibold text-gray-700 text-center max-w-2xl">
+                                Protect every call before your competitor answers it.
+                            </p>
                         </div>
                     </div>
                 </div>
