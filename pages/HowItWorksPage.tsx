@@ -72,7 +72,11 @@ const HowItWorksPage: React.FC = () => {
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                             {differentiators.map((item, index) => (
                                 <li key={index} className="flex items-start">
-                                    <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mr-3 mt-1" />
+                                    <div className="h-6 w-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mr-3 mt-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
                                     <span className="text-sm md:text-base font-medium">{item}</span>
                                 </li>
                             ))}
@@ -131,3 +135,4 @@ const HowItWorksPage: React.FC = () => {
 };
 
 export default HowItWorksPage;
+    

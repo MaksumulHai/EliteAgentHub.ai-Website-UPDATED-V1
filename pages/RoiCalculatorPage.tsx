@@ -25,6 +25,14 @@ const RoiCalculatorPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
+    // Advanced Assumptions State
+    const [showAdvanced, setShowAdvanced] = useState(false);
+    const [advancedInputs, setAdvancedInputs] = useState({
+        conversionRate: 85,
+        bookingRate: 70,
+        recoveryRate: 90
+    });
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         // Allow only numbers and a single decimal point
@@ -35,6 +43,19 @@ const RoiCalculatorPage: React.FC = () => {
     
     const handlePlanChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedPlanName(e.target.value);
+    };
+
+    const handleAdvancedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setAdvancedInputs(prev => ({ ...prev, [name]: parseInt(value, 10) }));
+    };
+
+    const handleResetAdvanced = () => {
+        setAdvancedInputs({
+            conversionRate: 85,
+            bookingRate: 70,
+            recoveryRate: 90
+        });
     };
 
     const results = useMemo(() => {
@@ -54,14 +75,29 @@ const RoiCalculatorPage: React.FC = () => {
             return null;
         }
 
-        // Simplified Loss Formula (Option B): 
-        // monthlyLostRevenue = missedCallsPerDay * businessDays * avgJobValue
-        const monthlyLostRevenue = missedPerDay * businessDays * avgValue;
+        // Determine Effective Per-Call Value
+        let effectivePerCallValue = avgValue; // Default: 1 missed call = 1 customer = 1 avgValue
+
+        if (showAdvanced) {
+            const conversion = advancedInputs.conversionRate / 100;
+            const booking = advancedInputs.bookingRate / 100;
+            const recovery = advancedInputs.recoveryRate / 100;
+            
+            const advancedPerCallValue = avgValue * conversion * booking * recovery;
+            
+            // Constraint: Advanced mode must never increase ROI beyond baseline
+            effectivePerCallValue = Math.min(avgValue, advancedPerCallValue);
+        }
+
+        // Calculate Revenue Loss
+        const totalMissedMonthly = missedPerDay * businessDays;
+        const monthlyLostRevenue = totalMissedMonthly * effectivePerCallValue;
         const annualLostRevenue = monthlyLostRevenue * 12;
 
-        // Break Even Logic: planPrice / avgJobValue -> ensure at least 1
-        // breakEvenCalls = Math.max(1, Math.round(breakEvenRaw))
-        const breakEvenCalls = Math.max(1, Math.round(effectiveMonthlyPrice / avgValue));
+        // Calculate Break Even Calls (Calls to Cover Plan)
+        // Ensure divisor > 0 to avoid infinity
+        const divisor = effectivePerCallValue > 0 ? effectivePerCallValue : 1;
+        const breakEvenCalls = Math.max(1, Math.ceil(effectiveMonthlyPrice / divisor));
 
         return {
             monthlyLostRevenue,
@@ -71,7 +107,7 @@ const RoiCalculatorPage: React.FC = () => {
             effectiveMonthlyPrice,
             isYearly
         };
-    }, [inputs, selectedPlanName, billingCycle]);
+    }, [inputs, selectedPlanName, billingCycle, showAdvanced, advancedInputs]);
 
     const formatCurrency = (value: number) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
@@ -82,6 +118,7 @@ const RoiCalculatorPage: React.FC = () => {
         // TODO: Replace this with an actual API call
         console.log("Submitting results to email:", email);
         console.log("Calculator Inputs:", inputs);
+        console.log("Advanced Inputs:", showAdvanced ? advancedInputs : 'Standard');
         console.log("Calculated Results:", results);
         
         setToast({ message: "Your results have been sent!", type: 'success' });
@@ -170,11 +207,127 @@ const RoiCalculatorPage: React.FC = () => {
                                 <input type="text" name="avgValue" value={inputs.avgValue} placeholder="150" onChange={handleInputChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base font-medium transition-all" />
                             </div>
                         </div>
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-                          <p className="text-base text-gray-700 font-medium leading-snug">
-                            Calculator assumes every missed call equals a lost customer.
-                          </p>
+
+                        {/* ADVANCED ASSUMPTIONS TOGGLE */}
+                        <div className="pt-6 border-t border-gray-200 mt-8">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <label onClick={() => setShowAdvanced(!showAdvanced)} className="text-lg font-semibold text-gray-800 flex items-center cursor-pointer select-none">
+                                        Advanced assumptions <span className="text-sm font-normal text-gray-500 ml-2">(optional)</span>
+                                    </label>
+                                    <p className="text-sm text-gray-500 mt-0.5">For businesses with unique conversion patterns.</p>
+                                </div>
+                                
+                                <button 
+                                    type="button"
+                                    role="switch"
+                                    aria-checked={showAdvanced}
+                                    onClick={() => setShowAdvanced(!showAdvanced)}
+                                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 ${showAdvanced ? 'bg-blue-600' : 'bg-gray-200'}`}
+                                >
+                                    <span
+                                        aria-hidden="true"
+                                        className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${showAdvanced ? 'translate-x-5' : 'translate-x-0'}`}
+                                    />
+                                </button>
+                            </div>
+
+                            {showAdvanced && (
+                                <div className="mt-6 animate-fadeIn">
+                                    <div className="mb-4">
+                                        <h3 className="text-md font-bold text-gray-900 uppercase tracking-wide">Advanced ROI Assumptions</h3>
+                                        <p className="text-sm text-gray-600">Defaults are based on service-business averages. Adjust only if needed.</p>
+                                    </div>
+
+                                    <div className="space-y-6">
+                                        {/* Input 1: Conversion Rate */}
+                                        <div>
+                                            <div className="flex justify-between items-center mb-1">
+                                                <label className="text-sm font-semibold text-gray-700 flex items-center">
+                                                    Call-to-customer conversion rate
+                                                    <Tooltip text="Percentage of answered calls that turn into real customers. Industry averages typically range from 75–85%." />
+                                                </label>
+                                                <span className="text-sm font-bold text-blue-600">{advancedInputs.conversionRate}%</span>
+                                            </div>
+                                            <input 
+                                                type="range" 
+                                                name="conversionRate" 
+                                                min="40" 
+                                                max="95" 
+                                                step="5" 
+                                                value={advancedInputs.conversionRate} 
+                                                onChange={handleAdvancedChange}
+                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                            />
+                                        </div>
+
+                                        {/* Input 2: Booking Rate */}
+                                        <div>
+                                            <div className="flex justify-between items-center mb-1">
+                                                <label className="text-sm font-semibold text-gray-700 flex items-center">
+                                                    Booking / close rate
+                                                    <Tooltip text="Percentage of qualified callers who actually book or move forward." />
+                                                </label>
+                                                <span className="text-sm font-bold text-blue-600">{advancedInputs.bookingRate}%</span>
+                                            </div>
+                                            <input 
+                                                type="range" 
+                                                name="bookingRate" 
+                                                min="30" 
+                                                max="90" 
+                                                step="5" 
+                                                value={advancedInputs.bookingRate} 
+                                                onChange={handleAdvancedChange}
+                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                            />
+                                        </div>
+
+                                        {/* Input 3: Recovery Rate */}
+                                        <div>
+                                            <div className="flex justify-between items-center mb-1">
+                                                <label className="text-sm font-semibold text-gray-700 flex items-center">
+                                                    Missed-call recovery effectiveness
+                                                    <Tooltip text="Percentage of missed callers the AI successfully re-engages. Even partial recovery can generate significant ROI." />
+                                                </label>
+                                                <span className="text-sm font-bold text-blue-600">{advancedInputs.recoveryRate}%</span>
+                                            </div>
+                                            <input 
+                                                type="range" 
+                                                name="recoveryRate" 
+                                                min="60" 
+                                                max="100" 
+                                                step="5" 
+                                                value={advancedInputs.recoveryRate} 
+                                                onChange={handleAdvancedChange}
+                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-8 flex flex-col items-start gap-4">
+                                        <button 
+                                            type="button" 
+                                            onClick={handleResetAdvanced}
+                                            className="text-sm text-blue-600 hover:text-blue-800 font-medium underline decoration-dashed underline-offset-4"
+                                        >
+                                            Reset to industry defaults
+                                        </button>
+                                        
+                                        <p className="text-xs text-gray-500 italic border-l-2 border-gray-300 pl-3">
+                                            Estimates are directional and based on assumptions. Actual results vary by industry, setup, staffing, and demand. This calculator does not guarantee results.
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
                         </div>
+
+                        {!showAdvanced && (
+                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+                              <p className="text-base text-gray-700 font-medium leading-snug">
+                                Calculator assumes every missed call equals a lost customer.
+                              </p>
+                            </div>
+                        )}
                     </div>
 
                     {/* Calculator Results */}

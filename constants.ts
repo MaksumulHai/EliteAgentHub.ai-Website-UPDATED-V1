@@ -100,7 +100,7 @@ export const FAQ_DATA: FaqItem[] = [
     },
     {
         question: "What is your cancellation policy?",
-        answer: "You can cancel your plan at any time. For monthly plans, your subscription will end at the conclusion of the current billing cycle. For annual plans, cancellation will take effect at the end of the 12-month term."
+        answer: "You can cancel your subscription at any time. All plans are billed on a recurring basis (monthly or yearly) unless canceled. We offer a 14-day refund window for first-time purchases only. After that, payments are non-refundable, but canceling will stop future charges at the end of your current billing period. For full details, please review our Refund & Cancellation Policy in the Legal section."
     },
     {
         question: "How do you handle data security?",
