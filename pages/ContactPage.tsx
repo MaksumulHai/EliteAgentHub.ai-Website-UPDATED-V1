@@ -1,0 +1,95 @@
+import React from 'react';
+
+const ContactPage: React.FC = () => {
+    return (
+        <div className="bg-white py-16 md:py-24">
+            <div className="container mx-auto px-4 max-w-4xl">
+                <div className="text-center mb-16">
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Contact</h1>
+                    <p className="text-lg text-gray-700 font-medium max-w-2xl mx-auto">
+                        Have questions or want help getting set up? Reach out — we’ll respond as soon as possible.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    {/* Contact Info Section */}
+                    <div className="space-y-8">
+                        <div>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                            <div className="space-y-4">
+                                <div>
+                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Phone</p>
+                                    <p className="text-lg text-gray-900 font-semibold">(804) 223-3141</p>
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Email</p>
+                                    <p className="text-lg text-gray-900 font-semibold">support@eliteagenthub.ai</p>
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Registered Agent Address</p>
+                                    <div className="text-lg text-gray-900 font-semibold">
+                                        <p>8401 Maryland Dr, Suite A</p>
+                                        <p>Henrico, VA 23294</p>
+                                        <p>United States</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Simple Contact Form UI */}
+                    <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-1">Full Name *</label>
+                                <input 
+                                    type="text" 
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                    placeholder="Your Name"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-1">Email *</label>
+                                <input 
+                                    type="email" 
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                    placeholder="you@example.com"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-1">Phone (Optional)</label>
+                                <input 
+                                    type="tel" 
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                    placeholder="(555) 000-0000"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-1">Message</label>
+                                <textarea 
+                                    rows={4}
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                                    placeholder="How can we help you?"
+                                ></textarea>
+                            </div>
+                            <button 
+                                type="button"
+                                className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg shadow-md transition-all active:scale-[0.98]"
+                            >
+                                Send Message
+                            </button>
+                            <p className="text-center text-xs text-gray-500 mt-4">
+                                Prefer email? Contact us at <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default ContactPage;

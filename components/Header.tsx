@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -20,8 +19,10 @@ const Header: React.FC = () => {
     const navLinks = [
         { to: "/", text: "Home" },
         { to: "/how-it-works", text: "How It Works" },
+        { to: "/about", text: "About" },
         { to: "/pricing", text: "Pricing" },
         { to: "/roi-calculator", text: "ROI Calculator" },
+        { to: "/website-scan", text: "Website Scan" },
         { to: "/faq", text: "FAQ" },
     ];
 

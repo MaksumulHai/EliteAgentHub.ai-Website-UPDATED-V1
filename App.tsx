@@ -1,10 +1,11 @@
-
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import HowItWorksPage from './pages/HowItWorksPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import PricingPage from './pages/PricingPage';
 import RoiCalculatorPage from './pages/RoiCalculatorPage';
 import MissedCallCalculatorPage from './pages/MissedCallCalculatorPage';
@@ -17,6 +18,7 @@ import TermsPage from './pages/TermsPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 import AcceptableUsePage from './pages/AcceptableUsePage';
 import AiDisclaimerPage from './pages/AiDisclaimerPage';
+import WebsiteScannerPage from './pages/WebsiteScannerPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -38,9 +40,13 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/roi-calculator" element={<RoiCalculatorPage />} />
             <Route path="/missed-call-calculator" element={<MissedCallCalculatorPage />} />
+            <Route path="/website-scanner" element={<WebsiteScannerPage />} />
+            <Route path="/website-scan" element={<WebsiteScannerPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/book-demo" element={<BookDemoPage />} />
             <Route path="/hard-facts" element={<HardFactsPage />} />

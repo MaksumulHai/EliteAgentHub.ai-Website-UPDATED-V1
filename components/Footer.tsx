@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -7,6 +6,7 @@ const Footer: React.FC = () => {
         { to: "/how-it-works", text: "How It Works" },
         { to: "/pricing", text: "Pricing" },
         { to: "/roi-calculator", text: "ROI Calculator" },
+        { to: "/contact", text: "Contact" },
         { to: "/faq", text: "FAQ" },
         { to: "/book-demo", text: "Book a Demo" },
     ];

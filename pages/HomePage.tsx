@@ -84,13 +84,13 @@ const HomePage: React.FC = () => {
                 <div className="container mx-auto px-4">
                      <div className="text-center mb-12">
                         <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 underline underline-offset-8 decoration-blue-600 bg-transparent">
-  The Hard Truth About Missed Calls
-</h2>
+                            The Hard Truth About Missed Calls
+                        </h2>
                         <p className="text-2xl md:text-3xl font-extrabold text-red-600 mt-20 max-w-4xl mx-auto leading-tight tracking-tight drop-shadow-sm">
                             When you miss a call, your competitor answers it. Every missed call means lost revenue and reputation damage.
                         </p>
                         
-                        {/* MOVED: Calculate Lost Revenue Button - UPDATED STYLE */}
+                        {/* Calculate Lost Revenue Button (Centered) */}
                         <div className="mt-14 mb-12 flex justify-center perspective-1000">
                             <Link
                                 to="/roi-calculator"
@@ -121,54 +121,103 @@ const HomePage: React.FC = () => {
                         </div>
                     </div>
                     
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-12 mt-16 mb-0">
-                        {/* Man Image */}
-                        <img
-                            src="https://imagedelivery.net/3ycrRDYByciJhEX28VeAng/a6ecd065-13f3-47e0-6b65-f9ffa3489700/public"
-                            alt="Professional man pointing at stats"
-                            className="w-72 md:w-96 lg:w-[420px] object-contain mx-auto md:mx-0 md:mr-12"
-                        />
+                    {/* Balanced 3-Column Grid for perfect alignment under button */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-x-8 items-end mt-16 mb-0">
+                        {/* Column 1: Man Image aligned to right side of its column on desktop */}
+                        <div className="flex justify-center lg:justify-end">
+                            <img
+                                src="https://imagedelivery.net/3ycrRDYByciJhEX28VeAng/a6ecd065-13f3-47e0-6b65-f9ffa3489700/public"
+                                alt="Professional man pointing at stats"
+                                className="w-72 md:w-96 lg:w-full max-w-[420px] object-contain mx-auto lg:mx-0"
+                            />
+                        </div>
 
-                        {/* Existing Stats Block */}
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="flex flex-wrap justify-center md:justify-center">
-                                {stats.map(stat => (
-                                    <div key={stat.label} className="
-group
-bg-white
-border border-gray-200
-rounded-xl
-p-6
-transition-all duration-300
-hover:scale-110
-cursor-pointer
-mx-4 my-4
-w-40 md:w-52
-relative
-shadow-[0_0_20px_rgba(34,211,238,0.3)]
-hover:shadow-[0_0_50px_rgba(34,211,238,0.7)]
-hover:border-cyan-400
-">
-                                        <p className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-2 transition-transform duration-300 group-hover:scale-110 text-center">
-                                          {stat.value}
-                                        </p>
-                                        <p className="text-base text-gray-700 font-medium leading-snug text-center">
-                                          {stat.label}
-                                        </p>
-                                    </div>
-                                ))}
+                        {/* Column 2: Stats Block centered exactly in the middle of the page */}
+                        <div className="flex flex-col items-center justify-center lg:pb-6 mt-8 lg:mt-0 w-full">
+                            <div className="max-w-[560px] w-full mx-auto">
+                                <div className="flex flex-wrap justify-center">
+                                    {stats.map(stat => (
+                                        <div key={stat.label} className="
+                                            group
+                                            bg-white
+                                            border border-gray-200
+                                            rounded-xl
+                                            p-6
+                                            transition-all duration-300
+                                            hover:scale-110
+                                            cursor-pointer
+                                            mx-3 my-3
+                                            w-40 md:w-52
+                                            relative
+                                            shadow-[0_0_20px_rgba(34,211,238,0.3)]
+                                            hover:shadow-[0_0_50px_rgba(34,211,238,0.7)]
+                                            hover:border-cyan-400
+                                        ">
+                                            <p className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-2 transition-transform duration-300 group-hover:scale-110 text-center">
+                                              {stat.value}
+                                            </p>
+                                            <p className="text-base text-gray-700 font-medium leading-snug text-center">
+                                              {stat.label}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="flex flex-col items-center mt-8">
+                                    <Link
+                                        to="/hard-facts"
+                                        className="text-blue-700 font-extrabold text-2xl md:text-3xl hover:text-blue-900 hover:underline transition-all duration-300 text-center"
+                                    >
+                                        See full statistics →
+                                    </Link>
+                                    <p className="mt-6 text-xl md:text-2xl font-semibold text-gray-700 text-center max-w-2xl">
+                                        Protect every call before your competitor answers it.
+                                    </p>
+                                </div>
                             </div>
+                        </div>
+
+                        {/* Column 3: Spacer to maintain center balance on desktop */}
+                        <div className="hidden lg:block w-full"></div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Website Scan Section - Dedicated layout with tight spacing */}
+            <section className="bg-slate-50 py-20 border-y border-gray-200/50">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-3xl mx-auto text-center bg-white p-8 md:p-12 rounded-3xl border border-gray-200 shadow-sm animate-fadeIn">
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                            Not Sure Where Your Website Is Losing Customers?
+                        </h3>
+                        <p className="text-lg text-gray-600 mb-10 font-medium max-w-xl mx-auto">
+                            Run a free scan to see what’s broken, missing, or costing you leads.
+                        </p>
+                        <div className="perspective-1000">
                             <Link
-                                to="/hard-facts"
-                                className="mt-10 text-blue-700 font-extrabold text-2xl md:text-3xl hover:text-blue-900 hover:underline transition-all duration-300 text-center"
+                                to="/website-scan"
+                                data-cta="home-free-scan"
+                                className="
+                                    relative group
+                                    inline-flex items-center justify-center
+                                    px-10 py-5 md:px-12 md:py-6
+                                    text-2xl md:text-3xl font-extrabold text-white tracking-wide uppercase
+                                    bg-gradient-to-br from-emerald-400 via-emerald-500 to-teal-600
+                                    rounded-2xl
+                                    border border-emerald-300/30
+                                    shadow-[0_8px_0_rgb(6,95,70),0_20px_30px_-5px_rgba(16,185,129,0.4)]
+                                    hover:shadow-[0_4px_0_rgb(6,95,70),0_10px_15px_-3px_rgba(16,185,129,0.4)]
+                                    active:shadow-[0_0_0_rgb(6,95,70)]
+                                    transform hover:translate-y-1 active:translate-y-2
+                                    transition-all duration-150 ease-out
+                                    overflow-hidden
+                                    w-full sm:w-auto
+                                "
                             >
-                                See full statistics →
+                                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none rounded-t-2xl"></div>
+                                
+                                <span className="relative z-10 drop-shadow-lg text-center">Run Free Website Scan</span>
                             </Link>
-                            
-                            {/* MOVED: Protection Phrase */}
-                            <p className="mt-6 text-xl md:text-2xl font-semibold text-gray-700 text-center max-w-2xl">
-                                Protect every call before your competitor answers it.
-                            </p>
                         </div>
                     </div>
                 </div>
