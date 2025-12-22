@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface ScanResults {
     overallScore: number;
@@ -11,6 +11,14 @@ interface ScanResults {
 }
 
 const WebsiteScannerPage: React.FC = () => {
+    useEffect(() => {
+        document.title = "Free Website Health Scan | Elite Agent Hub";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', "Run a free website scan to find what’s broken, missing, or costing you leads. Get a clear health score, quick wins, and next steps.");
+        }
+    }, []);
+
     const [url, setUrl] = useState('');
     const [pastedContent, setPastedContent] = useState('');
     const [mode, setMode] = useState<'url' | 'paste'>('url');

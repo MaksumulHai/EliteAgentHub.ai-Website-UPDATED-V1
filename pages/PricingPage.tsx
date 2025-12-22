@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PricingCard from '../components/PricingCard';
 import FaqAccordion from '../components/FaqAccordion';
@@ -40,6 +39,14 @@ const YEARLY_URLS: Record<string, string> = {
 };
 
 const PricingPage: React.FC = () => {
+    useEffect(() => {
+        document.title = "Pricing | Elite Agent Hub";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', "Transparent pricing for AI voice and chat agents designed to capture leads, recover missed calls, and book appointments.");
+        }
+    }, []);
+
     const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
     return (

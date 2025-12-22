@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
     return (
         <footer className="bg-gray-900 text-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div className="space-y-4">
                         <h2 className="text-2xl font-extrabold">
                             Elite <span className="text-accent">Agent Hub</span>
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                             ))}
                         </ul>
                     </div>
-                     <div>
+                    <div>
                         <h3 className="text-lg font-semibold text-gray-200 uppercase tracking-wider">Legal</h3>
                         <ul className="mt-4 space-y-2">
                             {legalLinks.map(link => (
@@ -55,6 +55,23 @@ const Footer: React.FC = () => {
                                 </li>
                             ))}
                         </ul>
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-semibold text-gray-200 uppercase tracking-wider">Contact</h3>
+                        <div className="mt-4 space-y-4 text-sm md:text-base text-gray-300 font-medium leading-relaxed">
+                            <p>(804) 223-3141</p>
+                            <p>
+                                <a href="mailto:support@eliteagenthub.ai" className="hover:text-white transition-colors duration-300 underline underline-offset-4 decoration-gray-700">
+                                    support@eliteagenthub.ai
+                                </a>
+                            </p>
+                            <div className="space-y-1 pt-2">
+                                <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">Registered Agent Address:</p>
+                                <p>8401 Maryland Dr, Suite A</p>
+                                <p>Henrico, VA 23294</p>
+                                <p>United States</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm md:text-base text-gray-400 font-medium">

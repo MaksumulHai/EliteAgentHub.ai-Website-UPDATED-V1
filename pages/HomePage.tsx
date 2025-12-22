@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CtaBand from '../components/CtaBand';
 
 const CheckIcon: React.FC<{ className?: string }> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={className}>
@@ -41,6 +40,14 @@ const comparisonData = [
 ];
 
 const HomePage: React.FC = () => {
+    useEffect(() => {
+        document.title = "Elite Agent Hub | AI Voice & Chat Agents for Missed-Call Recovery";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', "Stop losing customers to missed calls. Elite Agent Hub provides AI voice and chat agents that capture leads, book appointments, and respond 24/7.");
+        }
+    }, []);
+
     return (
         <div>
             {/* HERO SECTION: Merged Headline & Actions with Background Image */}
@@ -123,12 +130,19 @@ const HomePage: React.FC = () => {
                     
                     {/* Balanced 3-Column Grid for perfect alignment under button */}
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-x-8 items-end mt-16 mb-0">
-                        {/* Column 1: Man Image aligned to right side of its column on desktop */}
+                        {/* Column 1: Representative Image */}
                         <div className="flex justify-center lg:justify-end">
+                            {/* Desktop / Tablet image: pointing at cards */}
                             <img
                                 src="https://imagedelivery.net/3ycrRDYByciJhEX28VeAng/a6ecd065-13f3-47e0-6b65-f9ffa3489700/public"
                                 alt="Professional man pointing at stats"
-                                className="w-72 md:w-96 lg:w-full max-w-[420px] object-contain mx-auto lg:mx-0"
+                                className="hidden sm:block w-72 md:w-96 lg:w-full max-w-[420px] object-contain mx-auto lg:mx-0"
+                            />
+                            {/* Mobile image: hands crossed */}
+                            <img
+                                src="https://imagedelivery.net/3ycrRDYByciJhEX28VeAng/6ebcb227-b189-4442-91fd-9e24cb47cb00/public"
+                                alt="Professional representative"
+                                className="block sm:hidden max-w-[220px] mx-auto object-contain"
                             />
                         </div>
 
@@ -315,7 +329,26 @@ const HomePage: React.FC = () => {
                 </div>
             </section>
             
-            <CtaBand />
+            {/* Final CTA Section: Visually separated from footer with bg-gray-50 */}
+            <section className="bg-gray-50 border-t border-gray-100">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+                        Stop Losing Customers to Your Competitors
+                    </h2>
+                    <div className="mt-4 text-base md:text-lg text-gray-600 font-medium max-w-2xl mx-auto">
+                        Protect every call, capture every lead, and watch your revenue grow. Your competitors are answering the calls you miss.
+                    </div>
+                    <div className="mt-8">
+                        <Link
+                            to="/book-demo"
+                            data-cta="cta-band-book-demo"
+                            className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105 duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+                        >
+                            Stop Losing Customers Now
+                        </Link>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

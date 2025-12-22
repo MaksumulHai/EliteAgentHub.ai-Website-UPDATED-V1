@@ -19,6 +19,8 @@ import RefundPolicyPage from './pages/RefundPolicyPage';
 import AcceptableUsePage from './pages/AcceptableUsePage';
 import AiDisclaimerPage from './pages/AiDisclaimerPage';
 import WebsiteScannerPage from './pages/WebsiteScannerPage';
+import SolutionsPage from './pages/SolutionsPage';
+import BuildMyWebsitePage from './pages/BuildMyWebsitePage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -39,6 +41,7 @@ const App: React.FC = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/solutions" element={<SolutionsPage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
@@ -47,6 +50,7 @@ const App: React.FC = () => {
             <Route path="/missed-call-calculator" element={<MissedCallCalculatorPage />} />
             <Route path="/website-scanner" element={<WebsiteScannerPage />} />
             <Route path="/website-scan" element={<WebsiteScannerPage />} />
+            <Route path="/build-my-website" element={<BuildMyWebsitePage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/book-demo" element={<BookDemoPage />} />
             <Route path="/hard-facts" element={<HardFactsPage />} />

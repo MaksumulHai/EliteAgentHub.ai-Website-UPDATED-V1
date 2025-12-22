@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const ContactPage: React.FC = () => {
+    useEffect(() => {
+        document.title = "Contact | Elite Agent Hub";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', "Contact Elite Agent Hub for help with AI agents, website scans, or getting a new website built. We’ll respond as soon as possible.");
+        }
+    }, []);
+
     return (
         <div className="bg-white py-16 md:py-24">
             <div className="container mx-auto px-4 max-w-4xl">
@@ -37,54 +45,19 @@ const ContactPage: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Simple Contact Form UI */}
+                    {/* GHL Contact Form Embed */}
                     <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
                         <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-                        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                            <div>
-                                <label className="block text-sm font-bold text-gray-700 mb-1">Full Name *</label>
-                                <input 
-                                    type="text" 
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="Your Name"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-bold text-gray-700 mb-1">Email *</label>
-                                <input 
-                                    type="email" 
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="you@example.com"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-bold text-gray-700 mb-1">Phone (Optional)</label>
-                                <input 
-                                    type="tel" 
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="(555) 000-0000"
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-bold text-gray-700 mb-1">Message</label>
-                                <textarea 
-                                    rows={4}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
-                                    placeholder="How can we help you?"
-                                ></textarea>
-                            </div>
-                            <button 
-                                type="button"
-                                className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg shadow-md transition-all active:scale-[0.98]"
-                            >
-                                Send Message
-                            </button>
-                            <p className="text-center text-xs text-gray-500 mt-4">
-                                Prefer email? Contact us at <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a>
-                            </p>
-                        </form>
+                        <div className="w-full overflow-hidden rounded-lg">
+                            <iframe
+                                src="https://api.leadconnectorhq.com/widget/form/RIEyRo76RF6JLKaxWTnQ"
+                                style={{ width: '100%', height: '720px', border: 'none', borderRadius: '8px' }}
+                                title="EAH_Contact Page – Send Us a Message"
+                            ></iframe>
+                        </div>
+                        <p className="text-center text-xs text-gray-500 mt-6">
+                            Prefer email? Contact us at <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a>
+                        </p>
                     </div>
                 </div>
             </div>

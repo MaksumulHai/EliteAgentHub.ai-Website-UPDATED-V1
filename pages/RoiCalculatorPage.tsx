@@ -1,5 +1,4 @@
-
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import type { RoiCalculatorResults } from '../types';
 import Toast from '../components/Toast';
 import { PRICING_PLANS } from '../constants';
@@ -14,6 +13,14 @@ const Tooltip: React.FC<{ text: string }> = ({ text }) => (
 );
 
 const RoiCalculatorPage: React.FC = () => {
+    useEffect(() => {
+        document.title = "ROI Calculator | Elite Agent Hub";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', "Estimate how much missed calls may be costing your business—and how quickly AI can help recover bookings and revenue.");
+        }
+    }, []);
+
     const [inputs, setInputs] = useState({
         missedPerDay: '5',
         businessDays: '22',
@@ -162,7 +169,7 @@ const RoiCalculatorPage: React.FC = () => {
                                     name="selectedPlan" 
                                     value={selectedPlanName} 
                                     onChange={handlePlanChange} 
-                                    className="block w-full px-4 py-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base font-medium transition-all"
+                                    className="block w-full px-4 py-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base font-medium transition-all"
                                 >
                                     {PRICING_PLANS.map(plan => {
                                         let label = `${plan.name} - $${plan.monthlyPrice}/mo`;
@@ -190,21 +197,21 @@ const RoiCalculatorPage: React.FC = () => {
                                     Missed Calls Per Day
                                     <Tooltip text="How many customer calls your business likely misses per day due to busyness, after-hours, weekends, or staff being unavailable." />
                                 </label>
-                                <input type="text" name="missedPerDay" value={inputs.missedPerDay} placeholder="5" onChange={handleInputChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base font-medium transition-all" />
+                                <input type="text" name="missedPerDay" value={inputs.missedPerDay} placeholder="5" onChange={handleInputChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base font-medium transition-all" />
                             </div>
                             <div>
                                 <label htmlFor="businessDays" className="text-lg font-semibold text-gray-800 mb-1 flex items-center">
                                     Business Days Per Month
                                     <Tooltip text="How many days your business is open each month. Example: Mon–Fri = about 22 days. If you're open weekends, increase this number." />
                                 </label>
-                                <input type="text" name="businessDays" value={inputs.businessDays} onChange={handleInputChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base font-medium transition-all" />
+                                <input type="text" name="businessDays" value={inputs.businessDays} onChange={handleInputChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base font-medium transition-all" />
                             </div>
                             <div>
                                 <label htmlFor="avgValue" className="text-lg font-semibold text-gray-800 mb-1 flex items-center">
                                     Average Job/Client Value ($)
                                     <Tooltip text="How much revenue you typically earn from one new customer or one completed job. For many businesses this ranges from $100 to $500+." />
                                 </label>
-                                <input type="text" name="avgValue" value={inputs.avgValue} placeholder="150" onChange={handleInputChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-base font-medium transition-all" />
+                                <input type="text" name="avgValue" value={inputs.avgValue} placeholder="150" onChange={handleInputChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-base font-medium transition-all" />
                             </div>
                         </div>
 
@@ -223,7 +230,7 @@ const RoiCalculatorPage: React.FC = () => {
                                     role="switch"
                                     aria-checked={showAdvanced}
                                     onClick={() => setShowAdvanced(!showAdvanced)}
-                                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 ${showAdvanced ? 'bg-blue-600' : 'bg-gray-200'}`}
+                                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${showAdvanced ? 'bg-primary' : 'bg-gray-200'}`}
                                 >
                                     <span
                                         aria-hidden="true"
@@ -247,7 +254,7 @@ const RoiCalculatorPage: React.FC = () => {
                                                     Call-to-customer conversion rate
                                                     <Tooltip text="Percentage of answered calls that turn into real customers. Industry averages typically range from 75–85%." />
                                                 </label>
-                                                <span className="text-sm font-bold text-blue-600">{advancedInputs.conversionRate}%</span>
+                                                <span className="text-sm font-bold text-primary">{advancedInputs.conversionRate}%</span>
                                             </div>
                                             <input 
                                                 type="range" 
@@ -257,7 +264,7 @@ const RoiCalculatorPage: React.FC = () => {
                                                 step="5" 
                                                 value={advancedInputs.conversionRate} 
                                                 onChange={handleAdvancedChange}
-                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
                                             />
                                         </div>
 
@@ -268,7 +275,7 @@ const RoiCalculatorPage: React.FC = () => {
                                                     Booking / close rate
                                                     <Tooltip text="Percentage of qualified callers who actually book or move forward." />
                                                 </label>
-                                                <span className="text-sm font-bold text-blue-600">{advancedInputs.bookingRate}%</span>
+                                                <span className="text-sm font-bold text-primary">{advancedInputs.bookingRate}%</span>
                                             </div>
                                             <input 
                                                 type="range" 
@@ -278,7 +285,7 @@ const RoiCalculatorPage: React.FC = () => {
                                                 step="5" 
                                                 value={advancedInputs.bookingRate} 
                                                 onChange={handleAdvancedChange}
-                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
                                             />
                                         </div>
 
@@ -289,7 +296,7 @@ const RoiCalculatorPage: React.FC = () => {
                                                     Missed-call recovery effectiveness
                                                     <Tooltip text="Percentage of missed callers the AI successfully re-engages. Even partial recovery can generate significant ROI." />
                                                 </label>
-                                                <span className="text-sm font-bold text-blue-600">{advancedInputs.recoveryRate}%</span>
+                                                <span className="text-sm font-bold text-primary">{advancedInputs.recoveryRate}%</span>
                                             </div>
                                             <input 
                                                 type="range" 
@@ -299,7 +306,7 @@ const RoiCalculatorPage: React.FC = () => {
                                                 step="5" 
                                                 value={advancedInputs.recoveryRate} 
                                                 onChange={handleAdvancedChange}
-                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
                                             />
                                         </div>
                                     </div>
@@ -308,7 +315,7 @@ const RoiCalculatorPage: React.FC = () => {
                                         <button 
                                             type="button" 
                                             onClick={handleResetAdvanced}
-                                            className="text-sm text-blue-600 hover:text-blue-800 font-medium underline decoration-dashed underline-offset-4"
+                                            className="text-sm text-primary hover:text-primary-dark font-medium underline decoration-dashed underline-offset-4"
                                         >
                                             Reset to industry defaults
                                         </button>

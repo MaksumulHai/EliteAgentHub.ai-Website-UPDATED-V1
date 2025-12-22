@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AboutPage: React.FC = () => {
+    useEffect(() => {
+        document.title = "About | Elite Agent Hub";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', "Learn how Elite Agent Hub helps service businesses capture more customers with AI agents, website tools, and automation.");
+        }
+    }, []);
+
     return (
         <div className="bg-white py-16 md:py-24">
             <div className="container mx-auto px-4 max-w-6xl">

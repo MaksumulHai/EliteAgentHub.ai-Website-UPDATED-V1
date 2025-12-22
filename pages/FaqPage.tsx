@@ -1,9 +1,16 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import FaqAccordion from '../components/FaqAccordion';
 import { FAQ_DATA } from '../constants';
 
 const FaqPage: React.FC = () => {
+    useEffect(() => {
+        document.title = "FAQ | Elite Agent Hub";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', "Answers to common questions about AI voice agents, missed-call recovery, website scans, setup, and support.");
+        }
+    }, []);
+
     return (
         <div className="bg-white py-16 md:py-24">
             <div className="container mx-auto px-4">
