@@ -8,16 +8,23 @@ const ContactPage: React.FC = () => {
             metaDesc.setAttribute('content', "Contact Elite Agent Hub for help with AI agents, website scans, or getting a new website built. We’ll respond as soon as possible.");
         }
 
-        // Load the GoHighLevel form script dynamically for A2P form
-        const script = document.createElement('script');
-        script.src = "https://link.msgsndr.com/js/form_embed.js";
-        script.type = "text/javascript";
-        script.async = true;
-        document.body.appendChild(script);
+        // Load the GoHighLevel form script dynamically
+        const scriptSrc = "https://link.msgsndr.com/js/form_embed.js";
+        const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
+        
+        let script: HTMLScriptElement | null = null;
+        
+        if (!existingScript) {
+            script = document.createElement('script');
+            script.src = scriptSrc;
+            script.type = "text/javascript";
+            script.async = true;
+            document.body.appendChild(script);
+        }
 
         return () => {
-            // Cleanup script on unmount
-            if (document.body.contains(script)) {
+            // Cleanup script on unmount if we added it
+            if (script && document.body.contains(script)) {
                 document.body.removeChild(script);
             }
         };
@@ -63,23 +70,11 @@ const ContactPage: React.FC = () => {
                     <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
                         <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
                         <div className="w-full overflow-hidden rounded-lg">
-                            {/* TEMP A2P FORM – replace with original contact form after approval */}
                             <iframe
-                                src="https://api.leadconnectorhq.com/widget/form/RU9x01XEeYSLI8QlR5yw"
-                                style={{ width: '100%', height: '865px', border: 'none', borderRadius: '3px' }}
-                                id="inline-RU9x01XEeYSLI8QlR5yw" 
-                                data-layout="{'id':'INLINE'}"
-                                data-trigger-type="alwaysShow"
-                                data-trigger-value=""
-                                data-activation-type="alwaysActivated"
-                                data-activation-value=""
-                                data-deactivation-type="neverDeactivate"
-                                data-deactivation-value=""
-                                data-form-name="A2P regg"
-                                data-height="865"
-                                data-layout-iframe-id="inline-RU9x01XEeYSLI8QlR5yw"
-                                data-form-id="RU9x01XEeYSLI8QlR5yw"
-                                title="A2P regg"
+                                src="https://api.leadconnectorhq.com/widget/form/RIEyRo76RF6JLKaxWTnQ"
+                                style={{ width: '100%', height: '927px', border: 'none', borderRadius: '8px' }}
+                                id="inline-RIEyRo76RF6JLKaxWTnQ"
+                                title="EAH_Contact Page – Send Us a Message"
                             ></iframe>
                         </div>
                         <p className="text-center text-xs text-gray-500 mt-6">
