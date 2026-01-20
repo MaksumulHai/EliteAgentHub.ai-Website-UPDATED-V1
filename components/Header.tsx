@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const NavMenuIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -22,6 +22,7 @@ const MicroPhoneIcon: React.FC<{ className?: string }> = ({ className }) => (
 const Header: React.FC = () => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [copied, setCopied] = useState(false);
 
     const navLinks = [
         { to: "/", text: "Home" },
@@ -30,13 +31,14 @@ const Header: React.FC = () => {
         { to: "/pricing", text: "Pricing" },
         { to: "/roi-calculator", text: "ROI Calculator" },
         { to: "/website-scan", text: "Website Scan" },
-        { to: "/faq", text: "FAQ" },
+        { to: "/voice-demo", text: "Voice Demo (Offline)", isMaintenance: true },
     ];
 
-    const handleCtaClick = (e: React.MouseEvent) => {
+    const handleCopyPhone = (e: React.MouseEvent) => {
         e.preventDefault();
-        setIsMenuOpen(false);
-        navigate('/voice-demo');
+        navigator.clipboard.writeText("8042233141");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
     };
 
     const linkClass = "text-gray-600 hover:text-primary-dark transition-colors duration-300 text-lg font-semibold";
@@ -69,7 +71,7 @@ const Header: React.FC = () => {
                             <NavLink
                                 key={link.to}
                                 to={link.to}
-                                className={({ isActive }) => `${linkClass} ${isActive ? activeLinkClass : ''} text-sm`}
+                                className={({ isActive }) => `${linkClass} ${isActive ? activeLinkClass : ''} ${link.isMaintenance ? 'text-gray-400 font-medium' : 'text-sm'}`}
                             >
                                 {link.text}
                             </NavLink>
@@ -77,19 +79,29 @@ const Header: React.FC = () => {
                     </nav>
                     
                     <div className="flex items-center gap-4">
-                        <div className="flex flex-col items-end">
+                        {/* Primary Desktop CTA: Phone Demo */}
+                        <div className="hidden sm:flex items-center gap-3">
+                            <div className="flex flex-col items-end mr-1">
+                                <span className="text-[9px] uppercase font-black tracking-widest text-primary animate-pulse mb-1">Live Demo Active</span>
+                                <span className="text-sm font-black text-slate-900">(804) 223-3141</span>
+                            </div>
                             <button
-                                onClick={handleCtaClick}
-                                type="button"
-                                className="relative group inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white font-bold py-2.5 px-6 rounded-full shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all transform hover:scale-105 active:scale-95 duration-300"
+                                onClick={handleCopyPhone}
+                                className={`relative group inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-black text-sm transition-all transform active:scale-95 duration-300 ${copied ? 'bg-green-600 text-white' : 'bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/20'}`}
                             >
-                                <MicroPhoneIcon className="h-4 w-4" />
-                                <div className="flex flex-col leading-none text-left">
-                                    <span className="text-sm">Try Voice Agent Demo</span>
-                                    <span className="text-[9px] uppercase tracking-widest opacity-80 font-medium italic">Meet Josh (Browser)</span>
-                                </div>
+                                {copied ? 'Number Copied!' : 'Call Belle (Live)'}
                             </button>
                         </div>
+
+                        {/* Mobile Phone Link */}
+                        <a 
+                            href="tel:+18042233141"
+                            className="sm:hidden flex items-center justify-center bg-primary text-white w-10 h-10 rounded-full shadow-lg"
+                        >
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                            </svg>
+                        </a>
 
                         <div className="md:hidden flex items-center">
                             <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Open main menu">
@@ -109,19 +121,20 @@ const Header: React.FC = () => {
                                 key={link.to}
                                 to={link.to}
                                 onClick={() => setIsMenuOpen(false)}
-                                className={({ isActive }) => `block px-3 py-3 rounded-lg ${linkClass} ${isActive ? activeLinkClass + ' bg-blue-50' : 'hover:bg-gray-50'}`}
+                                className={({ isActive }) => `block px-3 py-3 rounded-lg ${linkClass} ${isActive ? activeLinkClass + ' bg-blue-50' : 'hover:bg-gray-50'} ${link.isMaintenance ? 'opacity-50' : ''}`}
                             >
                                 {link.text}
                             </NavLink>
                         ))}
                         <div className="pt-4 border-t border-gray-100">
-                            <button
-                                onClick={handleCtaClick}
-                                className="w-full bg-primary text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3"
+                            <a
+                                href="tel:+18042233141"
+                                className="w-full bg-primary text-white font-black py-4 rounded-xl flex items-center justify-center gap-3 shadow-lg"
                             >
                                 <MicroPhoneIcon className="h-5 w-5" />
-                                Try Voice Agent Demo
-                            </button>
+                                Call Belle (Live Demo)
+                            </a>
+                            <p className="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">Browser Demo: Maintenance Mode</p>
                         </div>
                     </div>
                 </div>
