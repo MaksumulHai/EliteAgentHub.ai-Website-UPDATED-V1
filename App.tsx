@@ -21,6 +21,7 @@ import AiDisclaimerPage from './pages/AiDisclaimerPage';
 import WebsiteScannerPage from './pages/WebsiteScannerPage';
 import SolutionsPage from './pages/SolutionsPage';
 import BuildMyWebsitePage from './pages/BuildMyWebsitePage';
+import VoiceDemoPage from './pages/VoiceDemoPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -51,6 +52,7 @@ const App: React.FC = () => {
             <Route path="/website-scanner" element={<WebsiteScannerPage />} />
             <Route path="/website-scan" element={<WebsiteScannerPage />} />
             <Route path="/build-my-website" element={<BuildMyWebsitePage />} />
+            <Route path="/voice-demo" element={<VoiceDemoPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/book-demo" element={<BookDemoPage />} />
             <Route path="/hard-facts" element={<HardFactsPage />} />

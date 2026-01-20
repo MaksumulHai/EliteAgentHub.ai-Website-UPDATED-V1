@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const NavMenuIcon: React.FC<{ className?: string }> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -13,19 +13,31 @@ const CloseMenuIcon: React.FC<{ className?: string }> = ({ className }) => (
     </svg>
 );
 
+const MicroPhoneIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+    </svg>
+);
+
 const Header: React.FC = () => {
+    const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navLinks = [
         { to: "/", text: "Home" },
         { to: "/solutions", text: "Solutions" },
         { to: "/how-it-works", text: "How It Works" },
-        { to: "/about", text: "About" },
         { to: "/pricing", text: "Pricing" },
         { to: "/roi-calculator", text: "ROI Calculator" },
         { to: "/website-scan", text: "Website Scan" },
         { to: "/faq", text: "FAQ" },
     ];
+
+    const handleCtaClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsMenuOpen(false);
+        navigate('/voice-demo');
+    };
 
     const linkClass = "text-gray-600 hover:text-primary-dark transition-colors duration-300 text-lg font-semibold";
     const activeLinkClass = "text-primary-dark";
@@ -52,62 +64,76 @@ const Header: React.FC = () => {
                         </Link>
                     </div>
 
-                    <nav className="hidden md:flex items-center space-x-8">
+                    <nav className="hidden xl:flex items-center space-x-6">
                         {navLinks.map((link) => (
                             <NavLink
                                 key={link.to}
                                 to={link.to}
-                                className={({ isActive }) => `${linkClass} ${isActive ? activeLinkClass : ''}`}
+                                className={({ isActive }) => `${linkClass} ${isActive ? activeLinkClass : ''} text-sm`}
                             >
                                 {link.text}
                             </NavLink>
                         ))}
                     </nav>
                     
-                    <div className="hidden md:block">
-                        <Link
-                            to="/book-demo"
-                            data-cta="header-book-demo"
-                            className="inline-block bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-5 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300"
-                        >
-                            See It In Action
-                        </Link>
-                    </div>
+                    <div className="flex items-center gap-4">
+                        <div className="flex flex-col items-end">
+                            <button
+                                onClick={handleCtaClick}
+                                type="button"
+                                className="relative group inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-primary text-white font-bold py-2.5 px-6 rounded-full shadow-[0_0_15px_rgba(37,99,235,0.4)] transition-all transform hover:scale-105 active:scale-95 duration-300"
+                            >
+                                <MicroPhoneIcon className="h-4 w-4" />
+                                <div className="flex flex-col leading-none text-left">
+                                    <span className="text-sm">Try Voice Agent Demo</span>
+                                    <span className="text-[9px] uppercase tracking-widest opacity-80 font-medium italic">Meet Josh (Browser)</span>
+                                </div>
+                            </button>
+                        </div>
 
-                    <div className="md:hidden flex items-center">
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Open main menu">
-                            {isMenuOpen ? <CloseMenuIcon className="h-6 w-6" /> : <NavMenuIcon className="h-6 w-6" />}
-                        </button>
+                        <div className="md:hidden flex items-center">
+                            <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Open main menu">
+                                {isMenuOpen ? <CloseMenuIcon className="h-6 w-6" /> : <NavMenuIcon className="h-6 w-6" />}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            {/* Mobile Nav Menu */}
             {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-gray-200">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="md:hidden bg-white border-t border-gray-200 shadow-xl overflow-hidden animate-slideDown">
+                    <div className="px-4 pt-2 pb-6 space-y-2">
                         {navLinks.map((link) => (
                             <NavLink
                                 key={link.to}
                                 to={link.to}
                                 onClick={() => setIsMenuOpen(false)}
-                                className={({ isActive }) => `block px-3 py-2 rounded-md ${linkClass} ${isActive ? activeLinkClass : ''}`}
+                                className={({ isActive }) => `block px-3 py-3 rounded-lg ${linkClass} ${isActive ? activeLinkClass + ' bg-blue-50' : 'hover:bg-gray-50'}`}
                             >
                                 {link.text}
                             </NavLink>
                         ))}
-                        <div className="pt-4 pb-2 px-3">
-                             <Link
-                                to="/book-demo"
-                                data-cta="mobile-header-book-demo"
-                                onClick={() => setIsMenuOpen(false)}
-                                className="w-full text-center block bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-5 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300"
+                        <div className="pt-4 border-t border-gray-100">
+                            <button
+                                onClick={handleCtaClick}
+                                className="w-full bg-primary text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3"
                             >
-                                See It In Action
-                            </Link>
+                                <MicroPhoneIcon className="h-5 w-5" />
+                                Try Voice Agent Demo
+                            </button>
                         </div>
                     </div>
                 </div>
             )}
+            
+            <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes slideDown {
+                    from { transform: translateY(-10px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+                .animate-slideDown { animation: slideDown 0.3s ease-out forwards; }
+            `}} />
         </header>
     );
 };
