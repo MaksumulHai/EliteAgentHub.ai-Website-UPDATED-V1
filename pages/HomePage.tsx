@@ -13,15 +13,6 @@ const XIcon: React.FC<{ className?: string }> = ({ className }) => (
     </svg>
 );
 
-const valuePoints = [
-    { title: "Works 24/7", description: "Operates with perfect consistency, day or night, weekends and holidays included." },
-    { title: "Handles Unlimited Calls", description: "Manages multiple simultaneous calls so no customer ever hits a busy signal." },
-    { title: "Perfect Memory", description: "Never forgets details, instructions, or customer history. Total reliability." },
-    { title: "Reduces Staff Overwhelm", description: "Frees your team to focus on high-value tasks and in-person customers." },
-    { title: "No Mood Swings", description: "Our AI has no bad days, no attitude, and makes no mistakes. Every interaction is professional." },
-    { title: "Instant Onboarding", description: "Learns the specifics of your business instantly, ready to answer calls from day one." }
-];
-
 const stats = [
     { value: '85%', label: 'Of callers never call back after hitting voicemail.' },
     { value: '62%', label: 'Of customers refuse to leave a voicemail.' },
@@ -32,10 +23,10 @@ const stats = [
 const comparisonData = [
     { feature: 'Works 24/7', human: false, ai: true },
     { feature: 'Handles unlimited calls', human: false, ai: true },
-    { feature: 'Never forgets details', human: false, ai: true },
-    { feature: 'No attitude/mood swings', human: false, ai: true },
-    { feature: 'No sick days or breaks', human: false, ai: true },
-    { feature: '100% accurate every time', human: false, ai: true },
+    { feature: 'Consistent Information Handling', human: false, ai: true },
+    { feature: 'Consistent, professional responses', human: false, ai: true },
+    { feature: 'Always available, no scheduling gaps', human: false, ai: true },
+    { feature: 'High consistency with defined workflows', human: false, ai: true },
     { feature: 'Monthly Cost', human: '$2,800 - $4,000', ai: '$120 - $549' },
 ];
 
@@ -66,22 +57,30 @@ const HomePage: React.FC = () => {
                 <div className="container mx-auto px-4 relative z-10">
                     {/* Headlines */}
                     <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                        Never Miss Another Customer Ever.
+                        Turn Every Website Visit and Phone Call Into a Real Lead
                     </h1>
                     <p className="mt-6 text-xl md:text-2xl font-semibold text-blue-700 max-w-3xl mx-auto">
-                        Your 24/7 receptionist answers instantly, booking appointments, handling multiple calls at once, and never has a bad day.
+                        Elite Agent Hub answers customers for you — through your website and your phone — and captures every inquiry automatically.
                     </p>
                     
                     {/* CTA Actions */}
-                    <div className="mt-12 flex flex-col items-center justify-center space-y-6">
-                        {/* 1. Stop Losing Customers Button */}
+                    <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                        {/* Primary Button */}
                         <Link
                             to="/book-demo"
-                            data-cta="hero-stop-losing-customers"
-                            className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-bold text-white shadow-md hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-transform transform hover:scale-105 duration-300 w-full sm:w-auto min-h-[52px]"
+                            data-cta="hero-book-demo"
+                            className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-md hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-transform transform hover:scale-105 duration-300 w-full md:w-auto"
                         >
-                            Stop Losing Customers to the Next Business on Google
+                            Book a Demo
                         </Link>
+                        {/* Secondary Button */}
+                         <a
+                            href="tel:+18042233141"
+                            data-cta="hero-call-belle"
+                            className="inline-flex items-center justify-center rounded-lg bg-white border-2 border-blue-600 px-8 py-4 text-lg font-bold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-transform transform hover:scale-105 duration-300 w-full md:w-auto"
+                        >
+                            Call Belle for a Live Demo
+                        </a>
                     </div>
                 </div>
             </section>
@@ -91,10 +90,10 @@ const HomePage: React.FC = () => {
                 <div className="container mx-auto px-4">
                      <div className="text-center mb-12">
                         <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 underline underline-offset-8 decoration-blue-600 bg-transparent">
-                            The Hard Truth About Missed Calls
+                            The Hard Truth About Missed Customers
                         </h2>
                         <p className="text-2xl md:text-3xl font-extrabold text-red-600 mt-20 max-w-4xl mx-auto leading-tight tracking-tight drop-shadow-sm">
-                            When you miss a call, your competitor answers it. Every missed call means lost revenue and reputation damage.
+                            When customers visit your website or call your business and don’t get a fast response, they don’t wait — they move on to a competitor. Every missed interaction means lost revenue and lost trust.
                         </p>
                         
                         {/* Calculate Lost Revenue Button (Centered) */}
@@ -184,7 +183,7 @@ const HomePage: React.FC = () => {
                                         See full statistics →
                                     </Link>
                                     <p className="mt-6 text-xl md:text-2xl font-semibold text-gray-700 text-center max-w-2xl">
-                                        Protect every call before your competitor answers it.
+                                        Protect every customer before your competitor answers them.
                                     </p>
                                 </div>
                             </div>
@@ -196,20 +195,26 @@ const HomePage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Website Scan Section - Dedicated layout with tight spacing */}
+            {/* Answered Customers Section - Dedicated layout with tight spacing */}
             <section className="bg-slate-50 py-20 border-y border-gray-200/50">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto text-center bg-white p-8 md:p-12 rounded-3xl border border-gray-200 shadow-sm animate-fadeIn">
-                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                            Not Sure Where Your Website Is Losing Customers?
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                            Elite Agent Hub Makes Sure Every Customer Gets Answered
                         </h3>
-                        <p className="text-lg text-gray-600 mb-10 font-medium max-w-xl mx-auto">
-                            Run a free scan to see what’s broken, missing, or costing you leads.
+                        <p className="text-lg text-gray-600 mb-6 font-medium max-w-2xl mx-auto leading-relaxed">
+                            Elite Agent Hub is a simple system that answers customers for your business — on your website and on the phone.
+                        </p>
+                        <p className="text-lg text-gray-600 mb-6 font-medium max-w-2xl mx-auto leading-relaxed">
+                            When someone visits your site or calls your business, they’re responded to immediately, guided to the right next step, and captured as a real lead.
+                        </p>
+                        <p className="text-lg text-gray-900 mb-10 font-bold max-w-2xl mx-auto">
+                            No missed messages. No missed calls. No missed opportunities.
                         </p>
                         <div className="perspective-1000">
                             <Link
                                 to="/website-scan"
-                                data-cta="home-free-scan"
+                                data-cta="home-see-plans"
                                 className="
                                     relative group
                                     inline-flex items-center justify-center
@@ -230,29 +235,83 @@ const HomePage: React.FC = () => {
                                 <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                                 <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none rounded-t-2xl"></div>
                                 
-                                <span className="relative z-10 drop-shadow-lg text-center">Run Free Website Scan</span>
+                                <span className="relative z-10 drop-shadow-lg text-center">See Plans</span>
                             </Link>
                         </div>
                     </div>
                 </div>
             </section>
             
-            {/* Value Points Section */}
+            {/* Two Ways Customers Reach Your Business Section */}
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Meet Your New Perfect Receptionist</h2>
-                        <p className="mt-6 text-2xl md:text-3xl font-serif italic text-blue-800 max-w-3xl mx-auto leading-relaxed">
-                            An AI agent built to be more reliable, efficient, and affordable than a human counterpart.
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Two Ways Customers Reach Your Business — We Handle Both</h2>
+                        <p className="mt-6 text-xl text-gray-600 font-medium max-w-3xl mx-auto">
+                            Some customers message your website. Others call your business. Elite Agent Hub covers both.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {valuePoints.map((point, index) => (
-                            <div key={index} className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                                <h3 className="text-xl font-bold text-gray-900">{point.title}</h3>
-                                <p className="mt-2 text-base text-gray-700 font-medium">{point.description}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        {/* Card 1: Website + Chat */}
+                        <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                             <div className="mb-4">
+                                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-2">Website + Chat Assistant</h3>
+                                <p className="text-gray-700 font-medium leading-relaxed">
+                                    Answers website visitors instantly, handles common questions, captures contact details, and helps book calls or demos.
+                                </p>
                             </div>
-                        ))}
+                            <div className="mt-auto space-y-4">
+                                <div>
+                                    <span className="text-sm font-bold text-gray-500 uppercase tracking-wide">Best for:</span>
+                                    <p className="text-gray-900 font-medium">Businesses that want their website to respond and capture leads automatically.</p>
+                                </div>
+                                <div>
+                                    <span className="text-sm font-bold text-gray-500 uppercase tracking-wide">Starting at:</span>
+                                    <p className="text-gray-900 font-medium">$199/month (Optional SMS available)</p>
+                                </div>
+                                <div className="pt-4">
+                                    <Link 
+                                        to="/pricing"
+                                        className="inline-flex justify-center items-center w-full py-3 px-6 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all"
+                                    >
+                                        See Plans
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 2: Voice Agent */}
+                        <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                             <div className="mb-4">
+                                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 text-green-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-2">AI Voice Agent (Phone Calls)</h3>
+                                <p className="text-gray-700 font-medium leading-relaxed">
+                                    Answers inbound calls, handles missed calls, books appointments, and escalates when needed.
+                                </p>
+                            </div>
+                            <div className="mt-auto space-y-4">
+                                <div>
+                                    <span className="text-sm font-bold text-gray-500 uppercase tracking-wide">Best for:</span>
+                                    <p className="text-gray-900 font-medium">Businesses that rely heavily on phone calls and want every call answered.</p>
+                                </div>
+                                <div className="pt-8 flex flex-col gap-3">
+                                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center text-center font-bold text-primary">
+                                        <Link to="/book-demo" className="hover:underline">Book a Demo</Link>
+                                        <span className="hidden sm:inline text-gray-300">•</span>
+                                        <a href="tel:+18042233141" className="hover:underline">Call Belle for a Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -300,20 +359,20 @@ const HomePage: React.FC = () => {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="pr-8">
-                             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Every Call Recorded. Every Word Transcribed.</h2>
-                             <p className="mt-4 text-lg text-gray-700 font-medium">Gain total transparency into your customer interactions. Our system records and transcribes every call, giving you searchable, actionable data to ensure quality and capture every detail.</p>
+                             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Every Customer Interaction, Clearly Logged</h2>
+                             <p className="mt-4 text-lg text-gray-700 font-medium">Get full visibility into how customers interact with your business. Calls and conversations are logged so you can review outcomes, improve responses, and make sure nothing slips through the cracks.</p>
                              <ul className="mt-6 space-y-4">
                                 <li className="flex items-start">
                                     <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center mr-3 mt-1">
                                          <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
                                     </div>
-                                    <p className="text-base text-gray-700 font-medium"><strong className="font-semibold">Quality Assurance:</strong> Review AI performance and customer sentiment on any call, at any time.</p>
+                                    <p className="text-base text-gray-700 font-medium"><strong className="font-semibold">Quality & Accountability:</strong> Review logs at any time to ensure every customer receives a professional, helpful response.</p>
                                 </li>
                                 <li className="flex items-start">
                                      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center mr-3 mt-1">
                                          <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
                                     </div>
-                                    <p className="text-base text-gray-700 font-medium"><strong className="font-semibold">Compliance First:</strong> We prioritize legal standards with automatic consent notices for call recordings, keeping your business safe.</p>
+                                    <p className="text-base text-gray-700 font-medium"><strong className="font-semibold">Automatic Compliance:</strong> We handle standard recording notifications automatically, keeping your business safe while you capture every detail.</p>
                                 </li>
                              </ul>
                         </div>
@@ -336,7 +395,7 @@ const HomePage: React.FC = () => {
                         Stop Losing Customers to Your Competitors
                     </h2>
                     <div className="mt-4 text-base md:text-lg text-gray-600 font-medium max-w-2xl mx-auto">
-                        Protect every call, capture every lead, and watch your revenue grow. Your competitors are answering the calls you miss.
+                        Protect every customer interaction, capture every lead, and watch your revenue grow — before someone else does.
                     </div>
                     <div className="mt-8">
                         <Link
@@ -344,7 +403,7 @@ const HomePage: React.FC = () => {
                             data-cta="cta-band-book-demo"
                             className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105 duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
                         >
-                            Stop Losing Customers Now
+                            Book a Demo
                         </Link>
                     </div>
                 </div>

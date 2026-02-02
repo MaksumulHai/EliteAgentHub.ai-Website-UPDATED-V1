@@ -19,8 +19,8 @@ const XIcon: React.FC<{ className?: string }> = ({ className }) => (
 const comparisonData = [
     { feature: 'Works 24/7', human: false, ai: true },
     { feature: 'Handles unlimited calls', human: false, ai: true },
-    { feature: 'No sick days or breaks', human: false, ai: true },
-    { feature: '100% accurate every time', human: false, ai: true },
+    { feature: 'Always available, no scheduling gaps', human: false, ai: true },
+    { feature: 'High consistency with defined workflows', human: false, ai: true },
     { feature: 'Monthly Cost', human: '$2,800 - $4,000', ai: '$120 - $549' },
 ];
 
