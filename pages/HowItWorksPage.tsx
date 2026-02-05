@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const CheckCircleIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -14,33 +13,33 @@ const ArrowRightIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const differentiators = [
-    "Works 24/7 with perfect consistency",
-    "Handles unlimited simultaneous calls",
-    "Never forgets details or instructions",
-    "No mood swings, no attitude, no mistakes",
-    "Learns your business instantly",
-    "Manages bookings, cancellations, and confirmations",
-    "Reduces staff overwhelm and burnout",
-    "Keeps customers happy with instant answers",
-    "Total transparency: every call is recorded and transcribed"
+    "Open for business 24/7",
+    "Answers every call, even during busy times",
+    "Follows your specific instructions perfectly",
+    "Always polite, professional, and helpful",
+    "Understands your services and pricing",
+    "Handles bookings and scheduling automatically",
+    "Stops you from being glued to the phone",
+    "Customers get answers instantly, not voicemail",
+    "Full transparency: read or listen to every call"
 ];
 
 const HowItWorksPage: React.FC = () => {
     const steps = [
-        { title: "1. Answer & Engage", description: "Our AI agent instantly answers the call with a custom greeting and understands the caller's needs in natural language." },
-        { title: "2. Qualify & Collect", description: "The agent asks qualifying questions you define, collecting essential information like name, contact details, and service required." },
-        { title: "3. Book or Escalate", description: "If the caller is a qualified lead, the agent books them directly into your calendar. If they need human help, it escalates the call." }
+        { title: "1. Customer Reaches Out", description: "A customer calls your phone or messages your website. Instead of voicemail or silence, they get an instant, professional response." },
+        { title: "2. We Handle the Details", description: "We answer their questions, check if they are a good fit, and collect their name and project details based on your instructions." },
+        { title: "3. Booked & Delivered", description: "If they are ready, we book the appointment on your calendar. If they need you specifically, we notify you instantly." }
     ];
 
-    const flowDiagramItems = ["AI Agent", "Calendar", "CRM", "Notifications"];
+    const flowDiagramItems = ["Receptionist", "Calendar", "CRM", "Notifications"];
 
     return (
         <div className="bg-white">
             {/* Header Section */}
             <div className="py-20 text-center bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">Simple, Powerful, Automated.</h1>
-                    <p className="mt-4 text-lg text-gray-700 font-medium max-w-2xl mx-auto">See how our AI seamlessly integrates into your workflow to capture every opportunity.</p>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">Your Business, Always Open.</h1>
+                    <p className="mt-4 text-lg text-gray-700 font-medium max-w-2xl mx-auto">Here is how Elite Agent Hub turns every missed call into a booked job.</p>
                 </div>
             </div>
 
@@ -66,7 +65,7 @@ const HowItWorksPage: React.FC = () => {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-extrabold">The Elite Agent Hub Difference</h2>
-                        <p className="mt-4 text-lg text-blue-100 font-medium max-w-2xl mx-auto">This isn't just an answering service. It's a revolution in reliability and efficiency.</p>
+                        <p className="mt-4 text-lg text-blue-100 font-medium max-w-2xl mx-auto">This isn't just an answering service. It's a reliable way to capture every lead.</p>
                     </div>
                     <div className="max-w-3xl mx-auto">
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
@@ -89,8 +88,8 @@ const HowItWorksPage: React.FC = () => {
             <section className="py-20 bg-gray-100">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">The Automated Call Journey</h2>
-                        <p className="mt-4 text-lg text-gray-700 font-medium">From first ring to your CRM, here’s how data flows.</p>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Seamless Connection</h2>
+                        <p className="mt-4 text-lg text-gray-700 font-medium">We capture the information and send it exactly where you need it.</p>
                     </div>
                     <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
                         {flowDiagramItems.map((item, index) => (
@@ -104,7 +103,7 @@ const HowItWorksPage: React.FC = () => {
                             </React.Fragment>
                         ))}
                     </div>
-                    <p className="text-center mt-8 text-sm md:text-base text-gray-700 font-medium">Your systems are updated in real-time. No manual data entry needed.</p>
+                    <p className="text-center mt-8 text-sm md:text-base text-gray-700 font-medium">Your schedule and customer list update automatically. No manual entry needed.</p>
                 </div>
             </section>
 
@@ -112,20 +111,19 @@ const HowItWorksPage: React.FC = () => {
             <section className="py-20">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Total Visibility and Quality Control</h2>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Full Visibility</h2>
                         <p className="mt-4 text-lg text-gray-700 font-medium">
-                            All agent-handled calls are recorded and transcribed for quality assurance and training. 
-                            We show consent notices and follow local recording laws. Ask about region-specific settings.
+                            Every conversation is logged. You can read transcripts or listen to recordings anytime to see exactly what happened and ensure your customers are well taken care of.
                         </p>
                         <div className="mt-8 bg-white p-6 rounded-lg shadow-lg border">
-                            <h4 className="font-bold text-left text-gray-800">Searchable Transcripts</h4>
-                            <p className="text-left mt-2 text-sm md:text-base text-gray-700 font-medium">Quickly search conversations for keywords, names, or numbers, eliminating the need to listen to full recordings.</p>
+                            <h4 className="font-bold text-left text-gray-800">Instant Summaries</h4>
+                            <p className="text-left mt-2 text-sm md:text-base text-gray-700 font-medium">Find names, phone numbers, or job details instantly without having to listen to the whole recording.</p>
                             <div className="mt-4 h-32 bg-gray-100 rounded flex items-center justify-center">
-                                <p className="text-gray-400">Transcript search UI placeholder</p>
+                                <p className="text-gray-400">Transcript view placeholder</p>
                             </div>
                         </div>
                         <p className="mt-4 text-sm md:text-base text-gray-700 font-medium">
-                            <strong>Disclaimer:</strong> Users are responsible for ensuring compliance with all applicable state and federal laws regarding call recording and consent.
+                            <strong>Note:</strong> We handle standard recording notifications automatically to keep your business compliant.
                         </p>
                     </div>
                 </div>
@@ -135,4 +133,3 @@ const HowItWorksPage: React.FC = () => {
 };
 
 export default HowItWorksPage;
-    

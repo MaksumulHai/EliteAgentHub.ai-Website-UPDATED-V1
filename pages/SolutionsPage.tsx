@@ -6,53 +6,53 @@ const SolutionsPage: React.FC = () => {
         document.title = "Solutions | Elite Agent Hub";
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.setAttribute('content', "Explore solutions to capture more calls, bookings, and leads—AI agents, website health scans, website builds, and visibility optimization.");
+            metaDesc.setAttribute('content', "Explore solutions to capture more calls, bookings, and leads—voice agents, website health scans, website builds, and visibility optimization.");
         }
     }, []);
 
     const solutions = [
         {
-            title: "AI Voice & Chat Agents",
-            description: "Answer calls and messages instantly, book appointments, and capture leads automatically.",
+            title: "Website + Chat Assistant",
+            description: "Your website should respond like a real business. It answers visitor questions instantly, captures their contact details, and helps them book a time with you.",
             bullets: [
-                "24/7 call & chat coverage",
-                "Booking + lead capture",
-                "Missed-call recovery"
+                "Responds to visitors immediately",
+                "Captures names and phone numbers",
+                "Guides customers to book"
             ],
-            buttonText: "See AI Agents",
-            link: "/"
+            buttonText: "See Plans",
+            link: "/pricing"
         },
         {
-            title: "Free Website Health Scan",
-            description: "Find what’s broken, missing, or costing you leads — in minutes.",
+            title: "Voice Agent (Phone Calls)",
+            description: "A missed call is a missed opportunity. Our agent answers the phone 24/7, handles customer questions, and books appointments so you stop losing revenue to voicemail.",
             bullets: [
-                "Website health score",
-                "Top opportunities + quick wins",
-                "Built for service businesses"
+                "Answers every call, day or night",
+                "Secures bookings on the spot",
+                "Eliminates phone tag"
             ],
-            buttonText: "Run Free Website Scan",
-            link: "/website-scan"
+            buttonText: "See Plans",
+            link: "/pricing"
         },
         {
-            title: "Website Builds (No Website Yet?)",
-            description: "Get a clean, professional website built to generate calls, bookings, and trust.",
+            title: "Professional Website Builds",
+            description: "Don't have a website? We build clean, professional sites designed to turn visitors into paying customers. Simple, fast, and built for results.",
             bullets: [
-                "Fast, simple, conversion-first",
-                "Mobile-friendly and clear messaging",
-                "Ready for automation and growth"
+                "Built to convert traffic into leads",
+                "Professional, mobile-friendly design",
+                "Fast setup and launch"
             ],
             buttonText: "Build My Website",
             link: "/build-my-website"
         },
         {
-            title: "SEO, GEO & AI Visibility",
-            description: "Improve how customers find you on Google and in AI-powered search results.",
+            title: "Free Website Health Scan",
+            description: "Wondering why your phone isn't ringing? Find out exactly what is broken on your site and get a clear list of quick fixes to get customers back.",
             bullets: [
-                "Local visibility improvements",
-                "On-page clarity and structure",
-                "AI/answer engine readiness"
+                "Identify why customers leave",
+                "Get a clear health score",
+                "See exactly what to fix"
             ],
-            buttonText: "Improve My Visibility",
+            buttonText: "Run Free Scan",
             link: "/website-scan"
         }
     ];
@@ -62,9 +62,9 @@ const SolutionsPage: React.FC = () => {
             <div className="container mx-auto px-4 max-w-6xl">
                 {/* Intro Section */}
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Solutions</h1>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Two Ways Customers Reach You. We Handle Both.</h1>
                     <p className="text-lg md:text-xl text-gray-700 font-medium max-w-3xl mx-auto leading-relaxed">
-                        Everything you need to capture more calls, bookings, and leads — without missing opportunities.
+                        Your customers reach you in two ways: through your website and over the phone. We make sure you answer both, every time.
                     </p>
                 </div>
 
@@ -102,7 +102,7 @@ const SolutionsPage: React.FC = () => {
                 <div className="mt-20 bg-gray-50 rounded-3xl p-10 md:p-14 border border-gray-100 text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Not sure where to start?</h2>
                     <p className="text-lg text-gray-600 font-medium mb-10 max-w-2xl mx-auto">
-                        Use the free scan or the ROI calculator — we’ll help you prioritize the highest-impact fixes.
+                        Run a free scan or calculate your lost revenue to see the fastest way to grow.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <Link

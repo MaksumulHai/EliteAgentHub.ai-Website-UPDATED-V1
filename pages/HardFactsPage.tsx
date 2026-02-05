@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CtaBand from '../components/CtaBand';
@@ -47,7 +46,7 @@ const stats = [
 ];
 
 const threatPoints = [
-    "Missed calls don’t disappear — they go straight to your rivals.",
+    "Missed calls and unresponded messages don’t disappear — they go straight to your rivals.",
     "Customers choose whoever answers first — not who’s best.",
     "Your hard-earned leads shouldn’t feed the business next door.",
     "Your next customer shouldn’t become your competitor’s next sale.",
@@ -59,8 +58,8 @@ const HardFactsPage: React.FC = () => {
             {/* Header Section */}
             <div className="py-20 text-center bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">The Numbers Don’t Lie — Missed Calls Are Killing Your Revenue</h1>
-                    <p className="mt-6 text-3xl md:text-4xl font-extrabold text-red-600 leading-tight max-w-3xl mx-auto drop-shadow-sm text-center underline underline-offset-4">Here are the real statistics every business owner must know.</p>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">The Numbers Don’t Lie — Missed Customers Cost You Revenue</h1>
+                    <p className="mt-6 text-3xl md:text-4xl font-extrabold text-red-600 leading-tight max-w-3xl mx-auto drop-shadow-sm text-center underline underline-offset-4">Here are the real statistics that show how missed website visitors and missed calls impact your business.</p>
                 </div>
             </div>
 
@@ -83,7 +82,7 @@ const HardFactsPage: React.FC = () => {
             {/* Competitor Threat Block */}
             <section className="py-20 bg-primary-dark text-white">
                 <div className="container mx-auto px-4 max-w-4xl text-center">
-                    <h2 className="text-3xl md:text-4xl font-semibold leading-tight whitespace-nowrap max-[500px]:whitespace-normal">When you miss a call, your competitor answers it.</h2>
+                    <h2 className="text-3xl md:text-4xl font-semibold leading-tight whitespace-nowrap max-[500px]:whitespace-normal">When you miss a customer, your competitor answers them.</h2>
                      <p className="mt-6 text-2xl md:text-3xl font-extrabold text-white underline underline-offset-8 decoration-accent">The customer you attracted — they get the sale.</p>
                      <div className="mt-10 max-w-2xl mx-auto">
                         <ul className="space-y-4 text-left">

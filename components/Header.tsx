@@ -31,7 +31,6 @@ const Header: React.FC = () => {
         { to: "/pricing", text: "Pricing" },
         { to: "/roi-calculator", text: "ROI Calculator" },
         { to: "/website-scan", text: "Website Scan" },
-        { to: "/voice-demo", text: "Voice Demo (Offline)", isMaintenance: true },
     ];
 
     const handleCopyPhone = (e: React.MouseEvent) => {
@@ -71,7 +70,7 @@ const Header: React.FC = () => {
                             <NavLink
                                 key={link.to}
                                 to={link.to}
-                                className={({ isActive }) => `${linkClass} ${isActive ? activeLinkClass : ''} ${link.isMaintenance ? 'text-gray-400 font-medium' : 'text-sm'}`}
+                                className={({ isActive }) => `${linkClass} ${isActive ? activeLinkClass : ''} text-sm`}
                             >
                                 {link.text}
                             </NavLink>
@@ -121,7 +120,7 @@ const Header: React.FC = () => {
                                 key={link.to}
                                 to={link.to}
                                 onClick={() => setIsMenuOpen(false)}
-                                className={({ isActive }) => `block px-3 py-3 rounded-lg ${linkClass} ${isActive ? activeLinkClass + ' bg-blue-50' : 'hover:bg-gray-50'} ${link.isMaintenance ? 'opacity-50' : ''}`}
+                                className={({ isActive }) => `block px-3 py-3 rounded-lg ${linkClass} ${isActive ? activeLinkClass + ' bg-blue-50' : 'hover:bg-gray-50'}`}
                             >
                                 {link.text}
                             </NavLink>
@@ -134,7 +133,6 @@ const Header: React.FC = () => {
                                 <MicroPhoneIcon className="h-5 w-5" />
                                 Call Belle (Live Demo)
                             </a>
-                            <p className="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-4">Browser Demo: Maintenance Mode</p>
                         </div>
                     </div>
                 </div>

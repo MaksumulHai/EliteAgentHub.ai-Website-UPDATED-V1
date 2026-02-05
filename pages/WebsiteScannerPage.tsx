@@ -12,10 +12,10 @@ interface ScanResults {
 
 const WebsiteScannerPage: React.FC = () => {
     useEffect(() => {
-        document.title = "Free Website Health Scan | Elite Agent Hub";
+        document.title = "Website Customer Capture Scan | Elite Agent Hub";
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.setAttribute('content', "Run a free website scan to find what’s broken, missing, or costing you leads. Get a clear health score, quick wins, and next steps.");
+            metaDesc.setAttribute('content', "Run a quick check to see if your website is capturing customers or losing them. Identify missed opportunities and response gaps instantly.");
         }
     }, []);
 
@@ -92,86 +92,86 @@ const WebsiteScannerPage: React.FC = () => {
         let seoDeduction = 0; let aiDeduction = 0;
 
         if (!hasPhone) {
-            broken.push("Adding a visible phone number or click-to-call link would make it easier for customers to reach you.");
+            broken.push("Without a click-to-call number, mobile customers often give up and leave.");
             quickWins.push("Add a prominent click-to-call button in your header.");
             overallDeduction += 15;
             convDeduction += 15;
         }
         if (!hasCTA) {
-            broken.push("Your site could benefit from clearer call-to-action buttons so visitors know what to do next.");
+            broken.push("Customers need to know exactly what to do next (Call, Book, Message).");
             quickWins.push("Place 'Get a Quote' or 'Call Now' buttons throughout your page.");
             overallDeduction += 10;
             convDeduction += 10;
         }
         if (!hasForm) {
-            broken.push("Adding a simple contact form can help turn visitors into real inquiries.");
+            broken.push("A simple contact form lets you capture leads even when you're busy.");
             quickWins.push("Embed a simple contact form to capture name and email.");
             overallDeduction += 5;
             convDeduction += 5;
         }
         if (!hasTrust) {
-            broken.push("Including reviews or testimonials helps build trust with new visitors.");
+            broken.push("Reviews prove you are reliable before a customer decides to call.");
             quickWins.push("Display Google Reviews or client testimonials to build trust.");
             overallDeduction += 5;
             convDeduction += 5;
         }
         if (!isMobileFriendly) {
-            broken.push("Optimizing your site for mobile devices ensures a better experience for on-the-go customers.");
-            quickWins.push("Optimize your site layout for mobile devices.");
+            broken.push("Mobile customers leave instantly if the site is hard to read on a phone.");
+            quickWins.push("Update your site layout to be mobile-responsive.");
             overallDeduction += 5;
             convDeduction += 5;
         }
         if (!hasBooking) {
-            broken.push("An online booking tool makes it easier for customers to schedule services 24/7.");
-            quickWins.push("Integrate an AI-powered scheduler to book appointments 24/7.");
+            broken.push("Letting customers book 24/7 stops them from calling competitors.");
+            quickWins.push("Add a simple booking link so customers can schedule themselves.");
             overallDeduction += 15;
             bookDeduction += 15;
         }
         if (!hasTitle) {
-            broken.push("A clear page title helps search engines understand and rank your site.");
+            broken.push("A clear title ensures customers know they found the right local business.");
             quickWins.push("Write a clear title including your main service and location.");
             overallDeduction += 5;
             seoDeduction += 5;
         }
         if (!hasMetaDesc) {
-            broken.push("A helpful meta description improves how your site appears in search results.");
-            quickWins.push("Add a 150-character summary for search engines.");
+            broken.push("A clear summary in search results helps customers choose you first.");
+            quickWins.push("Add a short business summary for search results.");
             overallDeduction += 3;
             seoDeduction += 3;
         }
         if (!hasH1) {
-            broken.push("Using a clear main heading helps both visitors and search engines understand your page.");
-            quickWins.push("Ensure your main headline uses an H1 tag.");
+            broken.push("Your main headline must instantly tell visitors what you do.");
+            quickWins.push("Ensure your main headline clearly states your service.");
             overallDeduction += 5;
             seoDeduction += 5;
         }
         if (!hasServices) {
-            broken.push("Clearly describing your services helps potential customers understand exactly what you offer.");
-            quickWins.push("Create a dedicated 'Services' section with clear headers.");
+            broken.push("Listing services clearly helps customers know you can solve their problem.");
+            quickWins.push("Create a clear list of the services you offer.");
             overallDeduction += 5;
             seoDeduction += 5;
         }
         if (!hasLocation) {
-            broken.push("Explicitly listing the areas you serve helps local customers find you more easily.");
+            broken.push("Listing your service area confirms you can actually help them.");
             quickWins.push("Explicitly list the cities or regions you serve.");
             overallDeduction += 2;
             seoDeduction += 2;
         }
         if (!hasFAQ) {
-            broken.push("An FAQ section answers common questions instantly and improves AI search readiness.");
-            quickWins.push("Add an FAQ to answer common questions and improve AI readiness.");
+            broken.push("Answering common questions upfront prevents doubts and hesitation.");
+            quickWins.push("Add a simple FAQ section to handle common questions.");
             overallDeduction += 5;
             aiDeduction += 5;
         }
         if (!hasAbout) {
-            broken.push("Sharing your business story helps humanize your brand and build authority.");
+            broken.push("A brief 'About' section builds the trust needed to hire you.");
             quickWins.push("Write a brief 'About' section to build authority.");
             overallDeduction += 5;
             aiDeduction += 5;
         }
         if (!hasStructure) {
-            broken.push("Organizing your content with clear headers makes your site easier to read and navigate.");
-            quickWins.push("Use more H2 and H3 tags to organize your content.");
+            broken.push("Organized content helps customers find answers fast without frustration.");
+            quickWins.push("Use clear headings to organize your service details.");
             overallDeduction += 5;
             aiDeduction += 5;
         }
@@ -182,8 +182,8 @@ const WebsiteScannerPage: React.FC = () => {
             bookingScore: Math.max(0, 20 - bookDeduction),
             seoScore: Math.max(0, 20 - seoDeduction),
             aiScore: Math.max(0, 20 - aiDeduction),
-            broken: broken.length ? broken : ["Your website looks great! No critical issues found."],
-            quickWins: quickWins.length ? quickWins : ["Your site is performing well. Consider scaling your ads."]
+            broken: broken.length ? broken : ["Your website looks solid. Customers can find what they need."],
+            quickWins: quickWins.length ? quickWins : ["Your site is ready to convert. Focus on driving traffic."]
         };
     };
 
@@ -216,7 +216,7 @@ const WebsiteScannerPage: React.FC = () => {
         } catch (err: any) {
             console.warn('URL Scan Limitation:', err.message);
             setMode('paste');
-            setError("This website's security settings (CORS) block direct browser scanning. To continue, simply right-click your homepage, select 'View Page Source', copy all the code, and paste it below.");
+            setError("We couldn't reach your site automatically. To check your page, simply right-click your homepage, select 'View Page Source', copy the code, and paste it below.");
         } finally {
             setIsLoading(false);
         }
@@ -247,10 +247,10 @@ const WebsiteScannerPage: React.FC = () => {
             <div className="container mx-auto px-4 max-w-4xl">
                 <div className="text-center mb-12">
                     <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-                        Free Website Health Scan
+                        Is Your Website Losing Customers?
                     </h1>
                     <p className="mt-4 text-lg md:text-xl text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed">
-                        Identify what’s holding your site back and how AI can fix it.
+                        Run a quick check to see if your site connects with customers—or if they're leaving before you can respond.
                     </p>
                 </div>
 
@@ -302,9 +302,9 @@ const WebsiteScannerPage: React.FC = () => {
                                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                                 </svg>
-                                                Analyzing...
+                                                Checking response paths...
                                             </>
-                                        ) : 'Analyze Website'}
+                                        ) : 'Check My Website'}
                                     </button>
                                 </div>
                             </div>
@@ -332,7 +332,7 @@ const WebsiteScannerPage: React.FC = () => {
                                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
-                                            Generating Report...
+                                            Checking response paths...
                                         </>
                                     ) : 'Run Analysis on Paste'}
                                 </button>
@@ -347,13 +347,13 @@ const WebsiteScannerPage: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <p className="font-bold mb-1">CORS Security Restriction Detected</p>
+                                    <p className="font-bold mb-1">Browser Security Notice</p>
                                     <p>{error}</p>
                                 </div>
                             </div>
                         )}
                         <p className="mt-5 text-xs text-gray-400 italic text-center">
-                            Privacy first: Analysis happens entirely in your browser. No data is stored.
+                            Privacy first: Check happens entirely in your browser. No data is saved.
                         </p>
                     </div>
                 </div>
@@ -363,7 +363,7 @@ const WebsiteScannerPage: React.FC = () => {
                     
                     {/* Health Dashboard - Full Width Card */}
                     <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-xl">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b pb-4 text-center">Health Dashboard</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8 border-b pb-4 text-center">Capture Readiness Report</h2>
                         
                         <div className="flex flex-col items-center mb-10">
                             {/* Circular Progress Ring */}
@@ -397,7 +397,7 @@ const WebsiteScannerPage: React.FC = () => {
                                     <span className={`text-5xl font-black tracking-tighter leading-none ${theme.scoreTextClass}`}>
                                         {results ? results.overallScore : 0}
                                     </span>
-                                    <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-1.5 transform scale-x-90 origin-center">Health Score</span>
+                                    <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mt-1.5 transform scale-x-90 origin-center">Capture Score</span>
                                 </div>
                             </div>
 
@@ -406,7 +406,7 @@ const WebsiteScannerPage: React.FC = () => {
                                 <p className="text-2xl font-bold text-gray-900">
                                     <span className={theme.scoreTextClass}>{results ? results.overallScore : '—'}</span> <span className="text-gray-400">/ 100</span>
                                 </p>
-                                <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mt-2">Overall Website Health</p>
+                                <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mt-2">Customer Connection Score</p>
                             </div>
 
                             {/* Horizontal Progress Bar */}
@@ -422,19 +422,19 @@ const WebsiteScannerPage: React.FC = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t border-gray-50">
                             <div className="text-center">
                                 <p className={`text-3xl font-bold ${results ? 'text-gray-800' : 'text-gray-300'}`}>{results ? results.conversionScore : '—'} <span className="text-xs text-gray-400">/ 40</span></p>
-                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">Customer Contact & Conversion</p>
+                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">Ease of Contact</p>
                             </div>
                             <div className="text-center">
                                 <p className={`text-3xl font-bold ${results ? 'text-gray-800' : 'text-gray-300'}`}>{results ? results.bookingScore : '—'} <span className="text-xs text-gray-400">/ 20</span></p>
-                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">Online Booking Readiness</p>
+                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">Booking Accessibility</p>
                             </div>
                             <div className="text-center">
                                 <p className={`text-3xl font-bold ${results ? 'text-gray-800' : 'text-gray-300'}`}>{results ? results.seoScore : '—'} <span className="text-xs text-gray-400">/ 20</span></p>
-                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">Search Visibility (SEO)</p>
+                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">Clarity & Trust</p>
                             </div>
                             <div className="text-center">
                                 <p className={`text-3xl font-bold ${results ? 'text-gray-800' : 'text-gray-300'}`}>{results ? results.aiScore : '—'} <span className="text-xs text-gray-400">/ 20</span></p>
-                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">AI & Answer Engine Readiness</p>
+                                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-tight mt-1 leading-tight">Response Readiness</p>
                             </div>
                         </div>
                     </div>
@@ -449,9 +449,9 @@ const WebsiteScannerPage: React.FC = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
                                     </svg>
                                 </span>
-                                Top Opportunities to Improve
+                                Where Customers Are Getting Stuck
                             </h3>
-                            <p className="text-xs text-gray-500 mb-6 font-medium italic leading-relaxed">These items are limiting how easily customers can find, contact, or book your business.</p>
+                            <p className="text-xs text-gray-500 mb-6 font-medium italic leading-relaxed">These missing elements make it harder for customers to find, trust, or hire you.</p>
                             <ul className="space-y-4">
                                 {results ? results.broken.map((item, i) => (
                                     <li key={i} className="flex items-start text-sm font-medium text-gray-800 leading-snug">
@@ -474,9 +474,9 @@ const WebsiteScannerPage: React.FC = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
                                     </svg>
                                 </span>
-                                High-Impact Quick Wins
+                                Quick Wins to Capture More Leads
                             </h3>
-                            <p className="text-xs text-gray-500 mb-6 font-medium italic leading-relaxed">Small improvements here can quickly increase calls, bookings, and trust.</p>
+                            <p className="text-xs text-gray-500 mb-6 font-medium italic leading-relaxed">Simple changes to help you respond faster and capture more business.</p>
                             <ul className="space-y-4">
                                 {results ? results.quickWins.map((item, i) => (
                                     <li key={i} className="flex items-start text-sm font-medium text-gray-800 leading-snug">
@@ -496,8 +496,8 @@ const WebsiteScannerPage: React.FC = () => {
                 {/* Lead Capture Section */}
                 {results && (
                     <div className="my-20 bg-white border border-gray-200 rounded-3xl p-6 md:p-12 shadow-2xl animate-fadeIn max-w-3xl mx-auto">
-                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">Want help fixing this?</h3>
-                        <p className="text-gray-600 mb-10 font-medium text-center leading-relaxed max-w-md mx-auto">If you'd like us to fix these issues or set this up for you, leave your details below.</p>
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">Stop Losing Customers to Silence</h3>
+                        <p className="text-gray-600 mb-10 font-medium text-center leading-relaxed max-w-md mx-auto">Our systems answer every customer instantly—on your site and phone. Let’s make sure you never miss another lead.</p>
                         <div className="w-full overflow-hidden rounded-2xl border border-gray-100 h-[820px] md:h-[720px] shadow-inner bg-gray-50">
                             <iframe
                                 src="https://api.leadconnectorhq.com/widget/form/jEJU1z5a32roJ4NAEXrj"

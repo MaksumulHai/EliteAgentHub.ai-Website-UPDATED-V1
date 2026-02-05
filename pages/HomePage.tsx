@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const CheckIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -39,8 +39,68 @@ const HomePage: React.FC = () => {
         }
     }, []);
 
+    const [showCallModal, setShowCallModal] = useState(false);
+    const [copyBtnText, setCopyBtnText] = useState("Copy Number");
+
+    const handleCallClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        // On desktop (>= 768px), intercept the click to show the number/copy modal.
+        // On mobile, allow the default tel: behavior for tap-to-call.
+        if (window.innerWidth >= 768) {
+            e.preventDefault();
+            setShowCallModal(true);
+        }
+    };
+
+    const handleCopyNumber = () => {
+        navigator.clipboard.writeText("8042233141");
+        setCopyBtnText("Number Copied!");
+        setTimeout(() => setCopyBtnText("Copy Number"), 2000);
+    };
+
     return (
         <div>
+            {/* Call Modal */}
+            {showCallModal && (
+                <div 
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn" 
+                    onClick={() => setShowCallModal(false)}
+                >
+                    <div 
+                        className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center relative" 
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <button 
+                            onClick={() => setShowCallModal(false)} 
+                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                            aria-label="Close modal"
+                        >
+                            <XIcon className="w-6 h-6" />
+                        </button>
+                        
+                        <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </div>
+
+                        <h3 className="text-2xl font-extrabold text-gray-900 mb-2">Call Belle for a Live Demo</h3>
+                        <p className="text-gray-600 font-medium mb-6 leading-relaxed">
+                            Call this number from your phone:
+                            <br />
+                            <span className="block text-3xl font-black text-blue-600 mt-3">(804) 223-3141</span>
+                        </p>
+                        
+                        <button 
+                            onClick={handleCopyNumber}
+                            className={`w-full py-3.5 px-6 rounded-xl font-bold text-white shadow-lg transition-all transform active:scale-95 ${copyBtnText === 'Number Copied!' ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'}`}
+                        >
+                            {copyBtnText}
+                        </button>
+                        <p className="mt-4 text-xs text-gray-400 font-medium">Mobile users can tap-to-call.</p>
+                    </div>
+                </div>
+            )}
+
             {/* HERO SECTION: Merged Headline & Actions with Background Image */}
             <section 
                 className="relative pt-32 pb-24 text-center"
@@ -76,6 +136,7 @@ const HomePage: React.FC = () => {
                         {/* Secondary Button */}
                          <a
                             href="tel:+18042233141"
+                            onClick={handleCallClick}
                             data-cta="hero-call-belle"
                             className="inline-flex items-center justify-center rounded-lg bg-white border-2 border-blue-600 px-8 py-4 text-lg font-bold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-transform transform hover:scale-105 duration-300 w-full md:w-auto"
                         >
@@ -213,7 +274,7 @@ const HomePage: React.FC = () => {
                         </p>
                         <div className="perspective-1000">
                             <Link
-                                to="/website-scan"
+                                to="/pricing"
                                 data-cta="home-see-plans"
                                 className="
                                     relative group
@@ -307,7 +368,13 @@ const HomePage: React.FC = () => {
                                     <div className="flex flex-col sm:flex-row gap-4 items-center justify-center text-center font-bold text-primary">
                                         <Link to="/book-demo" className="hover:underline">Book a Demo</Link>
                                         <span className="hidden sm:inline text-gray-300">•</span>
-                                        <a href="tel:+18042233141" className="hover:underline">Call Belle for a Live Demo</a>
+                                        <a 
+                                            href="tel:+18042233141" 
+                                            onClick={handleCallClick}
+                                            className="hover:underline"
+                                        >
+                                            Call Belle for a Live Demo
+                                        </a>
                                     </div>
                                 </div>
                             </div>
