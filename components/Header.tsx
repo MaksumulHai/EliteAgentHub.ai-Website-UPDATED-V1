@@ -29,6 +29,7 @@ const Header: React.FC = () => {
         { to: "/solutions", text: "Solutions" },
         { to: "/how-it-works", text: "How It Works" },
         { to: "/pricing", text: "Pricing" },
+        { to: "/review-audit", text: "Review Audit" },
         { to: "/roi-calculator", text: "ROI Calculator" },
         { to: "/website-scan", text: "Website Scan" },
     ];

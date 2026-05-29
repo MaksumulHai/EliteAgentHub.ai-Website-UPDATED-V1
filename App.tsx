@@ -22,6 +22,7 @@ import WebsiteScannerPage from './pages/WebsiteScannerPage';
 import SolutionsPage from './pages/SolutionsPage';
 import BuildMyWebsitePage from './pages/BuildMyWebsitePage';
 import VoiceDemoPage from './pages/VoiceDemoPage';
+import ReviewAuditPage from './pages/ReviewAuditPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -62,6 +63,7 @@ const App: React.FC = () => {
             <Route path="/refund-policy" element={<RefundPolicyPage />} />
             <Route path="/acceptable-use" element={<AcceptableUsePage />} />
             <Route path="/ai-disclaimer" element={<AiDisclaimerPage />} />
+            <Route path="/review-audit" element={<ReviewAuditPage />} />
           </Routes>
         </main>
         <Footer />
