@@ -109,7 +109,7 @@ const AcceptableUsePage: React.FC = () => {
                     <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">7. Reporting Violations</h3>
                     <p>Email: <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a></p>
                     <p>Website: <a href="https://eliteagenthub.ai" className="text-primary hover:underline">https://eliteagenthub.ai</a></p>
-                    <p>Phone: 804-223-3141</p>
+                    <p>Phone: 804-223-2111</p>
 
                     <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">8. Changes to This Policy</h3>
                     <p>We may update this policy from time to time. Changes take effect when posted. Continued use constitutes acceptance.</p>

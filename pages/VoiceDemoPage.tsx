@@ -24,15 +24,15 @@ const VoiceDemoPage: React.FC = () => {
                     <p className="text-lg text-gray-700 font-medium mb-10 leading-relaxed max-w-lg mx-auto">
                         This browser-based voice demo is currently offline.
                         <br />
-                        For a live demo, call Belle or book a demo — we’ll show you exactly how it works.
+                        For business inquiries, contact Elite Agent Hub.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="tel:+18042233141"
+                            href="tel:+18042232111"
                             className="inline-flex justify-center items-center px-8 py-4 text-lg font-bold rounded-xl bg-primary text-white hover:bg-primary-dark transition-transform transform hover:scale-105 shadow-lg"
                         >
-                            Call Belle for a Live Demo
+                            Contact Elite Agent Hub
                         </a>
                         <Link
                             to="/book-demo"

@@ -178,10 +178,10 @@ const VoiceAgentDemo: React.FC<VoiceAgentDemoProps> = ({ onClose }) => {
                     </p>
                 </div>
                 <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-inner">
-                    <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Primary Demo Available</p>
-                    <p className="text-sm font-bold text-slate-900 mb-3">Call Belle on your mobile phone:</p>
-                    <a href="tel:+18042233141" className="text-3xl font-black text-primary hover:text-primary-dark transition-colors">
-                        (804) 223-3141
+                    <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Business Contact</p>
+                    <p className="text-sm font-bold text-slate-900 mb-3">For business inquiries, call:</p>
+                    <a href="tel:+18042232111" className="text-3xl font-black text-primary hover:text-primary-dark transition-colors">
+                        (804) 223-2111
                     </a>
                 </div>
                 <div className="pt-4 border-t border-slate-100 mt-4">

@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
     };
 
     const handleCopyNumber = () => {
-        navigator.clipboard.writeText("8042233141");
+        navigator.clipboard.writeText("8042232111");
         setCopyBtnText("Number Copied!");
         setTimeout(() => setCopyBtnText("Copy Number"), 2000);
     };
@@ -83,11 +83,11 @@ const HomePage: React.FC = () => {
                             </svg>
                         </div>
 
-                        <h3 className="text-2xl font-extrabold text-gray-900 mb-2">Call Belle for a Live Demo</h3>
+                        <h3 className="text-2xl font-extrabold text-gray-900 mb-2">Contact Elite Agent Hub</h3>
                         <p className="text-gray-600 font-medium mb-6 leading-relaxed">
-                            Call this number from your phone:
+                            Call our business contact number:
                             <br />
-                            <span className="block text-3xl font-black text-blue-600 mt-3">(804) 223-3141</span>
+                            <span className="block text-3xl font-black text-blue-600 mt-3">(804) 223-2111</span>
                         </p>
                         
                         <button 
@@ -135,12 +135,12 @@ const HomePage: React.FC = () => {
                         </Link>
                         {/* Secondary Button */}
                          <a
-                            href="tel:+18042233141"
+                            href="tel:+18042232111"
                             onClick={handleCallClick}
                             data-cta="hero-call-belle"
                             className="inline-flex items-center justify-center rounded-lg bg-white border-2 border-blue-600 px-8 py-4 text-lg font-bold text-blue-600 shadow-sm hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-transform transform hover:scale-105 duration-300 w-full md:w-auto"
                         >
-                            Call Belle for a Live Demo
+                            Contact Elite Agent Hub
                         </a>
                     </div>
                 </div>
@@ -369,11 +369,11 @@ const HomePage: React.FC = () => {
                                         <Link to="/book-demo" className="hover:underline">Book a Demo</Link>
                                         <span className="hidden sm:inline text-gray-300">•</span>
                                         <a 
-                                            href="tel:+18042233141" 
+                                            href="tel:+18042232111" 
                                             onClick={handleCallClick}
                                             className="hover:underline"
                                         >
-                                            Call Belle for a Live Demo
+                                            Contact Elite Agent Hub
                                         </a>
                                     </div>
                                 </div>

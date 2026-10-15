@@ -48,7 +48,7 @@ const ContactPage: React.FC = () => {
                             <div className="space-y-4">
                                 <div>
                                     <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Phone</p>
-                                    <p className="text-lg text-gray-900 font-semibold">(804) 223-3141</p>
+                                    <p className="text-lg text-gray-900 font-semibold">(804) 223-2111</p>
                                 </div>
                                 <div>
                                     <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Email</p>

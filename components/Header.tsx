@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 
     const handleCopyPhone = (e: React.MouseEvent) => {
         e.preventDefault();
-        navigator.clipboard.writeText("8042233141");
+        navigator.clipboard.writeText("8042232111");
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
@@ -79,23 +79,24 @@ const Header: React.FC = () => {
                     </nav>
                     
                     <div className="flex items-center gap-4">
-                        {/* Primary Desktop CTA: Phone Demo */}
+                        {/* Primary Desktop CTA: Business Contact */}
                         <div className="hidden sm:flex items-center gap-3">
                             <div className="flex flex-col items-end mr-1">
-                                <span className="text-[9px] uppercase font-black tracking-widest text-primary animate-pulse mb-1">Live Demo Active</span>
-                                <span className="text-sm font-black text-slate-900">(804) 223-3141</span>
+                                <span className="text-[9px] uppercase font-black tracking-widest text-primary mb-1">Business Contact</span>
+                                <span className="text-sm font-black text-slate-900">(804) 223-2111</span>
                             </div>
                             <button
                                 onClick={handleCopyPhone}
                                 className={`relative group inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-black text-sm transition-all transform active:scale-95 duration-300 ${copied ? 'bg-green-600 text-white' : 'bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/20'}`}
                             >
-                                {copied ? 'Number Copied!' : 'Call Belle (Live)'}
+                                {copied ? 'Number Copied!' : 'Copy Contact Number'}
                             </button>
                         </div>
 
                         {/* Mobile Phone Link */}
                         <a 
-                            href="tel:+18042233141"
+                            href="tel:+18042232111"
+                            aria-label="Call Elite Agent Hub at (804) 223-2111"
                             className="sm:hidden flex items-center justify-center bg-primary text-white w-10 h-10 rounded-full shadow-lg"
                         >
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -128,11 +129,11 @@ const Header: React.FC = () => {
                         ))}
                         <div className="pt-4 border-t border-gray-100">
                             <a
-                                href="tel:+18042233141"
+                                href="tel:+18042232111"
                                 className="w-full bg-primary text-white font-black py-4 rounded-xl flex items-center justify-center gap-3 shadow-lg"
                             >
                                 <MicroPhoneIcon className="h-5 w-5" />
-                                Call Belle (Live Demo)
+                                Contact Elite Agent Hub
                             </a>
                         </div>
                     </div>

@@ -28,7 +28,7 @@ const TermsPage: React.FC = () => {
                         <li><strong>Location:</strong> Ruther Glen, Virginia, USA</li>
                         <li><strong>Website:</strong> <a href="https://eliteagenthub.ai" className="text-primary hover:underline">https://eliteagenthub.ai</a></li>
                         <li><strong>Support Email:</strong> <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a></li>
-                        <li><strong>Business Phone:</strong> (804) 223-3141</li>
+                        <li><strong>Business Phone:</strong> (804) 223-2111</li>
                     </ul>
 
                     <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">2. Description of Services</h3>

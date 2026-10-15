@@ -120,7 +120,7 @@ const PrivacyPolicyPage: React.FC = () => {
                     <p>Elite Agent Hub (operated by Elite Impact Lab LLC)</p>
                     <p>Website: <a href="https://eliteagenthub.ai" className="text-primary hover:underline">https://eliteagenthub.ai</a></p>
                     <p>Email: <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a></p>
-                    <p>Phone: 804-223-3141</p>
+                    <p>Phone: 804-223-2111</p>
                 </div>
             </div>
         </div>

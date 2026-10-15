@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
                     <div>
                         <h3 className="text-lg font-semibold text-gray-200 uppercase tracking-wider">Contact</h3>
                         <div className="mt-4 space-y-4 text-sm md:text-base text-gray-300 font-medium leading-relaxed">
-                            <p>(804) 223-3141</p>
+                            <p>(804) 223-2111</p>
                             <p>
                                 <a href="mailto:support@eliteagenthub.ai" className="hover:text-white transition-colors duration-300 underline underline-offset-4 decoration-gray-700">
                                     support@eliteagenthub.ai
