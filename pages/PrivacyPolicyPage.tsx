@@ -6,11 +6,11 @@ const PrivacyPolicyPage: React.FC = () => {
         <div className="bg-white py-16 md:py-24">
             <div className="container mx-auto px-4 max-w-4xl">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Privacy Policy</h1>
-                <p className="text-gray-600 font-medium mb-12">Last Updated: December 2025</p>
+                <p className="text-gray-600 font-medium mb-12">Last Updated: October 15, 2026</p>
 
                 <div className="prose prose-lg max-w-none text-gray-700 font-medium">
                     <p>
-                        Elite Agent Hub (“Elite Agent Hub,” “we,” “us,” or “our”) is a brand operated by Elite Impact Lab LLC (“Elite Impact Lab LLC”). We operate https://eliteagenthub.ai and provide AI-powered receptionist, voice, SMS, and automation services for businesses.
+                        Elite Agent Hub (“Elite Agent Hub,” “we,” “us,” or “our”) is a brand operated by Elite Impact Lab LLC (“Elite Impact Lab LLC”). We operate https://eliteagenthub.ai and provide agreed website and landing-page builds and updates, AI voice/phone assistance, and AI website-chat services for businesses. Related forms, CRM/workflows, booking and payment integrations depend on the accepted service scope and enabled configuration.
                     </p>
                     <p>
                         This Privacy Policy explains what data we collect, how we use it, how it is shared, and your rights regarding your personal information.
@@ -28,6 +28,7 @@ const PrivacyPolicyPage: React.FC = () => {
                         <li>Email address</li>
                         <li>Phone number</li>
                         <li>Business name</li>
+                        <li>Website/project briefs, content, supplied assets and approved access details needed for an agreed build or update</li>
                         <li>Appointment or inquiry details</li>
                         <li>Messages or communications sent to us</li>
                         <li>SMS consent preferences</li>
@@ -47,7 +48,7 @@ const PrivacyPolicyPage: React.FC = () => {
                     <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. How We Use Information</h3>
                     <p>We use information to:</p>
                     <ul className="list-disc pl-6 space-y-2 mb-4">
-                        <li>Provide and operate our services</li>
+                        <li>Provide and operate our agreed services, including website and landing-page builds and updates</li>
                         <li>Respond to inquiries and requests</li>
                         <li>Deliver AI voice, chat, and SMS functionality</li>
                         <li>Send appointment confirmations and service messages</li>
@@ -56,29 +57,13 @@ const PrivacyPolicyPage: React.FC = () => {
                         <li>Prevent fraud, abuse, or misuse</li>
                     </ul>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. SMS & Messaging Compliance</h3>
-                    
-                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Consent</h4>
-                    <p>By providing your phone number and opting in, you consent to receive SMS or voice messages related to:</p>
-                    <ul className="list-disc pl-6 space-y-2 mb-4">
-                        <li>Appointments</li>
-                        <li>Service notifications</li>
-                        <li>Customer support</li>
-                        <li>Account-related communications</li>
-                    </ul>
-                    <p>Consent is not a condition of purchase.</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Customer Care SMS Consent</h3>
 
-                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Message Frequency</h4>
-                    <p>Message frequency varies based on interaction and service usage.</p>
-
-                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Opt-Out</h4>
-                    <p>Reply STOP to cancel messages. After opting out, you may receive one final confirmation message.</p>
-
-                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Help</h4>
-                    <p>Reply HELP or contact <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a></p>
-
-                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Carrier Disclaimer</h4>
-                    <p>Message and data rates may apply. Mobile carriers are not responsible for delayed or undelivered messages.</p>
+                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Optional Customer Care SMS</h4>
+                    <p>Elite Impact Lab LLC, operating the Elite Agent Hub brand, offers an optional, separate Customer Care SMS choice. When enabled, the program sends updates about services you have requested, including agreed website, landing-page, voice or chat services, and related appointment confirmations, reminders or changes. The choice is not preselected and is not a condition of purchase or inquiry submission. Providing a phone number alone is not consent.</p>
+                    <p>This program does not include promotional or cold-outreach texts. Broader inquiry, callback or support texting requires consent that expressly covers that purpose before it is enabled. SMS consent does not authorize automated voice calls or recording. Message frequency varies with your requested services and appointments; message and data rates may apply.</p>
+                    <p>Reply STOP to the program's sending number to opt out. An opt-out confirmation will be sent, then program messages will stop. To rejoin, complete the opt-in process again. Reply HELP or contact <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a> for assistance. Wireless carriers are not responsible for message delays or delivery failures.</p>
+                    <p>See the <a href="/#/terms" className="text-primary hover:underline">Customer Care SMS terms</a> for the program details. Sending depends on completed registration, sender and consent setup; this notice does not designate the public business-contact number as an SMS sender.</p>
 
                     <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Call Recording & AI Processing</h3>
                     <p>Calls or messages may be processed by AI systems and may be recorded or transcribed for quality, training, or compliance (where permitted).</p>
@@ -94,6 +79,10 @@ const PrivacyPolicyPage: React.FC = () => {
                         <li>Analytics and hosting providers</li>
                     </ul>
                     <p>These providers are required to protect your data.</p>
+
+                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Mobile information and SMS consent</h4>
+                    <p>No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+                    <p>These SMS-specific restrictions govern the general sharing and disclosure categories elsewhere in this notice.</p>
 
                     <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Client Responsibility for End-User Data</h3>
                     <p>If you are a business using Elite Agent Hub services, you are responsible for obtaining consent from your customers and complying with applicable laws (TCPA, CAN-SPAM, GDPR, etc.). Elite Agent Hub acts as a technology provider and is not responsible for client misuse.</p>

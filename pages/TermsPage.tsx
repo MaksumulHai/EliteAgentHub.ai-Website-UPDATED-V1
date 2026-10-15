@@ -6,14 +6,14 @@ const TermsPage: React.FC = () => {
         <div className="bg-white py-16 md:py-24">
             <div className="container mx-auto px-4 max-w-4xl">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Terms of Service</h1>
-                <p className="text-gray-600 font-medium mb-12">Last Updated: December 2025</p>
+                <p className="text-gray-600 font-medium mb-12">Last Updated: October 15, 2026</p>
 
                 <div className="prose prose-lg max-w-none text-gray-700 font-medium space-y-8">
                     <p>
                         These Terms of Service (“Terms”) govern your access to and use of the products and services offered under the Elite Agent Hub brand, operated by Elite Impact Lab LLC (“Elite Impact Lab,” “Elite Agent Hub,” “we,” “us,” or “our”).
                     </p>
                     <p>
-                        Elite Agent Hub is a software and AI services platform providing AI-powered voice, chat, and messaging solutions for businesses.
+                        Elite Agent Hub provides website and landing-page build and update services, AI voice/phone assistance, and AI website-chat services for businesses. Each service is limited to the scope agreed for the particular project or subscription.
                     </p>
                     <p>
                         By accessing our website (https://eliteagenthub.ai), creating an account, purchasing a subscription, or using any part of our services, you agree to be bound by these Terms.
@@ -32,14 +32,13 @@ const TermsPage: React.FC = () => {
                     </ul>
 
                     <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">2. Description of Services</h3>
-                    <p>Elite Agent Hub provides AI-powered tools designed to help businesses:</p>
+                    <p>Our service categories include:</p>
                     <ul className="list-disc pl-6 space-y-2 mb-4">
-                        <li>Answer inbound phone calls and messages</li>
-                        <li>Capture leads and caller details</li>
-                        <li>Book, reschedule, or cancel appointments</li>
-                        <li>Respond to frequently asked questions</li>
-                        <li>Recover missed calls and reduce lost opportunities</li>
+                        <li>Building and updating agreed websites and landing pages for businesses, including agency overflow projects</li>
+                        <li>Configuring AI voice/phone assistance for agreed business inquiries and tasks</li>
+                        <li>Configuring AI website-chat assistance for agreed business inquiries and tasks</li>
                     </ul>
+                    <p>Forms, CRM records, workflows, booking and payment integrations are included only when expressly identified in the accepted scope. Availability depends on the selected platform, access, configuration and testing; listing a category does not mean every feature is active or included. SMS and outbound messaging require their own purpose, consent, sender and service setup.</p>
                     <p>Our services may integrate with third-party platforms such as:</p>
                     <ul className="list-disc pl-6 space-y-2 mb-4">
                         <li>Telephony and SMS providers</li>
@@ -55,6 +54,10 @@ const TermsPage: React.FC = () => {
                         <li>You are responsible for keeping your information accurate and up to date</li>
                     </ul>
 
+                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Website and landing-page projects</h4>
+                    <p>The accepted written proposal or order identifies the buyer and approver, platform, pages or sections, content and asset inputs, integrations, schedule, included revisions, testing and acceptance criteria, support, and handoff. Updates beyond that scope require a separately agreed change. Delivery depends on the agreed inputs and compatible access; no fixed turnaround or business result is promised by this description.</p>
+                    <p>The order distinguishes editable coded-source delivery from native hosted-site editor access. It identifies domain and hosting owners, renewal payers, backups, and the agreed export, transfer or exit method. Native platform access does not imply portable source export. Project-specific handoff and agency rights are addressed in Section 9.</p>
+
                     <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">3. Eligibility & Accounts</h3>
                     <p>You must be at least 18 years old and legally able to enter into binding contracts to use our services.</p>
                     <p>You are responsible for:</p>
@@ -65,8 +68,13 @@ const TermsPage: React.FC = () => {
                     </ul>
                     <p>If you suspect unauthorized access, notify us immediately at <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a>.</p>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">4. Subscription Plans & Billing</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">4. Project Fees, Subscriptions & Billing</h3>
                     
+                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">One-time projects and optional ongoing care</h4>
+                    <p>Website builds, landing pages and updates may be one-time projects. Their written order states the scope, price, deposit or payment milestones, acceptance and cancellation/refund treatment before work or payment. Ongoing hosting, care, support and subscriptions are separate unless expressly included. Buying a one-time project does not authorize recurring charges.</p>
+                    <p>The order identifies included and additional third-party costs, such as domain, hosting, software, telephony, registration and usage charges, with the responsible payer. Additional scope or costs require agreement before they are incurred on the customer's behalf. No particular project price, allowance or free trial is created by this section.</p>
+                    <p>For one-time projects, the specific accepted order controls project fees, deliverables, acceptance, cancellation and handoff. The subscription provisions in Sections 4.1, 4.2, 5.1 and 5.2 apply only to a separately purchased subscription; they do not create a project subscription or define a project refund policy. For one-time projects, the accepted written order's cancellation and refund terms also take precedence over inconsistent subscription language in the separate Refund Policy, even where that policy refers generally to all services. This exception does not change the refund terms of a separately purchased subscription. Section 4.4 does not change an accepted fixed project price without agreement. Applicable nonwaivable rights remain unaffected.</p>
+
                     <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">4.1 Subscription Plans</h4>
                     <p>Elite Agent Hub offers subscription plans on a:</p>
                     <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -176,27 +184,26 @@ const TermsPage: React.FC = () => {
                     </ul>
                     <p>We reserve the right to suspend or terminate accounts that violate these rules.</p>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">8. SMS & Messaging Responsibility</h3>
-                    <p>If you use SMS or voice messaging features:</p>
-                    <ul className="list-disc pl-6 space-y-2 mb-4">
-                        <li>You are responsible for obtaining proper recipient consent</li>
-                        <li>You must comply with TCPA, carrier rules, and applicable laws</li>
-                        <li>Elite Agent Hub acts only as a technology provider</li>
-                    </ul>
-                    <p>Opt-in, opt-out, and message frequency requirements are governed by our Privacy Policy.</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">8. Customer Care SMS Program</h3>
+                    <p>Elite Impact Lab LLC operates the Elite Agent Hub Customer Care SMS program. When enabled, it sends non-marketing updates about services you have requested, including agreed website, landing-page, voice or chat services, and related appointment confirmations, reminders or changes, only to people who separately opt in. This program does not authorize promotional or cold-outreach messages. Broader inquiry, callback or support texting requires consent that expressly covers that purpose before it is enabled.</p>
+                    <p>SMS consent is optional and is not a condition of purchase or of submitting an inquiry. Giving us a phone number alone is not SMS consent. SMS permission does not authorize automated voice calls or call recording. Message frequency varies with your requested services and appointments. Message and data rates may apply.</p>
+                    <p>To leave the program, reply STOP to the number that sent the message. You will receive a confirmation of the opt-out, and further program messages will stop. To join again, complete the program's opt-in process again; a new inquiry alone does not restore SMS permission. For help, reply HELP or email <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a>.</p>
+                    <p>Wireless carriers are not responsible for message delays or delivery failures. Read our <a href="/#/privacy-policy" className="text-primary hover:underline">Privacy Policy</a> for information handling and SMS consent-data protections. SMS availability depends on completed sender and registration setup; the public business-contact number is not designated here as the program's SMS sender.</p>
+                    <p>For a client's separate messaging service, the written scope identifies the sender, permitted purpose, consent and suppression controls, and each party's responsibilities. That service does not replace the first-party program terms above.</p>
 
                     <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">9. Intellectual Property</h3>
                     
-                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">9.1 Our Intellectual Property</h4>
-                    <p>All software, AI agents, workflows, prompts, designs, and documentation are owned by Elite Impact Lab LLC.</p>
-                    <p>You are granted a limited, non-exclusive, non-transferable license to use the services for internal business purposes only.</p>
+                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">9.1 Existing materials and project deliverables</h4>
+                    <p>Pre-existing software, tools, templates and methods remain with their owners. Third-party software, fonts, images and other assets retain their applicable licenses. The written project order identifies project-specific ownership or license rights, permitted uses, any attribution, and the handoff conditions.</p>
+                    <p>For a coded project, the order specifies the editable source and build/deployment instructions to be delivered at the agreed paid handoff. For a native hosted project, it specifies editor access and supported transfer or exit arrangements. A hosted-service license is limited to the agreed service use, except where the project order expressly grants broader deliverable rights.</p>
 
                     <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">9.2 Your Content</h4>
                     <p>You retain ownership of your business data and content.</p>
                     <p>You grant us a limited license to use it solely to provide and support the services.</p>
 
-                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">9.3 No Resale</h4>
-                    <p>Unless explicitly agreed in writing, you may not resell, sublicense, or white-label the services as your own software product.</p>
+                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">9.3 Agency overflow and agreed handoff rights</h4>
+                    <p>For an agency overflow website or landing-page project, the order identifies the agency, named end client and their rights to edit, deploy, use, transfer and resell the commissioned deliverables. Those express rights take precedence over a general internal-use or non-transferable service restriction. Authorized editing of delivered project source is permitted.</p>
+                    <p>These project rights do not transfer ownership of our pre-existing tools or third-party platforms, or authorize resale of hosted AI services beyond a separate agreement. The order must resolve assignment versus license and any third-party restrictions before handoff.</p>
 
                     <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">10. Service Availability & Changes</h3>
                     <p>We do not guarantee uninterrupted service or 100% uptime.</p>
