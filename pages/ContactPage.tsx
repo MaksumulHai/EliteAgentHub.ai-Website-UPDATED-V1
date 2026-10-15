@@ -57,7 +57,7 @@ const ContactPage: React.FC = () => {
                                 <div>
                                     <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Registered Agent Address</p>
                                     <div className="text-lg text-gray-900 font-semibold">
-                                        <p>8401 Maryland Dr, Suite A</p>
+                                        <p>8401 Mayland Dr, Suite A</p>
                                         <p>Henrico, VA 23294</p>
                                         <p>United States</p>
                                     </div>

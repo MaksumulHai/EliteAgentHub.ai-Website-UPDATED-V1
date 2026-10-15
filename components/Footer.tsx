@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
                             </p>
                             <div className="space-y-1 pt-2">
                                 <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">Registered Agent Address:</p>
-                                <p>8401 Maryland Dr, Suite A</p>
+                                <p>8401 Mayland Dr, Suite A</p>
                                 <p>Henrico, VA 23294</p>
                                 <p>United States</p>
                             </div>
