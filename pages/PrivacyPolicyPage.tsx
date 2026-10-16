@@ -45,6 +45,10 @@ const PrivacyPolicyPage: React.FC = () => {
                         <li>Date and time of visits</li>
                     </ul>
 
+                    <h4 className="text-xl font-bold text-gray-900 mt-6 mb-2">Cookies, Tracking Technologies and Analytics</h4>
+                    <p>Cookies are small files stored on your device; similar technologies include local and session storage. Our website uses third-party GoHighLevel/LeadConnector forms and appointment-booking tools and externally hosted site files and images. When these resources load, their providers may receive technical information such as your IP address, browser/device details, referring page and request time. Depending on the tool and its settings, cookies or similar technologies may support form or booking functionality, remember entered details or preferences, and measure visits, sessions or interactions through usage analytics. Provider-hosted pages you open, including forms, booking and payment pages, may also use their own cookies or tracking technologies.</p>
+                    <p>You can use your browser settings to review, block or delete cookies and manage site storage. Blocking cookies or storage may affect embedded forms or booking features. These browser controls are separate from SMS consent and do not opt you into text messages. See the <a href="https://help.leadconnectorhq.com/support/solutions/articles/155000002118-cookie-policy-details" className="text-primary hover:underline">GoHighLevel/LeadConnector cookie and storage documentation</a> for provider details, or contact <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a> with privacy questions.</p>
+
                     <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">2. How We Use Information</h3>
                     <p>We use information to:</p>
                     <ul className="list-disc pl-6 space-y-2 mb-4">
