@@ -69,17 +69,29 @@ const ContactPage: React.FC = () => {
                     {/* GHL Contact Form Embed */}
                     <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
                         <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                        <p id="contact-form-help" className="mb-4 text-sm text-gray-700">
+                            The form may take a moment to appear. If it stays blank, open the same contact form directly.
+                        </p>
+                        <a
+                            href="https://api.leadconnectorhq.com/widget/form/RIEyRo76RF6JLKaxWTnQ"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mb-4 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 font-semibold text-white hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                        >
+                            Open contact form (new tab)
+                        </a>
+                        <p className="mb-6 text-sm text-gray-600">
+                            Prefer email? Contact us at <a href="mailto:support@eliteagenthub.ai" className="text-primary underline underline-offset-4">support@eliteagenthub.ai</a>
+                        </p>
                         <div className="w-full overflow-hidden rounded-lg">
                             <iframe
                                 src="https://api.leadconnectorhq.com/widget/form/RIEyRo76RF6JLKaxWTnQ"
                                 style={{ width: '100%', height: '927px', border: 'none', borderRadius: '8px' }}
                                 id="inline-RIEyRo76RF6JLKaxWTnQ"
                                 title="EAH_Contact Page – Send Us a Message"
+                                aria-describedby="contact-form-help"
                             ></iframe>
                         </div>
-                        <p className="text-center text-xs text-gray-500 mt-6">
-                            Prefer email? Contact us at <a href="mailto:support@eliteagenthub.ai" className="text-primary hover:underline">support@eliteagenthub.ai</a>
-                        </p>
                     </div>
                 </div>
             </div>
