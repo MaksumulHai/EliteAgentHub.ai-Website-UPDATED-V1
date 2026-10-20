@@ -1,75 +1,45 @@
-import React, { useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Component, ErrorInfo, ReactNode, Suspense, lazy, useEffect } from 'react';
+import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import HowItWorksPage from './pages/HowItWorksPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import PricingPage from './pages/PricingPage';
-import RoiCalculatorPage from './pages/RoiCalculatorPage';
-import MissedCallCalculatorPage from './pages/MissedCallCalculatorPage';
-import FaqPage from './pages/FaqPage';
-import BookDemoPage from './pages/BookDemoPage';
-import LegalPage from './pages/LegalPage';
-import HardFactsPage from './pages/HardFactsPage';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import TermsPage from './pages/TermsPage';
-import RefundPolicyPage from './pages/RefundPolicyPage';
-import AcceptableUsePage from './pages/AcceptableUsePage';
-import AiDisclaimerPage from './pages/AiDisclaimerPage';
-import WebsiteScannerPage from './pages/WebsiteScannerPage';
-import SolutionsPage from './pages/SolutionsPage';
-import BuildMyWebsitePage from './pages/BuildMyWebsitePage';
-import VoiceDemoPage from './pages/VoiceDemoPage';
-import ReviewAuditPage from './pages/ReviewAuditPage';
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
+import { focusSection } from './components/SectionLink';
+import { routes } from './routes';
+import { site } from './site-config';
+import './index.css';
+const pages = Object.fromEntries(routes.map(([, , , name]) => [name, lazy(() => import(`./pages/${name}.tsx`))]));
+const NotFound = lazy(() => import('./pages/NotFoundPage'));
+function RouteMetadata() {
+  const location = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
+    const route = routes.find(([path]) => path === location.pathname);
+    document.title = `${route?.[1] || 'Page not found'} | Elite Agent Hub`;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', route?.[2] || 'Find the services and contact at Elite Agent Hub.');
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', route?.[2] || 'Elite Agent Hub');
+  }, [location.pathname]);
   return null;
-};
-
-const App: React.FC = () => {
-  return (
-    <HashRouter>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/solutions" element={<SolutionsPage />} />
-            <Route path="/how-it-works" element={<HowItWorksPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/roi-calculator" element={<RoiCalculatorPage />} />
-            <Route path="/missed-call-calculator" element={<MissedCallCalculatorPage />} />
-            <Route path="/website-scanner" element={<WebsiteScannerPage />} />
-            <Route path="/website-scan" element={<WebsiteScannerPage />} />
-            <Route path="/build-my-website" element={<BuildMyWebsitePage />} />
-            <Route path="/voice-demo" element={<VoiceDemoPage />} />
-            <Route path="/faq" element={<FaqPage />} />
-            <Route path="/book-demo" element={<BookDemoPage />} />
-            <Route path="/hard-facts" element={<HardFactsPage />} />
-            <Route path="/legal" element={<LegalPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/refund-policy" element={<RefundPolicyPage />} />
-            <Route path="/acceptable-use" element={<AcceptableUsePage />} />
-            <Route path="/ai-disclaimer" element={<AiDisclaimerPage />} />
-            <Route path="/review-audit" element={<ReviewAuditPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </HashRouter>
-  );
-};
-
-export default App;
+}
+function PageReady() {
+  const { pathname, search } = useLocation();
+  useEffect(() => {
+    const section = new URLSearchParams(search).get('section');
+    if (section && document.getElementById(section)) focusSection(section);
+    else { window.scrollTo(0,0); const heading = document.querySelector<HTMLElement>('main h1'); if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); } }
+  }, [pathname, search]);
+  return null;
+}
+class RouteError extends Component<{ children: ReactNode; reset: string }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  componentDidCatch(_error: Error, _info: ErrorInfo) { /* Do not log visitor fields or provider payloads. */ }
+  componentDidUpdate(prev: { reset: string }) { if (prev.reset !== this.props.reset && this.state.failed) this.setState({ failed: false }); }
+  render() { return this.state.failed ? <section className="wrap section"><h1 tabIndex={-1}>This page could not load.</h1><p>Your business contact is still available: <a href={`mailto:${site.email}`}>{site.email}</a>.</p><button className="button ink" onClick={() => location.reload()}>Reload this page</button></section> : this.props.children; }
+}
+function Shell() {
+  const location = useLocation();
+  return <><a className="skip" href="#main" onClick={e => { e.preventDefault(); document.getElementById('main')?.focus(); }}>Skip to content</a>
+    <Header/><RouteMetadata/>
+    <main id="main" tabIndex={-1}><RouteError reset={location.pathname}><Suspense fallback={<div className="wrap section" role="status">Loading page… <a href={`mailto:${site.email}`}>Email the business</a></div>}><Routes>{routes.map(([path,,,name]) => { const Page = pages[name]; return <Route key={path} path={path} element={<Page key={path}/>}/>; })}<Route path="*" element={<NotFound/>}/></Routes><PageReady/></Suspense></RouteError></main><Footer/>
+  </>;
+}
+export default function App() { return <HashRouter><Shell/></HashRouter>; }

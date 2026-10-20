@@ -5,7 +5,7 @@ const ContactPage: React.FC = () => {
         document.title = "Contact | Elite Agent Hub";
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.setAttribute('content', "Contact Elite Agent Hub for help with AI agents, website scans, or getting a new website built. We’ll respond as soon as possible.");
+            metaDesc.setAttribute('content', "Discuss a website, landing page, voice or website-chat project with Elite Agent Hub.");
         }
 
         // Load the GoHighLevel form script dynamically
@@ -31,59 +31,60 @@ const ContactPage: React.FC = () => {
     }, []);
 
     return (
-        <div className="bg-white py-16 md:py-24">
-            <div className="container mx-auto px-4 max-w-4xl">
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Contact</h1>
-                    <p className="text-lg text-gray-700 font-medium max-w-2xl mx-auto">
-                        Have questions or want help getting set up? Reach out — we’ll respond as soon as possible.
+        <div className="section wrap">
+            <div>
+                <div>
+                    <h1>Contact</h1>
+                    <p>
+                        Tell us about your website, landing page, voice or website-chat needs. Agencies can ask about overflow page production.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid two contact-grid">
                     {/* Contact Info Section */}
-                    <div className="space-y-8">
+                    <div>
                         <div>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
-                            <div className="space-y-4">
+                            <h2>Contact Information</h2>
+                            <div>
                                 <div>
-                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Phone</p>
-                                    <p className="text-lg text-gray-900 font-semibold">(804) 223-2111</p>
+                                    <p>Phone</p>
+                                    <p><a href="tel:+18042232111">(804) 223-2111</a></p>
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Email</p>
-                                    <p className="text-lg text-gray-900 font-semibold">support@eliteagenthub.ai</p>
+                                    <p>Email</p>
+                                    <p><a href="mailto:support@eliteagenthub.ai">support@eliteagenthub.ai</a></p>
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-gray-500 uppercase tracking-wider">Registered Agent Address</p>
-                                    <div className="text-lg text-gray-900 font-semibold">
+                                    <p>Registered Agent Address</p>
+                                    <div>
                                         <p>8401 Mayland Dr, Suite A</p>
                                         <p>Henrico, VA 23294</p>
                                         <p>United States</p>
                                     </div>
+                                    <p className="small">Registered-agent office for its authorized legal purpose; not a general project or marketing-mail address.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* GHL Contact Form Embed */}
-                    <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-                        <p id="contact-form-help" className="mb-4 text-sm text-gray-700">
+                    <div className="card">
+                        <h2>Send Us a Message</h2>
+                        <p id="contact-form-help">
                             The form may take a moment to appear. If it stays blank, open the same contact form directly.
                         </p>
                         <a
                             href="https://api.leadconnectorhq.com/widget/form/RIEyRo76RF6JLKaxWTnQ"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mb-4 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 font-semibold text-white hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                            className="button ink"
                         >
                             Open contact form (new tab)
                         </a>
-                        <p className="mb-6 text-sm text-gray-600">
-                            Prefer email? Contact us at <a href="mailto:support@eliteagenthub.ai" className="text-primary underline underline-offset-4">support@eliteagenthub.ai</a>
+                        <p>
+                            Prefer email? Contact us at <a href="mailto:support@eliteagenthub.ai">support@eliteagenthub.ai</a>
                         </p>
-                        <div className="w-full overflow-hidden rounded-lg">
+                        <div className="native-form-frame">
                             <iframe
                                 src="https://api.leadconnectorhq.com/widget/form/RIEyRo76RF6JLKaxWTnQ"
                                 style={{ width: '100%', height: '927px', border: 'none', borderRadius: '8px' }}

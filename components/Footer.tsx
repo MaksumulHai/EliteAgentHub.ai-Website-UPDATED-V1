@@ -1,86 +1,13 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-
-const Footer: React.FC = () => {
-    const navLinks = [
-        { to: "/how-it-works", text: "How It Works" },
-        { to: "/pricing", text: "Pricing" },
-        { to: "/roi-calculator", text: "ROI Calculator" },
-        { to: "/review-audit", text: "Review Revenue Audit" },
-        { to: "/contact", text: "Contact" },
-        { to: "/faq", text: "FAQ" },
-        { to: "/book-demo", text: "Book a Demo" },
-    ];
-
-    const legalLinks = [
-        { to: "/legal", text: "Legal & Compliance" },
-        { to: "/privacy-policy", text: "Privacy Policy" },
-        { to: "/terms", text: "Terms of Service" },
-        { to: "/refund-policy", text: "Refund Policy" },
-        { to: "/acceptable-use", text: "Acceptable Use" },
-        { to: "/ai-disclaimer", text: "AI Disclaimer" },
-    ];
-
-    return (
-        <footer className="bg-gray-900 text-white">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div className="space-y-4">
-                        <h2 className="text-2xl font-extrabold">
-                            Elite <span className="text-accent">Agent Hub</span>
-                        </h2>
-                        <p className="text-sm md:text-base text-gray-300 font-medium leading-relaxed">
-                            Answer every call. Book more appointments. Capture the revenue you’re already earning.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold text-gray-200 uppercase tracking-wider">Quick Links</h3>
-                        <ul className="mt-4 space-y-2">
-                            {navLinks.map(link => (
-                                <li key={link.to}>
-                                    <Link to={link.to} className="text-sm md:text-base text-gray-300 hover:text-white transition-colors duration-300 font-medium">
-                                        {link.text}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold text-gray-200 uppercase tracking-wider">Legal</h3>
-                        <ul className="mt-4 space-y-2">
-                            {legalLinks.map(link => (
-                                <li key={link.to}>
-                                    <Link to={link.to} className="text-sm md:text-base text-gray-300 hover:text-white transition-colors duration-300 font-medium">
-                                        {link.text}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-semibold text-gray-200 uppercase tracking-wider">Contact</h3>
-                        <div className="mt-4 space-y-4 text-sm md:text-base text-gray-300 font-medium leading-relaxed">
-                            <p>(804) 223-2111</p>
-                            <p>
-                                <a href="mailto:support@eliteagenthub.ai" className="hover:text-white transition-colors duration-300 underline underline-offset-4 decoration-gray-700">
-                                    support@eliteagenthub.ai
-                                </a>
-                            </p>
-                            <div className="space-y-1 pt-2">
-                                <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">Registered Agent Address:</p>
-                                <p>8401 Mayland Dr, Suite A</p>
-                                <p>Henrico, VA 23294</p>
-                                <p>United States</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm md:text-base text-gray-400 font-medium">
-                    <p>&copy; {new Date().getFullYear()} Elite Agent Hub. Operated by Elite Impact Lab LLC. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    );
-};
-
-export default Footer;
+import { site } from '../site-config';
+export default function Footer() {
+  return <footer className="footer"><div className="wrap footer-grid"><div>
+    <Link className="brand" to="/"><img src="/assets/brand/original-eah-logo.avif" className="original-logo" width="60" height="59" alt=""/><span>{site.brand}</span></Link>
+    <p>A brand of {site.seller}.</p><p>Voice · chat · websites.</p>
+    <p><a href={`mailto:${site.email}`}>{site.email}</a><br/>Business contact: <a href={`tel:${site.phoneE164}`}>{site.phone}</a></p>
+    <div className="registered-agent-address"><p><strong>Registered-agent address</strong><br/>8401 Mayland Dr, Suite A<br/>Henrico, VA 23294</p><p>For legal registered-agent purposes only. Not an operating office or general mailing address.</p></div>
+  </div><nav aria-label="Company links"><h2>Company</h2><Link to="/solutions">Services</Link><Link to="/pricing">Scope & pricing</Link><Link to="/how-it-works">Process</Link><Link to="/about">About</Link><Link to="/faq">All FAQs</Link><Link to="/contact">Contact</Link></nav>
+  <nav aria-label="Tools and guides"><h2>Tools & guides</h2><Link to="/resources">Tools & guides</Link><Link to="/roi-calculator">Missed-call opportunity planner</Link><Link to="/website-scan">Website content check</Link><Link to="/hard-facts">Understand your missed calls</Link><Link to="/review-audit">Review & response plan</Link></nav>
+  <nav aria-label="Policy links"><h2>Policies</h2><Link to="/legal">Policies</Link><Link to="/privacy-policy">Privacy</Link><Link to="/terms">Service terms</Link><Link to="/refund-policy">Cancellation & refunds</Link><Link to="/acceptable-use">Acceptable use</Link><Link to="/ai-disclaimer">AI & responsibility</Link></nav></div>
+  <div className="wrap footer-bottom">© {new Date().getFullYear()} {site.seller}. Agent demonstrations are preparing for testing. The business contact is separate from the unverified agent line.</div></footer>;
+}

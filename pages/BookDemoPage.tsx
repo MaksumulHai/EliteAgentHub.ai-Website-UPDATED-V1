@@ -18,32 +18,36 @@ const BookDemoPage: React.FC = () => {
     }, []);
 
     return (
-        <main className="min-h-screen bg-slate-50 py-12 px-4">
-            <div className="max-w-5xl mx-auto">
+        <section className="section wrap">
+            <div>
 
-                <section className="text-center mb-10">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900">
+                <section>
+                    <h1>
                         Book Your 30-Minute Discovery Call
                     </h1>
-                    <p className="mt-4 text-lg md:text-xl text-slate-700 max-w-2xl mx-auto">
-                        Choose a convenient time below. We’ll review your missed-call losses and show how our AI receptionist can recover revenue instantly.
+                    <p>
+                        Choose a time to discuss your business, website or agent requirements with us. This is a human discovery call; it is separate from the AI demonstrations being prepared.
                     </p>
                 </section>
 
-                <section className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 md:p-8">
-                    <div className="w-full" id="calendar-container">
+                <section className="card">
+                    <p id="calendar-help">Select your timezone and an available time. We will call the number you provide. If you have not received a call within 10 minutes of the appointment, call (804) 223-2111.</p>
+                    <p><a className="button ink" href="https://api.leadconnectorhq.com/widget/booking/i5FDnRI93yvxtYQGNq1Q" target="_blank" rel="noopener noreferrer">Open discovery calendar (new tab)</a></p>
+                    <p className="small">If the embedded calendar stays blank, use the same calendar above. An appointment is confirmed only when the calendar displays its confirmation.</p>
+                    <div id="calendar-container" className="native-calendar-frame">
                         <iframe
                             src="https://api.leadconnectorhq.com/widget/booking/i5FDnRI93yvxtYQGNq1Q"
                             style={{ width: '100%', border: 'none', overflow: 'hidden' }}
                             scrolling="no"
                             id="i5FDnRI93yvxtYQGNq1Q_1764126279030"
                             title="Discovery Call Calendar"
+                            aria-describedby="calendar-help"
                         ></iframe>
                     </div>
                 </section>
 
             </div>
-        </main>
+        </section>
     );
 };
 
