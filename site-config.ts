@@ -28,8 +28,8 @@ export type Offer = {
   support: string; ownership: string; to: string; interest: string;
 };
 export const catalog: Offer[] = [
-  { id:'page', title:'Campaign Page', need:'I need a page for one offer.',
-    description:'A clear one-page website for your service or offer, with a tested way for customers to contact you.',
+  { id:'page', title:'Campaign Landing Page', need:'I need a page for one offer.',
+    description:'A focused page for one offer and one clear next step.',
     example:'A painting business needs one page for an exterior-painting campaign, with a tested estimate form.',
     once:650, founding:true, preparing:false, status:'Project fit and written order first',
     includes:['One page, up to seven sections and 1,000 approved words','One form with up to five fields OR one agreed native booking path','One consolidated revision and responsive, keyboard and zoom checks','Agreed editable-source or native-editor handoff'],
