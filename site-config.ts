@@ -40,7 +40,7 @@ export const catalog: Offer[] = [
     ownership:'Coded work includes the agreed editable source. Native platform work uses the editor/access/transfer route written in the order. Third-party licences remain separate.',
     to:'/landing-pages', interest:'websites' },
   { id:'website', title:'Small Business Website', need:'I need a small business website.',
-    description:'Up to three clear business pages with shared navigation and one inquiry route.',
+    description:'Introduce your business, explain your services and make it easy to get in touch.',
     example:'A cleaning company needs Home, Services and Contact pages, all pointing to one estimate request.',
     once:1250, founding:true, preparing:false, status:'Project fit and written order first',
     includes:['Up to three standard pages and 2,000 supplied or approved words','One shared design, navigation and inquiry integration','One consolidated revision and agreed delivery checks','Links to your approved policy material'],
