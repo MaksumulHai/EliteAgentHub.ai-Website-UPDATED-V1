@@ -31,7 +31,7 @@ const BookDemoPage: React.FC = () => {
                 </section>
 
                 <section className="card">
-                    <p id="calendar-help">Select your timezone and an available time. We will call the number you provide. If you have not received a call within 10 minutes of the appointment, call (804) 223-2111.</p>
+                    <p id="calendar-help">Select your timezone and an available time. The call is 30 minutes. Enter a usable callback number; we will call that number. If you have not received a call within 10 minutes of the appointment, call (804) 223-2111.</p>
                     <p><a className="button ink" href="https://api.leadconnectorhq.com/widget/booking/i5FDnRI93yvxtYQGNq1Q" target="_blank" rel="noopener noreferrer">Open discovery calendar (new tab)</a></p>
                     <p className="small">If the embedded calendar stays blank, use the same calendar above. An appointment is confirmed only when the calendar displays its confirmation.</p>
                     <div id="calendar-container" className="native-calendar-frame">

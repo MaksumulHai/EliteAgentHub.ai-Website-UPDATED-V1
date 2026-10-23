@@ -38,7 +38,7 @@ class RouteError extends Component<{ children: ReactNode; reset: string }, { fai
 function Shell() {
   const location = useLocation();
   return <><a className="skip" href="#main" onClick={e => { e.preventDefault(); document.getElementById('main')?.focus(); }}>Skip to content</a>
-    <Header/><RouteMetadata/>
+    {site.privateReview && <aside className="private-review-banner" aria-label="Private review status"><strong>Private review</strong> · Founding website prices are approved; other service prices remain proposals. Purchases and agent activation are unavailable. Existing contact and discovery calendar connect to real providers.</aside>}<Header/><RouteMetadata/>
     <main id="main" tabIndex={-1}><RouteError reset={location.pathname}><Suspense fallback={<div className="wrap section" role="status">Loading page… <a href={`mailto:${site.email}`}>Email the business</a></div>}><Routes>{routes.map(([path,,,name]) => { const Page = pages[name]; return <Route key={path} path={path} element={<Page key={path}/>}/>; })}<Route path="*" element={<NotFound/>}/></Routes><PageReady/></Suspense></RouteError></main><Footer/>
   </>;
 }

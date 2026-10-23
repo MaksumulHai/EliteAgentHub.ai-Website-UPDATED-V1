@@ -1,12 +1,13 @@
 
 import React from 'react';
+import {site} from '../site-config';
 
 const AiDisclaimerPage: React.FC = () => {
     return (
         <div className="section wrap reading public-policy">
             <div>
                 <h1>AI Disclaimer & No-Guarantee Notice</h1>
-                <p>Last Updated: December 2025</p>
+                <p>Last Updated: {site.policyUpdated}</p>
 
                 <div>
                     <p>
@@ -24,6 +25,7 @@ const AiDisclaimerPage: React.FC = () => {
                         <li>Capturing leads and basic information</li>
                         <li>Responding to frequently asked questions</li>
                     </ul>
+                    <p>These examples describe possible permitted uses, not features currently active in every service. Only the channels and actions included in an accepted scope and separately enabled are available. Services marked “preparing” are not ready for customer activation.</p>
                     <p>These tools are assistive only and are not human decision-makers.</p>
 
                     <h3>2. AI Is Not Perfect</h3>
@@ -59,19 +61,13 @@ const AiDisclaimerPage: React.FC = () => {
                     </ul>
                     <p>Results vary based on industry, configuration, usage, and external factors.</p>
                     <p>Any examples or references to potential benefits are illustrative only and not promises.</p>
+                    <p>These limitations do not cancel the deliverables, acceptance checks or correction obligations expressly agreed in your order. A lack of guaranteed sales or other business results does not excuse failure to perform that agreed work.</p>
 
                     <h3>5. Client Responsibility</h3>
-                    <p>You are solely responsible for:</p>
-                    <ul>
-                        <li>Reviewing and approving AI scripts, prompts, and workflows</li>
-                        <li>Ensuring outputs align with your business policies</li>
-                        <li>Monitoring AI performance and behavior</li>
-                        <li>Ensuring legal and regulatory compliance</li>
-                    </ul>
-                    <p>Elite Impact Lab LLC is not responsible for actions taken based on AI outputs.</p>
+                    <p>AI can make mistakes. You are responsible for the accuracy and authorized use of the business information and content you supply, and for approving your business rules. Elite Agent Hub remains responsible for the configuration, checks and other work it agrees to provide. Each party is responsible for its own conduct and the duties assigned to it in the accepted order. The order identifies who handles monitoring, permissions, notices, consent records, escalation and corrections. Nothing here removes rights or duties that applicable law does not allow a party to waive.</p>
 
-                    <h3>6. Human Oversight Recommended</h3>
-                    <p>AI tools are intended to augment, not replace, human judgment.</p>
+                    <h3>6. Human Oversight and Escalation</h3>
+                    <p>Each activated AI service must have a named person responsible for the monitoring and escalation agreed in its service scope. AI is not a substitute for professional advice or emergency services.</p>
                     <p>We strongly recommend:</p>
                     <ul>
                         <li>Ongoing monitoring of AI interactions</li>
@@ -80,14 +76,7 @@ const AiDisclaimerPage: React.FC = () => {
                     </ul>
 
                     <h3>7. Limitation of Liability</h3>
-                    <p>To the maximum extent permitted by law:</p>
-                    <p>Elite Impact Lab LLC shall not be liable for:</p>
-                    <ul>
-                        <li>Decisions made based on AI-generated content</li>
-                        <li>Errors or misunderstandings caused by AI</li>
-                        <li>Missed opportunities, losses, or damages related to AI usage</li>
-                    </ul>
-                    <p>Use of AI services is at your own risk.</p>
+                    <p>AI limitations and the absence of a business-results guarantee do not remove Elite Agent Hub’s obligations under an accepted order. Any limitation of liability is governed by the applicable Terms and accepted order, subject to rights and duties that cannot lawfully be excluded.</p>
 
                     <h3>8. Changes to This Disclaimer</h3>
                     <p>We may update this AI Disclaimer from time to time. Changes take effect when posted. Continued use constitutes acceptance.</p>

@@ -25,3 +25,53 @@ test('C09–C11: decimal-safe contribution cost coverage including exact and zer
   for(const k of ['value','margin'])assert.equal(run({[k]:'0'},true).result.cost.jobs,null);
   assert.equal(run({cost:'0.30',value:'0.10',margin:'100'},true).result.cost.jobs,'3');
 });
+
+const {calculateOpportunity,blankOpportunity,exampleOpportunity}=await import('../tools/opportunity.ts');
+const quick={mode:'quick',countMode:'daily',includeRange:false,includeCost:false};
+const opportunity=(fields={},options={})=>calculateOpportunity({...exampleOpportunity,...fields},{...quick,...options});
+test('Daily and monthly counting agree; already-followed-up prospects are removed',()=>{
+  const daily=opportunity().result;
+  assert.equal(daily.monthlyMissed,100);assert.equal(daily.unique,40);assert.equal(daily.alreadyFollowed,20);assert.equal(daily.unhandled,20);assert.equal(daily.jobs,5);assert.equal(daily.gross,2500);
+  assert.deepEqual(opportunity({}, {countMode:'monthly'}).result,daily);
+  assert.equal(opportunity({followedUp:'100'}).result.gross,0);
+  assert.equal(opportunity({followedUp:'0'}).result.gross,5000);
+});
+test('Daily decimal averages and fractional follow-up shares retain unrounded arithmetic',()=>{
+  const value=opportunity({dailyMissed:'2.5',days:'12',prospect:'40',followedUp:'50',completion:'25',value:'500'}).result;
+  assert.equal(value.monthlyMissed,30);assert.equal(value.jobs,1.5);assert.equal(value.gross,750);
+  const fractional=opportunity({dailyMissed:'1',days:'1',prospect:'100',followedUp:'12.5',completion:'100',value:'100'}).result;
+  assert.equal(fractional.unhandled,0.875);assert.equal(fractional.gross,87.5);
+});
+test('No silent defaults for unknown percentages, counts or values',()=>{
+  assert.equal(calculateOpportunity(blankOpportunity,quick).result,null);
+  for(const field of ['dailyMissed','days','prospect','followedUp','completion','value'])assert.ok(opportunity({[field]:''}).errors[field]);
+  for(const bad of ['101','-1','Infinity','1e2','0.001'])assert.ok(opportunity({followedUp:bad}).errors.followedUp);
+  assert.ok(opportunity({days:'2.5'}).errors.days);
+  assert.ok(opportunity({monthlyMissed:'1.5'},{countMode:'monthly'}).errors.monthlyMissed);
+  assert.ok(opportunity({dailyMissed:'10000',days:'31'}).errors.dailyMissed);
+});
+test('Quick mode needs no dates; records mode validates dates and actual counted days',()=>{
+  assert.equal(opportunity({month:'',cutoff:''}).result.gross,2500);
+  assert.ok(opportunity({month:'',cutoff:''},{mode:'records'}).errors.month);
+  assert.ok(opportunity({cutoff:'2026-09-29'},{mode:'records'}).errors.cutoff);
+  assert.ok(opportunity({month:'2026-02',cutoff:'2026-03-01',days:'31'},{mode:'records'}).errors.days);
+  assert.ok(opportunity({month:'2026-02',cutoff:'2026-03-01',days:'28'},{mode:'records'}).result);
+});
+test('Editable assumption range uses the same follow-up share; rejects inconsistent ends',()=>{
+  assert.deepEqual(opportunity({}, {includeRange:true}).result.range,{low:1000,high:4000});
+  assert.deepEqual(opportunity({followedUp:'100'}, {includeRange:true}).result.range,{low:0,high:0});
+  assert.ok(opportunity({low:'30'},{includeRange:true}).errors.low);
+  assert.ok(opportunity({high:'20'},{includeRange:true}).errors.low);
+  assert.ok(opportunity({low:''},{includeRange:true}).errors.low);
+  assert.equal(opportunity({low:'',high:''}).result.range,null);
+});
+test('Optional cost uses contribution, not gross revenue or a hidden plan price',()=>{
+  assert.deepEqual(opportunity({}, {includeCost:true}).result.cost,{contribution:200,noCost:false,jobs:'2'});
+  assert.equal(opportunity({cost:'0.30',value:'0.10',margin:'100'},{includeCost:true}).result.cost.jobs,'3');
+  assert.equal(opportunity({margin:'0'},{includeCost:true}).result.cost.jobs,null);
+  assert.equal(opportunity({cost:'0'},{includeCost:true}).result.cost.jobs,'0');
+  assert.equal(opportunity({cost:'',margin:''}).result.cost,null);
+});
+test('Business context never injects industry assumptions',()=>{
+  assert.deepEqual(opportunity({businessType:'Painting'}).result,opportunity({businessType:'Cleaning'}).result);
+});

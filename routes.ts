@@ -4,7 +4,7 @@ export const routes = [
   ['/how-it-works','Process','Agree the scope, build or configure, test and hand off.','HowItWorksPage'],
   ['/about','About','Elite Agent Hub, a brand of Elite Impact Lab LLC; AI-assisted production with clear responsibilities.','AboutPage'],
   ['/contact','Discuss your business','Discuss your business through our native Contact form or email.','ContactPage'],
-  ['/pricing','Scope & pricing','Project and service scopes, quoted after fit and readiness review.','PricingPage'],
+  ['/pricing','Founding website pricing','Founding customer website offers at $650 and $1,250; proposed agent prices, limits and written order steps.','PricingPage'],
   ['/roi-calculator','Missed-call opportunity planner','Free local monthly scenario with transparent assumptions and optional contribution-based cost coverage.','RoiCalculatorPage'],
   ['/missed-call-calculator','Missed-call opportunity planner','Alias of the same transparent monthly opportunity scenario and optional cost coverage.','MissedCallCalculatorPage'],
   ['/website-scan','Website content check','Local HTML/text observations and literal phrase matching; live outcomes and URL retrieval are not assessed.','WebsiteScannerPage'],

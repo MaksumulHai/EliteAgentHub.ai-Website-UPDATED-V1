@@ -1,12 +1,13 @@
 
 import React from 'react';
+import {site, foundingWebsiteDefects} from '../site-config';
 
 const TermsPage: React.FC = () => {
     return (
         <div className="section wrap reading public-policy">
             <div>
                 <h1>Terms of Service</h1>
-                <p>Last Updated: October 15, 2026</p>
+                <p>Last Updated: {site.policyUpdated}</p>
 
                 <div>
                     <p>
@@ -58,6 +59,8 @@ const TermsPage: React.FC = () => {
                     <p>The accepted written proposal or order identifies the buyer and approver, platform, pages or sections, content and asset inputs, integrations, schedule, included revisions, testing and acceptance criteria, support, and handoff. Updates beyond that scope require a separately agreed change. Delivery depends on the agreed inputs and compatible access; no fixed turnaround or business result is promised by this description.</p>
                     <p>The order distinguishes editable coded-source delivery from native hosted-site editor access. It identifies domain and hosting owners, renewal payers, backups, and the agreed export, transfer or exit method. Native platform access does not imply portable source export. Project-specific handoff and agency rights are addressed in Section 9.</p>
 
+                    <p>For the current founding website offers: {foundingWebsiteDefects}</p>
+
                     <h3>3. Eligibility & Accounts</h3>
                     <p>You must be at least 18 years old and legally able to enter into binding contracts to use our services.</p>
                     <p>You are responsible for:</p>
@@ -76,12 +79,7 @@ const TermsPage: React.FC = () => {
                     <p>For one-time projects, the specific accepted order controls project fees, deliverables, acceptance, cancellation and handoff. The subscription provisions in Sections 4.1, 4.2, 5.1 and 5.2 apply only to a separately purchased subscription; they do not create a project subscription or define a project refund policy. For one-time projects, the accepted written order's cancellation and refund terms also take precedence over inconsistent subscription language in the separate Refund Policy, even where that policy refers generally to all services. This exception does not change the refund terms of a separately purchased subscription. Section 4.4 does not change an accepted fixed project price without agreement. Applicable nonwaivable rights remain unaffected.</p>
 
                     <h4>4.1 Subscription Plans</h4>
-                    <p>Elite Agent Hub offers subscription plans on a:</p>
-                    <ul>
-                        <li>Monthly recurring basis</li>
-                        <li>Yearly recurring basis (with available discounts)</li>
-                    </ul>
-                    <p>Plan features, pricing, usage limits, and inclusions are displayed on our website or checkout pages and may change over time.</p>
+                    <p>A recurring service is available only when expressly offered and accepted in a separate order. That order identifies the billing interval, price, included usage, activation requirements and cancellation terms before billing. No annual plan is currently offered. Purchasing a one-time website does not start a subscription.</p>
                     <p>Prices do not include applicable taxes, carrier fees, or usage-based charges unless explicitly stated.</p>
 
                     <h4>4.2 Recurring Billing Authorization</h4>
@@ -135,12 +133,7 @@ const TermsPage: React.FC = () => {
                     <p>We reserve the right to deny refunds in cases of abuse or excessive usage.</p>
 
                     <h4>5.3 Chargebacks</h4>
-                    <p>Filing a chargeback without first contacting us may result in:</p>
-                    <ul>
-                        <li>Immediate suspension or termination of your account</li>
-                        <li>Loss of access to services</li>
-                    </ul>
-                    <p>We may submit usage records, logs, and agreement acceptance to dispute invalid chargebacks.</p>
+                    <p>Please contact support@eliteagenthub.ai about a billing error so we can investigate. This request does not limit any right to contact your payment provider or use an available dispute process. Raising a good-faith billing dispute does not by itself forfeit an agreed refund or paid deliverable. We may provide accurate order, payment and service records in responding to a dispute. Separate issues such as actual nonpayment, fraud or misuse are addressed under the applicable order and Terms.</p>
 
                     <h3>6. AI Use & Critical Limitations</h3>
                     
@@ -157,21 +150,10 @@ const TermsPage: React.FC = () => {
                     <p>You are responsible for configuring your agent to direct emergencies to 911 or local emergency services.</p>
 
                     <h4>6.2 AI Accuracy & Responsibility</h4>
-                    <p>You acknowledge that:</p>
-                    <ul>
-                        <li>AI systems may misunderstand inputs or generate inaccurate outputs</li>
-                        <li>You are responsible for reviewing and supervising all configurations, scripts, prompts, and workflows</li>
-                    </ul>
-                    <p>Elite Impact Lab LLC is not responsible for decisions made based on AI outputs.</p>
+                    <p>AI can make mistakes. You are responsible for the accuracy and authorized use of the business information and content you supply, and for approving your business rules. Elite Agent Hub remains responsible for the configuration, checks and other work it agrees to provide. Each party is responsible for its own conduct and the duties assigned to it in the accepted order. The order identifies who handles monitoring, permissions, notices, consent records, escalation and corrections. Nothing here removes rights or duties that applicable law does not allow a party to waive.</p>
 
                     <h4>6.3 Compliance & Sensitive Data</h4>
-                    <p>You agree not to use the services to collect or process:</p>
-                    <ul>
-                        <li>Social Security numbers</li>
-                        <li>Full payment card details by voice or chat</li>
-                        <li>Protected health information (PHI) unless explicitly agreed in writing</li>
-                    </ul>
-                    <p>If you operate in a regulated industry, you are solely responsible for legal compliance, including consent and disclosure requirements.</p>
+                    <p>Do not submit Social Security numbers, full payment-card details, health records or other sensitive personal information through our ordinary forms, email or AI channels. Regulated-data work is outside the current offer. Any future exception requires a separately approved scope, applicable legal review, necessary provider agreements and enabled safeguards before processing begins. A signed order alone does not enable that use.</p>
 
                     <h3>7. Acceptable Use</h3>
                     <p>You may not use the services to:</p>
@@ -180,8 +162,9 @@ const TermsPage: React.FC = () => {
                         <li>Send spam or unsolicited communications</li>
                         <li>Violate privacy or intellectual property rights</li>
                         <li>Impersonate individuals or entities</li>
-                        <li>Reverse engineer or interfere with platform operations</li>
+                        <li>Unauthorized reverse engineering or interference with platform operations</li>
                     </ul>
+                    <p>Unauthorized reverse engineering, extraction of source code, or access to hosted infrastructure or other customers’ data is prohibited. This does not prevent editing, deploying or transferring delivered project files under rights expressly granted in your accepted order. Third-party licence restrictions and platform security rules still apply.</p>
                     <p>We reserve the right to suspend or terminate accounts that violate these rules.</p>
 
                     <h3>8. Customer Care SMS Program</h3>
@@ -209,6 +192,7 @@ const TermsPage: React.FC = () => {
                     <p>We do not guarantee uninterrupted service or 100% uptime.</p>
                     <p>We may modify, update, or discontinue features at any time.</p>
                     <p>If material changes occur, we will make reasonable efforts to notify you.</p>
+                    <p>These limitations do not cancel the deliverables, acceptance checks or correction obligations expressly agreed in your order. A lack of guaranteed sales or other business results does not excuse failure to perform that agreed work.</p>
 
                     <h3>11. Disclaimer of Warranties</h3>
                     <p>The services are provided “AS IS” and “AS AVAILABLE”, without warranties of any kind.</p>
@@ -218,6 +202,7 @@ const TermsPage: React.FC = () => {
                         <li>Fitness for a particular purpose</li>
                         <li>Accuracy or reliability of AI outputs</li>
                     </ul>
+                    <p>These limitations do not cancel the deliverables, acceptance checks or correction obligations expressly agreed in your order. A lack of guaranteed sales or other business results does not excuse failure to perform that agreed work.</p>
 
                     <h3>12. Limitation of Liability</h3>
                     <p>To the fullest extent permitted by law:</p>

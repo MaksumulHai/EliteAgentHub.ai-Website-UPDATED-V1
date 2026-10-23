@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import SectionLink from './SectionLink';
-import { agentExperienceReady } from '../site-config';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -19,8 +18,8 @@ export default function Header() {
   return <header className="header"><div className="wrap header-inner">
     <Link className="brand" to="/" aria-label="Elite Agent Hub home"><img src="/assets/brand/original-eah-logo.avif" className="original-logo" width="60" height="59" alt=""/><span>Elite Agent Hub</span></Link>
     <nav ref={nav} id="site-navigation" aria-label="Main navigation" className={`navigation ${open ? 'is-open' : ''}`} onClick={() => setOpen(false)}>
-      <SectionLink id="services">Services</SectionLink><SectionLink id="agent-experience">{agentExperienceReady ? 'Try the agents' : 'Explore the agents'}</SectionLink><SectionLink id="work">Sample work</SectionLink><Link to="/resources">Tools & guides</Link><SectionLink id="faq">FAQ</SectionLink>
-    </nav><Link className="button mint header-cta" to="/contact">Discuss your business</Link>
+      <NavLink to="/" end>Home</NavLink><Link to="/solutions">Services</Link><Link to="/pricing">Pricing</Link><SectionLink id="work">Examples</SectionLink><Link to="/resources">Tools</Link><Link to="/faq">FAQ</Link>
+    </nav><Link className="button mint header-cta" to="/book-demo">Book a discovery call</Link>
     <button ref={toggle} className="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? 'Close menu' : 'Menu'}</button>
   </div></header>;
 }

@@ -1,12 +1,13 @@
 
 import React from 'react';
+import {site, foundingWebsiteDefects} from '../site-config';
 
 const RefundPolicyPage: React.FC = () => {
     return (
         <div className="section wrap reading public-policy">
             <div>
                 <h1>Refund & Cancellation Policy</h1>
-                <p>Last Updated: October 20, 2026</p>
+                <p>Last Updated: {site.policyUpdated}</p>
 
                 <div>
                     <p>
@@ -19,10 +20,12 @@ const RefundPolicyPage: React.FC = () => {
                     <h3>One-time website and service projects</h3>
                     <p>For a one-time website, landing-page, update or other separately scoped project, the accepted written order sets the price, payment milestones, acceptance, cancellation and refund terms. Those project terms take precedence over inconsistent subscription language on this page. Purchasing a one-time project does not create a subscription or authorize recurring charges. Applicable nonwaivable rights remain unaffected.</p>
 
+                    <p>For the current founding website offers: {foundingWebsiteDefects}</p>
+
                     <h3>Subscription Model Overview</h3>
-                    <p>Separately purchased subscriptions are billed on a monthly or yearly basis.</p>
+                    <p>The subscription provisions below apply only to a separately accepted subscription and its agreed billing interval. They do not make a plan available, activate a service or change the terms already accepted for an existing subscription. No annual plan is currently offered.</p>
                     <ul>
-                        <li>Plans are billed on a monthly or yearly recurring basis</li>
+                        <li>Only the billing interval in the separately accepted subscription applies</li>
                         <li>Charges recur automatically unless canceled</li>
                         <li>Service availability depends on the agreed scope, required setup and testing.</li>
                     </ul>
@@ -87,18 +90,17 @@ const RefundPolicyPage: React.FC = () => {
                     <p>These charges are non-refundable and billed based on actual usage.</p>
 
                     <h3>Chargebacks & Payment Disputes</h3>
-                    <p>Contact us first to resolve billing issues.</p>
-                    <p>Filing a chargeback without attempting resolution may result in account suspension/termination and loss of access.</p>
-                    <p>We may dispute chargebacks using logs and usage records.</p>
+                    <p>Please contact support@eliteagenthub.ai about a billing error so we can investigate. This request does not limit any right to contact your payment provider or use an available dispute process. Raising a good-faith billing dispute does not by itself forfeit an agreed refund or paid deliverable. We may provide accurate order, payment and service records in responding to a dispute. Separate issues such as actual nonpayment, fraud or misuse are addressed under the applicable order and Terms.</p>
 
                     <h3>Service Termination by Elite Agent Hub</h3>
-                    <p>We may suspend or terminate service without refund if:</p>
+                    <p>We may suspend or terminate service if:</p>
                     <ul>
                         <li>Policies are violated</li>
                         <li>Illegal or abusive activity is detected</li>
                         <li>Payment obligations are not met</li>
                         <li>Carrier or platform rules are violated</li>
                     </ul>
+                    <p>Any cancellation, refund or treatment of prepaid amounts follows the accepted order and applicable refund policy, subject to rights that cannot be waived. A suspension does not by itself decide a refund claim.</p>
 
                     <h3>Good-Faith Review & Exceptional Circumstances</h3>
                     <p>While our Refund & Cancellation Policy is enforced as written, Elite Agent Hub understands that exceptional circumstances may occur.</p>
@@ -126,7 +128,7 @@ const RefundPolicyPage: React.FC = () => {
                         <li>Third-party carrier or platform issues</li>
                     </ul>
 
-                    <p>All decisions made under this review process are final.</p>
+                    <p>This is our internal review outcome. It does not remove any nonwaivable right or available external dispute process.</p>
 
                     <h3>Changes to This Policy</h3>
                     <p>We may update this policy from time to time. Changes take effect when posted.</p>

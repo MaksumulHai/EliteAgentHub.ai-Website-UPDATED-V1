@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ArrowIcon from './ArrowIcon';
 
 const slides = [
   {
@@ -92,8 +93,8 @@ export default function HeroCarousel() {
       </div>
     </div>
     <div className="wrap hero-controls">
-      <div className="hero-direction"><button type="button" aria-label="Previous slide" aria-controls="hero-slides" onClick={() => selectSlide(active - 1)}>←</button>
-        <button type="button" aria-label="Next slide" aria-controls="hero-slides" onClick={() => selectSlide(active + 1)}>→</button></div>
+      <div className="hero-direction"><button type="button" aria-label="Previous slide" aria-controls="hero-slides" onClick={() => selectSlide(active - 1)}><ArrowIcon direction="left" chevron/></button>
+        <button type="button" aria-label="Next slide" aria-controls="hero-slides" onClick={() => selectSlide(active + 1)}><ArrowIcon chevron/></button></div>
       <div className="hero-indicators" role="group" aria-label="Choose a service slide">{slides.map((slide, index) =>
         <button type="button" key={slide.image} aria-label={`Show slide ${index + 1}: ${slide.name}`} aria-current={index === active ? 'true' : undefined}
           aria-controls="hero-slides" onClick={() => selectSlide(index)}><span aria-hidden="true"/></button>)}</div>

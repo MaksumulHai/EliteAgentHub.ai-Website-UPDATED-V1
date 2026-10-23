@@ -1,12 +1,13 @@
 
 import React from 'react';
+import {site} from '../site-config';
 
 const PrivacyPolicyPage: React.FC = () => {
     return (
         <div className="section wrap reading public-policy">
             <div>
                 <h1>Privacy Policy</h1>
-                <p>Last Updated: October 15, 2026</p>
+                <p>Last Updated: {site.policyUpdated}</p>
 
                 <div>
                     <p>
@@ -70,7 +71,7 @@ const PrivacyPolicyPage: React.FC = () => {
                     <p>See the <a href="/#/terms">Customer Care SMS terms</a> for the program details. Sending depends on completed registration, sender and consent setup; this notice does not designate the public business-contact number as an SMS sender.</p>
 
                     <h3>4. Call Recording & AI Processing</h3>
-                    <p>Calls or messages may be processed by AI systems and may be recorded or transcribed for quality, training, or compliance (where permitted).</p>
+                    <p>When an AI communication channel is enabled, we and the providers operating it may process audio or message content, contact details and technical records to provide the agreed service. Depending on the enabled configuration, records can include summaries, transcripts and audio recordings. An exclusion from a service package does not mean the provider creates no records. Any recording notice and permission required for the particular channel must be addressed before that channel is used.</p>
                     <p>We do not guarantee the accuracy of AI-generated outputs.</p>
 
                     <h3>5. How Information Is Shared</h3>
@@ -82,14 +83,14 @@ const PrivacyPolicyPage: React.FC = () => {
                         <li>Payment processors (e.g., Stripe)</li>
                         <li>Analytics and hosting providers</li>
                     </ul>
-                    <p>These providers are required to protect your data.</p>
+                    <p>Provider processing is subject to the applicable service agreements and privacy notices. We remain responsible for our own handling of information and our agreed safeguards.</p>
 
                     <h4>Mobile information and SMS consent</h4>
                     <p>No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
                     <p>These SMS-specific restrictions govern the general sharing and disclosure categories elsewhere in this notice.</p>
 
                     <h3>6. Client Responsibility for End-User Data</h3>
-                    <p>If you are a business using Elite Agent Hub services, you are responsible for obtaining consent from your customers and complying with applicable laws (TCPA, CAN-SPAM, GDPR, etc.). Elite Agent Hub acts as a technology provider and is not responsible for client misuse.</p>
+                    <p>For a customer’s end-user data, the accepted scope and any required data-processing terms identify the parties’ roles and instructions. The customer is responsible for the authority and permissions needed for its use of that data. Elite Agent Hub remains responsible for its own processing and agreed safeguards. Contract wording does not remove either party’s applicable legal duties.</p>
 
                     <h3>7. Data Retention</h3>
                     <p>We retain data only as long as necessary to provide services, comply with law, resolve disputes, and enforce agreements.</p>
