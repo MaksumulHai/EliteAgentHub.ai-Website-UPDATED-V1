@@ -11,7 +11,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
                 <div>
                     <p>
-                        Elite Agent Hub (“Elite Agent Hub,” “we,” “us,” or “our”) is a brand operated by Elite Impact Lab LLC (“Elite Impact Lab LLC”). We operate https://eliteagenthub.ai and provide agreed website and landing-page builds and updates, AI voice/phone assistance, and AI website-chat services for businesses. Related forms, CRM/workflows, booking and payment integrations depend on the accepted service scope and enabled configuration.
+                        Elite Agent Hub (“Elite Agent Hub,” “we,” “us,” or “our”) is a brand operated by Elite Impact Lab LLC (“Elite Impact Lab LLC”). We operate https://eliteagenthub.ai and provide agreed website and landing-page builds and updates, optional managed website hosting, checks, support and updates, AI voice/phone assistance, and AI website-chat services for businesses. Related forms, CRM/workflows, booking and payment integrations depend on the accepted service scope and enabled configuration.
                     </p>
                     <p>
                         This Privacy Policy explains what data we collect, how we use it, how it is shared, and your rights regarding your personal information.
@@ -53,9 +53,9 @@ const PrivacyPolicyPage: React.FC = () => {
                     <h3>2. How We Use Information</h3>
                     <p>We use information to:</p>
                     <ul>
-                        <li>Provide and operate our agreed services, including website and landing-page builds and updates</li>
+                        <li>Provide and operate our agreed services, including website and landing-page builds and updates and agreed managed website hosting, checks, support and updates</li>
                         <li>Respond to inquiries and requests</li>
-                        <li>Deliver AI voice, chat, and SMS functionality</li>
+                        <li>Deliver AI voice, chat or SMS functionality only where that separate channel is agreed and enabled.</li>
                         <li>Send appointment confirmations and service messages</li>
                         <li>Improve service quality and performance</li>
                         <li>Comply with legal and carrier requirements</li>
@@ -91,6 +91,8 @@ const PrivacyPolicyPage: React.FC = () => {
 
                     <h3>6. Client Responsibility for End-User Data</h3>
                     <p>For a customer’s end-user data, the accepted scope and any required data-processing terms identify the parties’ roles and instructions. The customer is responsible for the authority and permissions needed for its use of that data. Elite Agent Hub remains responsible for its own processing and agreed safeguards. Contract wording does not remove either party’s applicable legal duties.</p>
+
+                    <p>Managed website work can require access to agreed website files, change requests, technical records and the form or booking records necessary for the service. Before access, the accepted scope identifies permissions, responsible contacts and any required data-processing terms. Website ownership, a source-file handoff and continued operation of third-party forms/calendars are separate matters. Purchasing a website or care plan does not by itself activate a customer-facing AI agent or authorize SMS.</p>
 
                     <h3>7. Data Retention</h3>
                     <p>We retain data only as long as necessary to provide services, comply with law, resolve disputes, and enforce agreements.</p>

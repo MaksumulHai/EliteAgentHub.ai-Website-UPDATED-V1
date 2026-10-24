@@ -6,6 +6,7 @@ import {createRequire} from 'node:module';
 import ts from 'typescript';
 import {parseFragment} from 'parse5';
 import * as config from '../site-config.ts';
+import {faqs} from '../content.ts';
 const require=createRequire(import.meta.url);
 const {renderToStaticMarkup}=require('react-dom/server');
 const React=require('react');
@@ -35,11 +36,11 @@ test('Five materially changed policies share the centrally reviewable publicatio
  for(const name of ['TermsPage','AcceptableUsePage','AiDisclaimerPage','PrivacyPolicyPage','RefundPolicyPage']){assert.ok(text(name).includes('Last Updated: '+config.site.policyUpdated));assert.ok(text(name).includes('support@eliteagenthub.ai'));}
  assert.match(source('PrivacyPolicyPage'),/href="\/#\/terms"/);assert.match(source('TermsPage'),/href="\/#\/privacy-policy"/);
 });
-test('Approved14-day report window stays distinct from refunds with timely repairs owed, no new SLA and original founding prices',()=>{
+test('Standalone 14-day report window stays distinct from refunds and managed launch obligations',()=>{
  const d=config.foundingWebsiteDefects;assert.match(d,/within 14 calendar days after accepted handoff/);assert.match(d,/correcting timely reported defects even if repairs finish after that window/);assert.match(d,/not a refund window/);
- for(const o of config.catalog.filter(o=>o.founding)){assert.ok(o.support.startsWith(d));assert.doesNotMatch(o.support,/business days|50\/50|money.back/);}
+ for(const o of config.catalog.filter(o=>o.founding && !o.monthly)){assert.ok(o.support.startsWith(d));assert.doesNotMatch(o.support,/business days|50\/50|money.back/);}
  for(const n of ['TermsPage','RefundPolicyPage'])assert.ok(text(n).includes(d));
- const content=readFileSync(new URL('../content.ts',import.meta.url),'utf8');assert.match(content,/foundingWebsiteDefects \+ ' New preferences/);
+ const content=readFileSync(new URL('../content.ts',import.meta.url),'utf8');assert.match(faqs.find(f=>f.id==='support').answer,/timely reported corrections remain owed afterward/);
  const pages=readFileSync(new URL('../pages/RevivalPages.tsx',import.meta.url),'utf8');assert.equal((pages.match(/\{foundingWebsiteDefects\}/g)||[]).length,2);assert.doesNotMatch(pages,/Fourteen calendar days of defect correction|14-calendar-day defect-correction/);
- assert.deepEqual(config.catalog.filter(o=>o.founding).map(o=>o.once),[650,1250]);assert.equal(config.site.payment.status,'held');assert.equal(config.site.privateReview,false);
+ assert.deepEqual(config.catalog.filter(o=>o.founding).map(o=>o.once),[650,1250,999]);assert.equal(config.site.payment.status,'held');assert.equal(config.site.privateReview,false);
 });

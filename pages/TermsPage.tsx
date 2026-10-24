@@ -35,7 +35,7 @@ const TermsPage: React.FC = () => {
                     <h3>2. Description of Services</h3>
                     <p>Our service categories include:</p>
                     <ul>
-                        <li>Building and updating agreed websites and landing pages for businesses, including agency overflow projects</li>
+                        <li>Building and updating agreed websites and landing pages for businesses, including agency overflow projects and optional managed website hosting, checks, support and limited updates</li>
                         <li>Configuring AI voice/phone assistance for agreed business inquiries and tasks</li>
                         <li>Configuring AI website-chat assistance for agreed business inquiries and tasks</li>
                     </ul>
@@ -57,9 +57,9 @@ const TermsPage: React.FC = () => {
 
                     <h4>Website and landing-page projects</h4>
                     <p>The accepted written proposal or order identifies the buyer and approver, platform, pages or sections, content and asset inputs, integrations, schedule, included revisions, testing and acceptance criteria, support, and handoff. Updates beyond that scope require a separately agreed change. Delivery depends on the agreed inputs and compatible access; no fixed turnaround or business result is promised by this description.</p>
-                    <p>The order distinguishes editable coded-source delivery from native hosted-site editor access. It identifies domain and hosting owners, renewal payers, backups, and the agreed export, transfer or exit method. Native platform access does not imply portable source export. Project-specific handoff and agency rights are addressed in Section 9.</p>
+                    <p>The current website offers use coded templates. The order identifies website source and build instructions, domain and hosting owners, renewal payers, provider dependencies, access, backup responsibilities and the agreed technical handoff or exit. Source files require technical skills to maintain and are not a visual content editor. A different platform requires a separate written scope.</p>
 
-                    <p>For the current founding website offers: {foundingWebsiteDefects}</p>
+                    <p>For one-time founding website projects: {foundingWebsiteDefects}</p>
 
                     <h3>3. Eligibility & Accounts</h3>
                     <p>You must be at least 18 years old and legally able to enter into binding contracts to use our services.</p>
@@ -78,7 +78,10 @@ const TermsPage: React.FC = () => {
                     <p>The order identifies included and additional third-party costs, such as domain, hosting, software, telephony, registration and usage charges, with the responsible payer. Additional scope or costs require agreement before they are incurred on the customer's behalf. No particular project price, allowance or free trial is created by this section.</p>
                     <p>For one-time projects, the specific accepted order controls project fees, deliverables, acceptance, cancellation and handoff. The subscription provisions in Sections 4.1, 4.2, 5.1 and 5.2 apply only to a separately purchased subscription; they do not create a project subscription or define a project refund policy. For one-time projects, the accepted written order's cancellation and refund terms also take precedence over inconsistent subscription language in the separate Refund Policy, even where that policy refers generally to all services. This exception does not change the refund terms of a separately purchased subscription. Section 4.4 does not change an accepted fixed project price without agreement. Applicable nonwaivable rights remain unaffected.</p>
 
+                    <p>For the published website offers, half of the build/setup price is due after complete written order acceptance and before work. The remaining half is due after written preview acceptance, before publication or final handoff. A managed website's setup fee pays for the build and is separate from monthly care; it is not the first subscription billing period. Setup installments are not automatically earned or non-refundable.</p>
+                    <p>For a one-time website, the customer pays agreed hosting, domain and continuing provider costs directly. Managed website care includes the commercial hosting and platform access expressly stated in the offer/order. Domain renewal, applicable tax and separately agreed premium or metered charges remain additional. Included costs are not charged twice, and extra work or costs require agreement before being incurred on the customer's behalf.</p>
                     <h4>4.1 Subscription Plans</h4>
+                    <p>Managed website care is optional and billed monthly from the agreed, successfully verified launch date under written recurring authorization. A deposit, preview, inquiry or discovery booking does not start care. No annual plan or annual minimum is offered for this managed website package. The complete order states the monthly scope, renewal date, cancellation/refund treatment, provider responsibilities and exit arrangements before any payment.</p>
                     <p>A recurring service is available only when expressly offered and accepted in a separate order. That order identifies the billing interval, price, included usage, activation requirements and cancellation terms before billing. No annual plan is currently offered. Purchasing a one-time website does not start a subscription.</p>
                     <p>Prices do not include applicable taxes, carrier fees, or usage-based charges unless explicitly stated.</p>
 
@@ -103,6 +106,7 @@ const TermsPage: React.FC = () => {
                     <p>Continued use after the effective date constitutes acceptance of updated pricing.</p>
 
                     <h3>5. Cancellation & Refunds</h3>
+                    <p>Website build/setup cancellation is governed by the project calculation in the accepted order and Refund & Cancellation Policy, including when setup accompanies managed care. Monthly care is a separate subscription. Its complete order must identify its cancellation/refund and exit terms before payment and expressly resolve any conflict with these general subscription provisions. Listing a price does not complete that order or activate billing. Existing accepted customer terms and applicable nonwaivable rights are not changed by this clarification.</p>
                     
                     <h4>5.1 Cancellation</h4>
                     <p>You may cancel your subscription at any time via:</p>
@@ -178,7 +182,7 @@ const TermsPage: React.FC = () => {
                     
                     <h4>9.1 Existing materials and project deliverables</h4>
                     <p>Pre-existing software, tools, templates and methods remain with their owners. Third-party software, fonts, images and other assets retain their applicable licenses. The written project order identifies project-specific ownership or license rights, permitted uses, any attribution, and the handoff conditions.</p>
-                    <p>For a coded project, the order specifies the editable source and build/deployment instructions to be delivered at the agreed paid handoff. For a native hosted project, it specifies editor access and supported transfer or exit arrangements. A hosted-service license is limited to the agreed service use, except where the project order expressly grants broader deliverable rights.</p>
+                    <p>The current website offers use coded templates. The order identifies website source and build instructions, domain and hosting owners, renewal payers, provider dependencies, access, backup responsibilities and the agreed technical handoff or exit. Source files require technical skills to maintain and are not a visual content editor. A different platform requires a separate written scope. Third-party rights and the explicit agency/end-client rights in the accepted order remain applicable.</p>
 
                     <h4>9.2 Your Content</h4>
                     <p>You retain ownership of your business data and content.</p>

@@ -1,37 +1,31 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {catalog,catalogVersion,foundingWebsiteCapacity,site} from '../site-config.ts';
+import {catalog,catalogVersion,foundingWebsiteCapacity,foundingWebsiteAvailability,websiteOfferDetails,websiteSharedDetails,site} from '../site-config.ts';
+import {faqs} from '../content.ts';
 const source=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
-test('Only the two approved one-time website offers have founding prices and shared capacity',()=>{
- assert.match(catalogVersion,/2026-10-21-approved-founding/);
- assert.deepEqual(catalog.filter(o=>o.founding).map(({id,once,monthly,preparing,interest})=>({id,once,monthly,preparing,interest})),[
-  {id:'page',once:650,monthly:undefined,preparing:false,interest:'websites'},
-  {id:'website',once:1250,monthly:undefined,preparing:false,interest:'websites'}]);
- assert.deepEqual(foundingWebsiteCapacity,{initialCustomers:2,maxActiveBuilds:2,reviewBeforeTotalExtension:5});
+test('Three locked website choices share bounded founding capacity and no competing care option',()=>{
+ assert.equal(catalogVersion,'2026-10-23-locked-three-website-options-v2');
+ assert.deepEqual(catalog.filter(o=>o.founding).map(o=>[o.id,o.once,o.monthly,o.preparing,o.interest]),[['page',650,undefined,false,'websites'],['website',1250,undefined,false,'websites'],['managed-website',999,250,false,'websites']]);
+ assert.equal(catalog.some(o=>o.id==='care'),false);
+ assert.deepEqual(foundingWebsiteCapacity,{initialCustomers:2,maxActiveBuilds:2,reviewBeforeTotalExtension:5});assert.match(foundingWebsiteAvailability,/all three website options/);
 });
-test('Approval preserves the bounded scope,14-day defect period and does not enable payment or agents',()=>{
- for(const offer of catalog.filter(o=>o.founding)){
-  assert.match(offer.support,/14 calendar days/);assert.match(offer.includes.join(' '),/One consolidated revision/);
-  assert.doesNotMatch(offer.process,/50\/50|325|625/);assert.match(offer.process,/payment/);
+test('Installments sum to exact build prices and care starts only on verified authorized launch',()=>{
+ for(const [id,half] of [['page',325],['website',625],['managed-website',499.50]]){
+  assert.equal(half*2,catalog.find(o=>o.id===id).once);const pay=websiteOfferDetails[id].payment;
+  assert.equal((pay.match(new RegExp('\\$'+String(half).replace('.','\\.'),'g'))||[]).length,2);
+  assert.match(pay,/after complete order acceptance and before work/);assert.match(pay,/after written preview acceptance, before publication or final handoff/);
  }
- assert.match(catalog[0].includes.join(' '),/seven sections and 1,000/);assert.match(catalog[1].includes.join(' '),/three standard pages and 2,000/);
- assert.equal(site.privateReview,false);assert.equal(site.payment.status,'held');assert.deepEqual(site.payment.approvedOrders,[]);
- for(const id of ['chat','voice-chat','text','care','review']){const o=catalog.find(o=>o.id===id);assert.equal(o.preparing,true);assert.ok(!o.founding);}
- assert.deepEqual(catalog.filter(o=>o.monthly).map(o=>[o.id,o.once,o.monthly]),[['chat',699,349],['voice-chat',999,549],['text',299,149],['care',0,99]]);
+ const m=websiteOfferDetails['managed-website'];assert.match(m.payment,/successfully verified launch date with written recurring authorization/);assert.match(m.payment,/No care charge starts merely/);assert.match(m.total,/\$3,999: \$999 setup \+ \$3,000 care/);assert.equal(999+250*12,3999);assert.match(m.total,/not an annual minimum/);
 });
-test('Visitor pricing surfaces contain no former prices, conditional campaign pilot, or blanket proposal claim',()=>{
- const paths=['site-config.ts','components/OfferCatalogue.tsx','pages/RevivalPages.tsx','content.ts','App.tsx','routes.ts','index.html'];
- for(const path of paths){const text=source(path);assert.doesNotMatch(text,/\$950|\$1,?650|once:950|once:1650|Private pilot proposal|conditional pilot|Prices are proposed|prices here are private proposals/i,path);}
- const pages=source('pages/RevivalPages.tsx');assert.match(pages,/Founding customer website offers/);assert.match(pages,/\$650 once/);assert.match(pages,/\$1,250 once/);assert.match(pages,/two founding places are shared across both website offers/);
- const faq=source('content.ts');assert.match(faq,/founding website prices are \$650 once/);assert.match(faq,/\$1,250 once for up to three pages/);
- const cards=source('components/OfferCatalogue.tsx');assert.match(cards,/offer.founding \? 'Founding customer price' : 'Proposed price'/);assert.match(cards,/to=\{`\/contact\?interest=\$\{offer.interest\}`\}/);
+test('Managed limits distinguish edits, corrections, hosting and provider continuity',()=>{
+ const m=websiteOfferDetails['managed-website'];assert.match(m.careIncludes.join(' '),/30 minutes total per month across the whole site/);assert.match(m.careIncludes.join(' '),/No rollover/);assert.match(m.careExamples,/Correcting our own errors does not consume/);assert.match(m.ongoing,/Domain registration\/renewal, applicable tax/);assert.match(m.ongoing,/not charged a second time/);assert.match(websiteSharedDetails['Connected forms and calendars'],/active supporting service/);assert.match(websiteSharedDetails['Connected forms and calendars'],/\$97\/month/);assert.match(websiteSharedDetails['Editing and ownership'],/coded templates/);
+ for(const o of catalog.filter(o=>o.founding)){assert.match(o.includes.join(' '),/one.*form/i);assert.match(o.includes.join(' '),/or one agreed booking route/i);assert.match(o.includes.join(' '),/one staff member and appointment type/);assert.match(o.includes.join(' '),/One consolidated revision/);}
 });
-
-test('Public display switch gates internal banner and price-approval or preview wording without enabling commerce',()=>{
- assert.match(source('App.tsx'),/site.privateReview && <aside className="private-review-banner"/);
- assert.match(source('pages/RevivalPages.tsx'),/site.privateReview \? 'These founding prices are approved/);
- assert.match(source('components/OfferCatalogue.tsx'),/site.privateReview && <>Payable on this preview/);
- assert.match(source('content.ts'),/site.privateReview \? 'approved ' : ''/);
- assert.equal(site.payment.status,'held');assert.equal(site.agent.status,'preparing');assert.equal(site.chat.status,'preparing');
+test('Inquiry-led gates and proposed agents stay distinct across shared pricing surfaces',()=>{
+ assert.equal(site.privateReview,false);assert.equal(site.payment.status,'held');assert.deepEqual(site.payment.approvedOrders,[]);assert.equal(site.agent.status,'preparing');assert.equal(site.chat.status,'preparing');assert.equal(site.sms.status,'preparing');
+ assert.deepEqual(catalog.filter(o=>o.preparing).map(o=>[o.id,o.once,o.monthly]),[['chat',699,349],['voice-chat',999,549],['text',299,149],['review',297,undefined]]);
+ const pages=source('pages/RevivalPages.tsx');assert.match(pages,/\['chat','voice-chat','text'\]\.includes\(c.id\)/);assert.match(pages,/A clear website\. A clear plan for keeping it running\./);assert.match(pages,/websiteSharedDetails/);
+ for(const id of ['range','scope','platform','rights','hosting','managed-edits','rare-edits','website-exit','support','price','website-payments','billing','care','refund'])assert.ok(faqs.find(f=>f.id===id));
+ assert.match(faqs.find(f=>f.id==='refund').answer,/itemize agreed completed work/);assert.match(faqs.find(f=>f.id==='care').answer,/Do not assume one includes the other/);assert.match(source('components/OfferCatalogue.tsx'),/website\?\.button/);assert.match(source('App.tsx'),/site.privateReview && <aside/);
 });

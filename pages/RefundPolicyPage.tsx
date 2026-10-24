@@ -17,10 +17,10 @@ const RefundPolicyPage: React.FC = () => {
                         This policy explains how cancellations work, when refunds are available, and when they are not. By purchasing or using our services, you agree to this policy.
                     </p>
 
-                    <h3>One-time website and service projects</h3>
-                    <p>For a one-time website, landing-page, update or other separately scoped project, the accepted written order sets the price, payment milestones, acceptance, cancellation and refund terms. Those project terms take precedence over inconsistent subscription language on this page. Purchasing a one-time project does not create a subscription or authorize recurring charges. Applicable nonwaivable rights remain unaffected.</p>
-
-                    <p>For the current founding website offers: {foundingWebsiteDefects}</p>
+                    <h3>Website build and setup charges</h3>
+                    <p>The build/setup charge is a project fee even when the customer also selects monthly managed care. Before work, cancellation refunds payments less only specific, previously approved nonrecoverable outside purchases for that project. After work begins, we itemize completed work at values agreed before work, plus approved nonrecoverable outside costs, and refund the unused balance. There are no invented milestone values, ordinary overhead deductions, vague administration fees or double counting. Payment installments are not automatically earned or non-refundable. The complete order identifies work values, acceptance, cancellation and handoff before payment.</p>
+                    <p>Purchasing a one-time project does not authorize recurring charges. Monthly managed care is separately authorized; its complete order states renewal, cancellation/refund and technical-exit arrangements and expressly resolves conflicts with the general subscription provisions below before payment. The setup charge is not the initial subscription billing period. This clarification does not change an existing customer's accepted terms or any applicable nonwaivable rights.</p>
+                    <p>For one-time founding website projects: {foundingWebsiteDefects}</p>
 
                     <h3>Subscription Model Overview</h3>
                     <p>The subscription provisions below apply only to a separately accepted subscription and its agreed billing interval. They do not make a plan available, activate a service or change the terms already accepted for an existing subscription. No annual plan is currently offered.</p>
