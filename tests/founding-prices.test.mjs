@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {catalog,catalogVersion,foundingWebsiteCapacity,foundingWebsiteAvailability,websiteOfferDetails,websiteSharedDetails,site} from '../site-config.ts';
+import {catalog,catalogVersion,foundingWebsiteCapacity,foundingWebsiteAvailability,websiteOfferDetails,websiteSharedDetails,site,informationChatReady} from '../site-config.ts';
 import {faqs} from '../content.ts';
 const source=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 test('Three locked website choices share bounded founding capacity and no competing care option',()=>{
@@ -23,7 +23,7 @@ test('Managed limits distinguish edits, corrections, hosting and provider contin
  for(const o of catalog.filter(o=>o.founding)){assert.match(o.includes.join(' '),/one.*form/i);assert.match(o.includes.join(' '),/or one agreed booking route/i);assert.match(o.includes.join(' '),/one staff member and appointment type/);assert.match(o.includes.join(' '),/One consolidated revision/);}
 });
 test('Inquiry-led gates and proposed agents stay distinct across shared pricing surfaces',()=>{
- assert.equal(site.privateReview,false);assert.equal(site.payment.status,'held');assert.deepEqual(site.payment.approvedOrders,[]);assert.equal(site.agent.status,'preparing');assert.equal(site.chat.status,'preparing');assert.equal(site.sms.status,'preparing');
+ assert.equal(site.privateReview,false);assert.equal(site.payment.status,'held');assert.deepEqual(site.payment.approvedOrders,[]);assert.equal(site.agent.status,'preparing');assert.equal(site.chat.status,'verified');assert.equal(informationChatReady,true);assert.equal(site.chat.scope,'information-only');assert.equal(site.agentBooking.status,'preparing');assert.equal(site.sms.status,'preparing');
  assert.deepEqual(catalog.filter(o=>o.preparing).map(o=>[o.id,o.once,o.monthly]),[['chat',699,349],['voice-chat',999,549],['text',299,149],['review',297,undefined]]);
  const pages=source('pages/RevivalPages.tsx');assert.match(pages,/\['chat','voice-chat','text'\]\.includes\(c.id\)/);assert.match(pages,/A clear website\. A clear plan for keeping it running\./);assert.match(pages,/websiteSharedDetails/);
  for(const id of ['range','scope','platform','rights','hosting','managed-edits','rare-edits','website-exit','support','price','website-payments','billing','care','refund'])assert.ok(faqs.find(f=>f.id===id));

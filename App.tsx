@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { focusSection } from './components/SectionLink';
 import { routes } from './routes';
 import { site } from './site-config';
+import { NativeInformationChat } from './components/AgentExperience';
 import './index.css';
 const pages = Object.fromEntries(routes.map(([, , , name]) => [name, lazy(() => import(`./pages/${name}.tsx`))]));
 const NotFound = lazy(() => import('./pages/NotFoundPage'));
@@ -39,7 +40,7 @@ function Shell() {
   const location = useLocation();
   return <><a className="skip" href="#main" onClick={e => { e.preventDefault(); document.getElementById('main')?.focus(); }}>Skip to content</a>
     {site.privateReview && <aside className="private-review-banner" aria-label="Private review status"><strong>Private review</strong> · Founding website prices are approved; other service prices remain proposals. Purchases and agent activation are unavailable. Existing contact and discovery calendar connect to real providers.</aside>}<Header/><RouteMetadata/>
-    <main id="main" tabIndex={-1}><RouteError reset={location.pathname}><Suspense fallback={<div className="wrap section" role="status">Loading page… <a href={`mailto:${site.email}`}>Email the business</a></div>}><Routes>{routes.map(([path,,,name]) => { const Page = pages[name]; return <Route key={path} path={path} element={<Page key={path}/>}/>; })}<Route path="*" element={<NotFound/>}/></Routes><PageReady/></Suspense></RouteError></main><Footer/>
+    <main id="main" tabIndex={-1}><RouteError reset={location.pathname}><Suspense fallback={<div className="wrap section" role="status">Loading page… <a href={`mailto:${site.email}`}>Email the business</a></div>}><Routes>{routes.map(([path,,,name]) => { const Page = pages[name]; return <Route key={path} path={path} element={<Page key={path}/>}/>; })}<Route path="*" element={<NotFound/>}/></Routes><PageReady/></Suspense></RouteError></main><Footer/><NativeInformationChat/>
   </>;
 }
 export default function App() { return <HashRouter><Shell/></HashRouter>; }

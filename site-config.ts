@@ -6,11 +6,15 @@ export const site = {
   privateReview: false,
   sms: { status: 'preparing', senderEvidence: '', consentEvidence: '', deliveryEvidence: '' },
   agent: { status: 'preparing' as 'preparing' | 'verified', phoneE164: '', phoneDisplay: '', routingEvidence: '' },
-  chat: { status: 'preparing' as 'preparing' | 'verified', widgetId: '', scriptUrl: '', knowledgeVersion: '', evidence: '' },
+  chat: { enabled: true as boolean, status: 'verified' as 'preparing' | 'verified', scope: 'information-only', widgetId: '6adc32899f0ad5b6ad1426dc', scriptUrl: 'https://widgets.leadconnectorhq.com/loader.js', resourcesUrl: 'https://widgets.leadconnectorhq.com/chat-widget/loader.js', knowledgeVersion: 'EAH-Belle-website-knowledge-v2/chat-prompt-v2.0.1', evidence: '2026-10-24 owned information-chat runtime, exact booking link, cost scope and native launcher checks passed. No appointment actions enabled.' },
   booking: { status: 'verified' as 'preparing' | 'verified', url: 'https://api.leadconnectorhq.com/widget/booking/i5FDnRI93yvxtYQGNq1Q', calendarId: 'i5FDnRI93yvxtYQGNq1Q', evidence: '2026-10-15 website appointment matched to Confirmed record; separate native email test. Agent conversational booking remains unverified.' },
   agentBooking: { status: 'preparing' as 'preparing' | 'verified', voiceEvidence: '', chatEvidence: '' },
   payment: { status: 'held', approvedOrders: [] },
 } as const;
+
+/** Our informational Belle demonstration is separate from customer packages and booking actions. */
+export const informationChatReady = site.chat.enabled && site.chat.status === 'verified' &&
+  !!site.chat.widgetId && !!site.chat.knowledgeVersion && !!site.chat.evidence;
 
 export const agentExperienceReady =
   site.agent.status === 'verified' && !!site.agent.phoneE164 && !!site.agent.routingEvidence &&
