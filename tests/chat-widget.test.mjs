@@ -50,5 +50,5 @@ test('Information chat does not grant booking voice SMS or payments or rely on a
  assert.equal(site.agent.status,'preparing');assert.equal(site.agentBooking.status,'preparing');assert.equal(site.sms.status,'preparing');assert.equal(site.payment.status,'held');assert.deepEqual(site.payment.approvedOrders,[]);
  assert.doesNotMatch(code,/leadConnector|openWidget|dispatchEvent/);
  const app=readFileSync(new URL('../App.tsx',import.meta.url),'utf8');assert.equal((app.match(/<NativeInformationChat\/>/g)||[]).length,1);
- const pages=readFileSync(new URL('../pages/RevivalPages.tsx',import.meta.url),'utf8');assert.match(pages,/Belle cannot check appointment availability, book, reschedule or cancel appointments, send SMS, make calls or take payments/);assert.match(pages,/Read the Privacy Policy/);
+ const pages=readFileSync(new URL('../pages/RevivalPages.tsx',import.meta.url),'utf8');assert.match(pages,/Maya cannot check appointment availability, book, reschedule or cancel appointments, send SMS, make calls or take payments/);assert.match(pages,/Read the Privacy Policy/);
 });
